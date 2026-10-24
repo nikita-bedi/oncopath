@@ -31,7 +31,8 @@ def _norm(text: str) -> str:
 
 def _negated(text_norm: str, phrase: str) -> bool:
     """True if the phrase appears only in a negated context (e.g. 'no fever')."""
-    negations = cfg.symptom_rules().get("negations", [])
+    rules = cfg.symptom_rules()
+    negations = rules.get("negations", []) + rules.get("negations_es", [])
     idx = text_norm.find(phrase)
     while idx != -1:
         prefix = text_norm[:idx]
@@ -45,7 +46,7 @@ def _negated(text_norm: str, phrase: str) -> bool:
     return True  # every occurrence was negated
 
 
-def classify(message: str) -> dict:
+def classify(message: str, language: str = "en") -> dict:
     """Classify a patient message against the clinician-reviewed rules.
 
     Returns {red_flags: [rule...], soft: [rule...]}. Red-flag detection wins.
@@ -56,7 +57,8 @@ def classify(message: str) -> dict:
     def hits(entries, apply_negation):
         found = []
         for rule in entries:
-            for phrase in rule["match"]:
+            phrases = rule["match"] + rule.get("match_es", [])
+            for phrase in phrases:
                 p = phrase.lower()
                 if p not in tn:
                     continue
@@ -66,7 +68,13 @@ def classify(message: str) -> dict:
                 # clinician reviews anyway ("fail safe, not silent").
                 if apply_negation and _negated(tn, p):
                     continue
-                found.append({"id": rule["id"], "label": rule["label"], "match": phrase})
+                found.append({
+                    "id": rule["id"],
+                    "label": rule["label"],
+                    "label_localized": rule.get("label_es", rule["label"])
+                    if language == "es" else rule["label"],
+                    "match": phrase,
+                })
                 break
         return found
 
@@ -80,12 +88,16 @@ def classify(message: str) -> dict:
 # Free-text parser -> structured symptom fields for the nurse card
 # ---------------------------------------------------------------------------
 
-_SEVERITY_RE = re.compile(r"\b(\d{1,2})\s*(?:/|out of)\s*10\b")
+_SEVERITY_RE = re.compile(r"\b(\d{1,2})\s*(?:/|out of|de)\s*10\b")
 _ONSET_PATTERNS = [
     ("today", "today"), ("this morning", "today"), ("tonight", "today"),
     ("last night", "last night"), ("yesterday", "yesterday"),
     ("couple of days", "a few days ago"), ("few days", "a few days ago"),
     ("for days", "a few days ago"), ("this week", "this week"),
+    ("hoy", "today"), ("esta mañana", "today"), ("esta manana", "today"),
+    ("anoche", "last night"), ("ayer", "yesterday"),
+    ("hace unos días", "a few days ago"), ("hace unos dias", "a few days ago"),
+    ("esta semana", "this week"),
 ]
 
 
@@ -123,14 +135,18 @@ def parse_symptoms(message: str, classification: dict) -> list[ParsedSymptom]:
 
 def handle_patient_message(store, patient_id: str, message: str,
                            shared_signals: list | None = None,
-                           share_window_days: int | None = None) -> dict:
+                           share_window_days: int | None = None,
+                           language: str = "en",
+                           input_mode: str = "typed") -> dict:
     """Process an inbound patient message.
 
     Returns a dict describing the outcome, including any fixed safety message
     the patient should see and whether an urgent escalation was created.
     """
     shared_signals = shared_signals or []
-    classification = classify(message)
+    language = "es" if language == "es" else "en"
+    input_mode = "voice" if input_mode == "voice" else "typed"
+    classification = classify(message, language)
     parsed = parse_symptoms(message, classification)
     needs_review = any(p.needs_nurse_review for p in parsed) or (
         not classification["red_flags"] and not classification["soft"]
@@ -145,6 +161,7 @@ def handle_patient_message(store, patient_id: str, message: str,
         shared_signals=shared_signals,
         share_window_days=share_window_days if shared_signals else None,
         needs_nurse_review=needs_review,
+        language=language, input_mode=input_mode,
     )
     store.add_turn(turn)
 
@@ -155,11 +172,13 @@ def handle_patient_message(store, patient_id: str, message: str,
         "safety_message": None,
         "needs_nurse_review": needs_review,
         "turn_id": turn.id,
+        "language": language,
+        "input_mode": input_mode,
     }
 
     # RED FLAG -> immediate urgent escalation + fixed safety message (always)
     if classification["red_flags"]:
-        safety_text = cfg.safety_message("sm_red_flag")
+        safety_text = cfg.safety_message("sm_red_flag", language)
         alert = Alert(
             id=f"{patient_id}-redflag-{turn.id[:8]}",
             patient_id=patient_id,
@@ -182,6 +201,7 @@ def handle_patient_message(store, patient_id: str, message: str,
         store.add_turn(ChatTurn(
             id=str(uuid.uuid4()), patient_id=patient_id, author="system",
             kind="safety_message", text=safety_text, created_at=_now(),
+            language=language,
         ))
         outcome["escalated"] = True
         outcome["safety_message"] = safety_text
@@ -194,27 +214,34 @@ def _looks_symptomatic(message: str) -> bool:
     """Heuristic: a non-trivial message that mentions feeling/symptom words but
     did not match any rule -> flag for a nurse rather than silently dropping."""
     cues = ["feel", "pain", "hurt", "sick", "dizzy", "weak", "can't", "cannot",
-            "vomit", "throw", "temperature", "worse"]
+            "vomit", "throw", "temperature", "worse", "siento", "dolor", "duele",
+            "enfermo", "enferma", "mareado", "mareada", "débil", "debil", "vomito",
+            "temperatura", "peor"]
     low = message.lower()
     return any(cue in low for cue in cues)
 
 
-def ask_followup(store, patient_id: str, question_id: str) -> ChatTurn:
-    """Emit a scripted follow-up. The text is the EXACT approved question only."""
-    q = cfg.question_by_id(question_id)   # raises if unknown -> never off-script
+def ask_followup(store, patient_id: str, question_id: str,
+                 language: str = "en") -> ChatTurn:
+    """Emit an exact clinician-reviewed follow-up in the selected language."""
+    question = cfg.question_by_id(question_id)
+    language = "es" if language == "es" else "en"
     turn = ChatTurn(
         id=str(uuid.uuid4()), patient_id=patient_id, author="system",
-        kind="system_question", text=q["text"], created_at=_now(),
-        question_id=question_id,
+        kind="system_question", text=cfg.localized_text(question, language),
+        created_at=_now(), question_id=question_id, language=language,
     )
     store.add_turn(turn)
     return turn
 
 
-def answer_followup(store, patient_id: str, question_id: str, answer: str) -> ChatTurn:
+def answer_followup(store, patient_id: str, question_id: str, answer: str,
+                    language: str = "en", input_mode: str = "typed") -> ChatTurn:
     turn = ChatTurn(
         id=str(uuid.uuid4()), patient_id=patient_id, author="patient",
         kind="free_text", text=answer, created_at=_now(), question_id=question_id,
+        language="es" if language == "es" else "en",
+        input_mode="voice" if input_mode == "voice" else "typed",
     )
     store.add_turn(turn)
     return turn

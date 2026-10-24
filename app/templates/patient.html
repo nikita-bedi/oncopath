@@ -1,90 +1,90 @@
 {% extends "base.html" %}
 {% block title %}{{ patient.name }} — OncoPath{% endblock %}
+{% block body_class %}patient-app-page{% endblock %}
 {% block content %}
-<section class="patient-stage">
-  <div class="patient-demo-aside">
-    <div class="eyebrow compact"><span></span> Patient experience</div>
-    <h1>Support that travels<br>home with you.</h1>
-    <p>A calm daily ritual for patients, and clearer context for the people caring for them.</p>
-    <div class="aside-proof"><span>⌁</span><div><strong>{{ baseline_days }}-day personal baseline</strong><small>Compared to {{ patient.name.split(' ')[0] }}’s normal, never the crowd.</small></div></div>
-    <div class="aside-proof"><span>◉</span><div><strong>Wearable connected</strong><small>Recovery, sleep, temperature, and strain are synced.</small></div></div>
-    <div class="aside-proof"><span>♡</span><div><strong>Care team in the loop</strong><small>Symptoms and approved context reach the nurse.</small></div></div>
-    <a href="/clinician" class="text-link">Switch to care-team view →</a>
-  </div>
-
+<section class="patient-stage patient-app-only">
   <div class="phone-frame">
     <div class="phone-hardware"><span>9:41</span><i></i><span>● ◔</span></div>
     <div class="patient-app-head">
-      <div><small>ONCOPATH</small><strong>Hi, {{ patient.name.split(' ')[0] }}</strong></div>
+      <div><small>ONCOPATH</small><strong><span data-i18n="hi">Hi</span>, {{ patient.name.split(' ')[0] }}</strong></div>
       <div class="patient-head-tools">
-        <div class="wearable-connected" title="{{ wearable_name }} wearable connected"><span class="watch-icon"><i></i></span><div><b>{{ wearable_name }}</b><small><i></i> Connected</small></div></div>
+        <label class="language-picker"><span aria-hidden="true">🌐</span><select id="language" aria-label="Language"><option value="en">English</option><option value="es">Español</option></select></label>
+        <div class="wearable-connected" title="{{ wearable_name }} wearable connected"><span class="watch-icon"><i></i></span><div><b>{{ wearable_name }}</b><small><i></i> <span data-i18n="connected">Connected</span></small></div></div>
         <div class="avatar avatar-coral">{{ patient.name.split(' ')[0][0] }}{{ patient.name.split(' ')[-1][0] }}</div>
       </div>
     </div>
 
     <div class="treatment-progress">
-      <div><span>Week {{ treatment_week }} of {{ treatment_weeks }}</span><small>{{ patient.treatment }}</small></div>
+      <div><span><span data-i18n="week">Week</span> {{ treatment_week }} <span data-i18n="of">of</span> {{ treatment_weeks }}</span><small>{{ patient.treatment }}</small></div>
       <div class="progress-track"><i style="width:{{ [100, (treatment_week / treatment_weeks * 100)] | min }}%"></i></div>
     </div>
 
     {% if status == 'alerting' %}
-      <div class="patient-status status-watch"><span class="status-illustration">↗</span><div><small>YOUR STATUS</small><strong>Your care team is reviewing your recent readings.</strong><p>You don’t need to interpret the numbers. Keep checking in and contact your team if you’re worried.</p></div></div>
+      <div class="patient-status status-watch"><span class="status-illustration">↗</span><div><small data-i18n="yourStatus">YOUR STATUS</small><strong data-i18n="statusReview">Your care team is reviewing your recent readings.</strong><p data-i18n="statusReviewDetail">You don’t need to interpret the numbers. Keep checking in and contact your team if you’re worried.</p></div></div>
     {% elif status == 'insufficient_baseline' %}
-      <div class="patient-status status-neutral"><span class="status-illustration">⌁</span><div><small>YOUR STATUS</small><strong>We’re learning your normal.</strong><p>Keep wearing your device so your care team can understand changes over time.</p></div></div>
+      <div class="patient-status status-neutral"><span class="status-illustration">⌁</span><div><small data-i18n="yourStatus">YOUR STATUS</small><strong data-i18n="statusLearning">We’re learning your normal.</strong><p data-i18n="statusLearningDetail">Keep wearing your device so your care team can understand changes over time.</p></div></div>
     {% else %}
-      <div class="patient-status status-ok"><span class="status-illustration">✓</span><div><small>YOUR STATUS</small><strong>You’re tracking okay today.</strong><p>Your recent readings are close to your personal baseline.</p></div></div>
+      <div class="patient-status status-ok"><span class="status-illustration">✓</span><div><small data-i18n="yourStatus">YOUR STATUS</small><strong data-i18n="statusOkay">You’re tracking okay today.</strong><p data-i18n="statusOkayDetail">Your recent readings are close to your personal baseline.</p></div></div>
     {% endif %}
 
     <div class="today-strip">
-      <div><span class="metric-glyph heart">♥</span><strong>{{ latest.resting_heart_rate | int if latest and latest.resting_heart_rate else '—' }}</strong><small>resting HR</small></div>
-      <div><span class="metric-glyph recovery">◐</span><strong>{{ latest.recovery_score | int if latest and latest.recovery_score else '—' }}</strong><small>recovery</small></div>
-      <div><span class="metric-glyph sync">✓</span><strong>Synced</strong><small>wearable</small></div>
+      <div><span class="metric-glyph heart">♥</span><strong>{{ latest.resting_heart_rate | int if latest and latest.resting_heart_rate else '—' }}</strong><small data-i18n="restingHr">resting HR</small></div>
+      <div><span class="metric-glyph recovery">◐</span><strong>{{ latest.recovery_score | int if latest and latest.recovery_score else '—' }}</strong><small data-i18n="recovery">recovery</small></div>
+      <div><span class="metric-glyph sync">✓</span><strong data-i18n="synced">Synced</strong><small data-i18n="wearable">wearable</small></div>
     </div>
 
     <section class="phonecard checkin-card">
-      <div class="phone-section-title"><div><span>Daily check-in</span><small>Usually takes under a minute</small></div><b>Today</b></div>
+      <div class="phone-section-title"><div><span data-i18n="dailyCheckin">Daily check-in</span><small data-i18n="underMinute">Usually takes under a minute</small></div><b data-i18n="today">Today</b></div>
+      <div class="voice-entry">
+        <button id="checkin-voice" class="voice-button" type="button"><span>🎙</span><span data-i18n="voiceCheckin">Start voice check-in</span></button>
+        <div><strong data-i18n="speakNaturally">Speak naturally</strong><small data-i18n="voicePrivacy">Review every value before submitting. OncoPath does not store audio.</small></div>
+      </div>
+      <p id="checkin-voice-status" class="voice-status" aria-live="polite"></p>
       <form id="checkin">
-        <div class="slider-question"><label for="pain">Pain</label><output id="pain-out">0</output><input id="pain" type="range" min="0" max="10" value="0" name="pain_0_10"><div class="range-ends"><span>None</span><span>Worst</span></div></div>
-        <div class="slider-question"><label for="swallow">Swallowing difficulty</label><output id="swallow-out">0</output><input id="swallow" type="range" min="0" max="10" value="0" name="swallow_difficulty_0_10"><div class="range-ends"><span>Easy</span><span>Unable</span></div></div>
-        <div class="slider-question"><label for="nausea">Nausea</label><output id="nausea-out">0</output><input id="nausea" type="range" min="0" max="10" value="0" name="nausea_0_10"><div class="range-ends"><span>None</span><span>Severe</span></div></div>
-        <div class="checkin-row"><label>Fluid today<div class="unit-input"><input type="number" min="0" step="0.5" value="6" name="fluid_cups"><span>cups</span></div></label><label>Meals eaten<div class="unit-input"><input type="number" min="0" max="100" value="75" name="meals_eaten_pct"><span>%</span></div></label></div>
-        <input type="hidden" value="0" name="fatigue_0_10">
-        <button class="button button-primary full-button" type="submit"><span>Save today’s check-in</span> →</button>
+        <div class="slider-question"><label for="pain" data-i18n="pain">Pain</label><output id="pain-out">0</output><input id="pain" type="range" min="0" max="10" value="0" name="pain_0_10"><div class="range-ends"><span data-i18n="none">None</span><span data-i18n="worst">Worst</span></div></div>
+        <div class="slider-question"><label for="swallow" data-i18n="swallowing">Swallowing difficulty</label><output id="swallow-out">0</output><input id="swallow" type="range" min="0" max="10" value="0" name="swallow_difficulty_0_10"><div class="range-ends"><span data-i18n="easy">Easy</span><span data-i18n="unable">Unable</span></div></div>
+        <div class="slider-question"><label for="nausea" data-i18n="nausea">Nausea</label><output id="nausea-out">0</output><input id="nausea" type="range" min="0" max="10" value="0" name="nausea_0_10"><div class="range-ends"><span data-i18n="none">None</span><span data-i18n="severe">Severe</span></div></div>
+        <div class="slider-question"><label for="fatigue" data-i18n="fatigue">Fatigue</label><output id="fatigue-out">0</output><input id="fatigue" type="range" min="0" max="10" value="0" name="fatigue_0_10"><div class="range-ends"><span data-i18n="none">None</span><span data-i18n="severe">Severe</span></div></div>
+        <div class="checkin-row"><label><span data-i18n="fluidToday">Fluid today</span><div class="unit-input"><input type="number" min="0" step="0.5" value="6" name="fluid_cups"><span data-i18n="cups">cups</span></div></label><label><span data-i18n="mealsEaten">Meals eaten</span><div class="unit-input"><input type="number" min="0" max="100" value="75" name="meals_eaten_pct"><span>%</span></div></label></div>
+        <div id="voice-review" class="voice-review" hidden><strong data-i18n="reviewVoice">Review your voice check-in</strong><p id="voice-transcript"></p><label><input id="voice-reviewed" type="checkbox"> <span data-i18n="reviewConfirmed">I reviewed the values above.</span></label></div>
+        <button id="checkin-submit" class="button button-primary full-button" type="submit"><span data-i18n="saveCheckin">Save today’s check-in</span> →</button>
       </form>
       <p id="checkin-msg" class="form-message" aria-live="polite"></p>
     </section>
 
     <section class="phonecard chat-card">
-      <div class="phone-section-title"><div><span>Message your care team</span><small>Share symptoms in your own words</small></div><div class="chat-badges"><span class="ai-chip">✦ Approved AI follow-ups</span><span class="secure-chip">● Secure</span></div></div>
-      <div class="chat-banner"><span>ⓘ</span><p>{{ banner }}</p></div>
+      <div class="phone-section-title"><div><span data-i18n="messageTeam">Message your care team</span><small data-i18n="shareSymptoms">Share symptoms in your own words</small></div><div class="chat-badges"><span class="ai-chip">✦ <span data-i18n="approvedFollowups">Approved AI follow-ups</span></span><span class="secure-chip">● <span data-i18n="secure">Secure</span></span></div></div>
+      <div class="chat-banner"><span>ⓘ</span><p id="chat-banner"></p></div>
       <div id="thread" class="thread">
-        {% if not thread %}<div class="empty-chat"><span>♡</span><strong>What would you like your care team to know?</strong><small>Try one of the examples or type your own message.</small></div>{% endif %}
+        {% if not thread %}<div class="empty-chat"><span>♡</span><strong data-i18n="whatShare">What would you like your care team to know?</strong><small data-i18n="tryExample">Try one of the examples or type your own message.</small></div>{% endif %}
         {% for t in thread %}
-          <div class="turn turn-{{ t.author }}"><span class="who">{{ 'Care support' if t.author == 'system' else 'You' if t.author == 'patient' else 'Care team' }}</span><p>{{ t.text }}</p>{% if t.shared_signals %}<div class="shared-inline">Shared: {{ t.shared_signals | join(', ') | replace('_',' ') }}{% if t.share_window_days %} · last {{ t.share_window_days }} days{% endif %}</div>{% endif %}</div>
+          <div class="turn turn-{{ t.author }}" lang="{{ t.language or 'en' }}"><span class="who">{{ 'Care support' if t.author == 'system' else 'You' if t.author == 'patient' else 'Care team' }}</span><p>{{ t.text }}</p>{% if t.input_mode == 'voice' %}<small class="voice-origin">🎙 Voice</small>{% endif %}{% if t.shared_signals %}<div class="shared-inline">Shared: {{ t.shared_signals | join(', ') | replace('_',' ') }}{% if t.share_window_days %} · last {{ t.share_window_days }} days{% endif %}</div>{% endif %}</div>
         {% endfor %}
       </div>
-      <div class="prompt-chips"><button type="button" data-prompt="I feel a little dizzy today">A little dizzy</button><button type="button" data-prompt="I have mild nausea today">Mild nausea</button><button type="button" data-prompt="My throat is sore today">Sore throat</button><button type="button" class="danger-prompt" data-prompt="I have chills and shaking">Try red flag</button></div>
+      <div class="prompt-chips"><button type="button" data-prompt-en="I feel a little dizzy today" data-prompt-es="Hoy me siento un poco mareado" data-label-en="A little dizzy" data-label-es="Un poco mareado">A little dizzy</button><button type="button" data-prompt-en="I have mild nausea today" data-prompt-es="Hoy tengo un poco de náusea" data-label-en="Mild nausea" data-label-es="Náusea leve">Mild nausea</button><button type="button" data-prompt-en="My throat is sore today" data-prompt-es="Hoy me duele la garganta" data-label-en="Sore throat" data-label-es="Dolor de garganta">Sore throat</button><button type="button" class="danger-prompt" data-prompt-en="I have chills and shaking" data-prompt-es="Tengo escalofríos y temblores" data-label-en="Try red flag" data-label-es="Probar alerta">Try red flag</button></div>
       <fieldset class="wearable-consent" id="wearable-consent">
-        <legend>Choose wearable data to share with this message</legend>
-        <div class="wearable-consent-head"><div><span class="wearable-link-icon">⌁</span><p><strong>Your data, your choice</strong><small>Nothing is shared unless you select it below.</small></p></div><button id="clear-wearables" type="button">Clear</button></div>
+        <legend data-i18n="chooseWearables">Choose wearable data to share with this message</legend>
+        <div class="wearable-consent-head"><div><span class="wearable-link-icon">⌁</span><p><strong data-i18n="yourData">Your data, your choice</strong><small data-i18n="nothingShared">Nothing is shared unless you select it below.</small></p></div><button id="clear-wearables" type="button" data-i18n="clear">Clear</button></div>
         <div class="wearable-share-grid">
-          <label class="wearable-choice"><input type="checkbox" class="sig" value="resting_heart_rate" data-label="Resting heart rate"><span><i class="wearable-symbol heart">♥</i><b>Heart rate</b><strong>{{ latest.resting_heart_rate | int if latest and latest.resting_heart_rate else '—' }} bpm</strong><small>Resting</small></span></label>
-          <label class="wearable-choice"><input type="checkbox" class="sig" value="hrv_rmssd_milli" data-label="HRV"><span><i class="wearable-symbol hrv">≈</i><b>HRV</b><strong>{{ latest.hrv_rmssd_milli | round(1) if latest and latest.hrv_rmssd_milli else '—' }} ms</strong><small>Recovery</small></span></label>
-          <label class="wearable-choice"><input type="checkbox" class="sig" value="skin_temp_celsius" data-label="Skin temperature"><span><i class="wearable-symbol temp">◉</i><b>Skin temp</b><strong>{{ latest.skin_temp_celsius | round(1) if latest and latest.skin_temp_celsius else '—' }}°C</strong><small>Overnight</small></span></label>
-          <label class="wearable-choice"><input type="checkbox" class="sig" value="sleep_performance_percentage" data-label="Sleep"><span><i class="wearable-symbol sleep">◒</i><b>Sleep</b><strong>{{ latest_sleep.sleep_performance_percentage | int if latest_sleep and latest_sleep.sleep_performance_percentage else '—' }}%</strong><small>Performance</small></span></label>
-          <label class="wearable-choice"><input type="checkbox" class="sig" value="strain" data-label="Strain"><span><i class="wearable-symbol strain">↗</i><b>Strain</b><strong>{{ latest_cycle.strain | round(1) if latest_cycle and latest_cycle.strain else '—' }}</strong><small>Daily load</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="resting_heart_rate" data-label-en="Resting heart rate" data-label-es="Frecuencia cardíaca"><span><i class="wearable-symbol heart">♥</i><b data-i18n="heartRate">Heart rate</b><strong>{{ latest.resting_heart_rate | int if latest and latest.resting_heart_rate else '—' }} bpm</strong><small data-i18n="resting">Resting</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="hrv_rmssd_milli" data-label-en="HRV" data-label-es="VFC"><span><i class="wearable-symbol hrv">≈</i><b data-i18n="hrv">HRV</b><strong>{{ latest.hrv_rmssd_milli | round(1) if latest and latest.hrv_rmssd_milli else '—' }} ms</strong><small data-i18n="recovery">Recovery</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="skin_temp_celsius" data-label-en="Skin temperature" data-label-es="Temperatura de la piel"><span><i class="wearable-symbol temp">◉</i><b data-i18n="skinTemp">Skin temp</b><strong>{{ latest.skin_temp_celsius | round(1) if latest and latest.skin_temp_celsius else '—' }}°C</strong><small data-i18n="overnight">Overnight</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="sleep_performance_percentage" data-label-en="Sleep" data-label-es="Sueño"><span><i class="wearable-symbol sleep">◒</i><b data-i18n="sleep">Sleep</b><strong>{{ latest_sleep.sleep_performance_percentage | int if latest_sleep and latest_sleep.sleep_performance_percentage else '—' }}%</strong><small data-i18n="performance">Performance</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="strain" data-label-en="Strain" data-label-es="Esfuerzo"><span><i class="wearable-symbol strain">↗</i><b data-i18n="strain">Strain</b><strong>{{ latest_cycle.strain | round(1) if latest_cycle and latest_cycle.strain else '—' }}</strong><small data-i18n="dailyLoad">Daily load</small></span></label>
         </div>
-        <div class="wearable-window"><label for="share-window">Share selected signals from</label><select id="share-window" disabled><option value="3">Last 3 days</option><option value="7" selected>Last 7 days</option><option value="14">Last 14 days</option></select></div>
-        <div class="share-consent-summary"><span id="share-summary"><i>○</i> No wearable data selected</span><small>Selection resets after this message</small></div>
+        <div class="wearable-window"><label for="share-window" data-i18n="shareFrom">Share selected signals from</label><select id="share-window" disabled><option value="3" data-i18n="last3">Last 3 days</option><option value="7" selected data-i18n="last7">Last 7 days</option><option value="14" data-i18n="last14">Last 14 days</option></select></div>
+        <div class="share-consent-summary"><span id="share-summary"><i>○</i> No wearable data selected</span><small data-i18n="selectionResets">Selection resets after this message</small></div>
       </fieldset>
       <form id="chatform" class="chat-compose">
-        <textarea id="chatmsg" rows="2" placeholder="Tell your team how you’re feeling…"></textarea>
+        <textarea id="chatmsg" rows="2" data-i18n-placeholder="tellTeam" placeholder="Tell your team how you’re feeling…"></textarea>
+        <button id="chat-voice" class="chat-voice-button" type="button" aria-label="Voice dictation">🎙</button>
         <button class="send-button" type="submit" aria-label="Send message">↑</button>
       </form>
+      <p id="chat-voice-status" class="voice-status" aria-live="polite"></p>
       <div id="safety" class="safety-msg" hidden><span>!</span><p></p></div>
     </section>
 
-    <p class="patient-disclaimer">This app does not diagnose or replace your care team.</p>
+    <p class="patient-disclaimer" data-i18n="disclaimer">This app does not diagnose or replace your care team.</p>
   </div>
 </section>
 {% endblock %}
@@ -92,45 +92,137 @@
 {% block scripts %}
 <script>
 const PID = {{ patient.patient_id | tojson }};
-const RECEIVED = {{ received_message | tojson }};
-function showToast(text) { const t=document.getElementById('toast'); t.textContent=text; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2600); }
+const BANNERS = {{ banners | tojson }};
+const RECEIVED = {{ received_messages | tojson }};
+const COPY = {
+  en: {
+    hi:'Hi', connected:'Connected', week:'Week', of:'of', yourStatus:'YOUR STATUS', statusReview:'Your care team is reviewing your recent readings.', statusReviewDetail:'You don’t need to interpret the numbers. Keep checking in and contact your team if you’re worried.', statusLearning:'We’re learning your normal.', statusLearningDetail:'Keep wearing your device so your care team can understand changes over time.', statusOkay:'You’re tracking okay today.', statusOkayDetail:'Your recent readings are close to your personal baseline.', restingHr:'resting HR', recovery:'recovery', synced:'Synced', wearable:'wearable', dailyCheckin:'Daily check-in', underMinute:'Usually takes under a minute', today:'Today', voiceCheckin:'Start voice check-in', stopListening:'Listening…', speakNaturally:'Speak naturally', voicePrivacy:'Review every value before submitting. OncoPath does not store audio.', pain:'Pain', none:'None', worst:'Worst', swallowing:'Swallowing difficulty', easy:'Easy', unable:'Unable', nausea:'Nausea', severe:'Severe', fatigue:'Fatigue', fluidToday:'Fluid today', cups:'cups', mealsEaten:'Meals eaten', reviewVoice:'Review your voice check-in', reviewConfirmed:'I reviewed the values above.', saveCheckin:'Save today’s check-in', messageTeam:'Message your care team', shareSymptoms:'Share symptoms in your own words', approvedFollowups:'Approved AI follow-ups', secure:'Secure', whatShare:'What would you like your care team to know?', tryExample:'Try one of the examples or type your own message.', chooseWearables:'Choose wearable data to share with this message', yourData:'Your data, your choice', nothingShared:'Nothing is shared unless you select it below.', clear:'Clear', heartRate:'Heart rate', resting:'Resting', hrv:'HRV', skinTemp:'Skin temp', overnight:'Overnight', sleep:'Sleep', performance:'Performance', strain:'Strain', dailyLoad:'Daily load', shareFrom:'Share selected signals from', last3:'Last 3 days', last7:'Last 7 days', last14:'Last 14 days', selectionResets:'Selection resets after this message', tellTeam:'Tell your team how you’re feeling…', disclaimer:'This app does not diagnose or replace your care team.', noShare:'No wearable data selected', sharing:'Sharing', voiceUnavailable:'Voice input is unavailable in this browser. You can still type your check-in.', listening:'Listening… Speak naturally.', reviewBeforeSubmit:'Review the filled values and confirm before submitting.', couldNotHear:'I could not hear that. Please try again or type instead.', saveError:'Could not save your check-in.', checkinSuccess:'Great job checking in today! Your care team is here to support you every step of the way.', careSupport:'Care support', you:'You', careTeam:'Care team'
+  },
+  es: {
+    hi:'Hola', connected:'Conectado', week:'Semana', of:'de', yourStatus:'SU ESTADO', statusReview:'Su equipo de atención está revisando sus lecturas recientes.', statusReviewDetail:'No necesita interpretar los números. Continúe registrándose y comuníquese con su equipo si algo le preocupa.', statusLearning:'Estamos aprendiendo sus valores habituales.', statusLearningDetail:'Siga usando su dispositivo para que su equipo pueda comprender los cambios con el tiempo.', statusOkay:'Su seguimiento está bien hoy.', statusOkayDetail:'Sus lecturas recientes están cerca de sus valores personales habituales.', restingHr:'FC en reposo', recovery:'recuperación', synced:'Sincronizado', wearable:'dispositivo', dailyCheckin:'Registro diario', underMinute:'Normalmente toma menos de un minuto', today:'Hoy', voiceCheckin:'Iniciar registro por voz', stopListening:'Escuchando…', speakNaturally:'Hable con naturalidad', voicePrivacy:'Revise cada valor antes de enviarlo. OncoPath no guarda el audio.', pain:'Dolor', none:'Nada', worst:'Peor', swallowing:'Dificultad para tragar', easy:'Fácil', unable:'Imposible', nausea:'Náusea', severe:'Intenso', fatigue:'Fatiga', fluidToday:'Líquidos hoy', cups:'tazas', mealsEaten:'Comidas ingeridas', reviewVoice:'Revise su registro por voz', reviewConfirmed:'Revisé los valores anteriores.', saveCheckin:'Guardar el registro de hoy', messageTeam:'Enviar mensaje a su equipo', shareSymptoms:'Describa sus síntomas con sus propias palabras', approvedFollowups:'Preguntas de seguimiento aprobadas', secure:'Seguro', whatShare:'¿Qué desea informar a su equipo de atención?', tryExample:'Pruebe un ejemplo o escriba su propio mensaje.', chooseWearables:'Elija los datos del dispositivo que desea compartir', yourData:'Sus datos, su elección', nothingShared:'No se comparte nada a menos que lo seleccione.', clear:'Borrar', heartRate:'Frecuencia cardíaca', resting:'En reposo', hrv:'VFC', skinTemp:'Temp. de la piel', overnight:'Durante la noche', sleep:'Sueño', performance:'Rendimiento', strain:'Esfuerzo', dailyLoad:'Carga diaria', shareFrom:'Compartir señales seleccionadas de', last3:'Últimos 3 días', last7:'Últimos 7 días', last14:'Últimos 14 días', selectionResets:'La selección se restablece después del mensaje', tellTeam:'Cuéntele a su equipo cómo se siente…', disclaimer:'Esta aplicación no diagnostica ni reemplaza a su equipo de atención.', noShare:'No se seleccionaron datos del dispositivo', sharing:'Compartiendo', voiceUnavailable:'La entrada por voz no está disponible en este navegador. Puede escribir su registro.', listening:'Escuchando… Hable con naturalidad.', reviewBeforeSubmit:'Revise los valores completados y confirme antes de enviarlos.', couldNotHear:'No pude escucharle. Inténtelo de nuevo o escriba su respuesta.', saveError:'No se pudo guardar su registro.', checkinSuccess:'¡Excelente trabajo al registrarse hoy! Su equipo de atención está aquí para apoyarle en cada paso.', careSupport:'Apoyo de atención', you:'Usted', careTeam:'Equipo de atención'
+  }
+};
+let language = localStorage.getItem('oncopath-language') === 'es' ? 'es' : 'en';
+let checkinInputMode = 'typed';
+let checkinTranscript = '';
+let chatInputMode = 'typed';
+const languageSelect = document.getElementById('language');
+function t(key) { return COPY[language][key] || COPY.en[key] || key; }
+function applyLanguage() {
+  document.documentElement.lang = language;
+  languageSelect.value = language;
+  document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = t(node.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(node => { node.placeholder = t(node.dataset.i18nPlaceholder); });
+  document.querySelectorAll('[data-prompt-en]').forEach(button => {
+    button.textContent = button.dataset[language === 'es' ? 'labelEs' : 'labelEn'];
+  });
+  document.getElementById('chat-banner').textContent = BANNERS[language];
+  updateShare();
+}
+languageSelect.addEventListener('change', () => {
+  language = languageSelect.value;
+  localStorage.setItem('oncopath-language', language);
+  applyLanguage();
+});
+function showToast(text) { const toast=document.getElementById('toast'); toast.textContent=text; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),3000); }
 document.querySelectorAll('input[type="range"]').forEach(input => {
   const output=document.getElementById(input.id+'-out');
   input.addEventListener('input',()=>{ output.value=input.value; input.style.setProperty('--value', input.value*10+'%'); });
   input.dispatchEvent(new Event('input'));
 });
-document.getElementById('checkin').addEventListener('submit', async (e) => {
-  e.preventDefault(); const button=e.target.querySelector('button[type="submit"]'); button.disabled=true;
-  const body={}; for (const [k,v] of new FormData(e.target).entries()) body[k]=v===''?null:parseFloat(v);
-  const res=await fetch(`/api/patients/${PID}/checkins`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  const message=document.getElementById('checkin-msg'); message.textContent=res.ok?'✓ Great job checking in today! Your care team is here to support you every step of the way.':'Could not save your check-in.'; message.className='form-message '+(res.ok?'success':'error'); button.disabled=false;
-});
-function addTurn(author,text) {
-  document.querySelector('.empty-chat')?.remove(); const d=document.createElement('div'); d.className='turn turn-'+author;
-  const who=document.createElement('span'); who.className='who'; who.textContent=author==='system'?'Care support':author==='patient'?'You':'Care team';
-  const p=document.createElement('p'); p.textContent=text; d.append(who,p); document.getElementById('thread').appendChild(d); d.scrollIntoView({behavior:'smooth',block:'nearest'});
+function setNumericField(name, value) {
+  const input = document.querySelector(`[name="${name}"]`);
+  if (!input || value === null || Number.isNaN(value)) return;
+  input.value = Math.max(Number(input.min || 0), Math.min(Number(input.max || 100), value));
+  input.dispatchEvent(new Event('input'));
 }
-document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('chatmsg').value=b.dataset.prompt;document.getElementById('chatmsg').focus();}));
+function spokenNumber(text, words) {
+  for (const word of words) {
+    const match = text.match(new RegExp(`${word}[^0-9]{0,24}(\\d+(?:[.,]\\d+)?)`, 'i'));
+    if (match) return Number(match[1].replace(',', '.'));
+  }
+  return null;
+}
+function normalizeSpokenNumbers(text) {
+  const numbers = {zero:'0',one:'1',two:'2',three:'3',four:'4',five:'5',six:'6',seven:'7',eight:'8',nine:'9',ten:'10',cero:'0',uno:'1',una:'1',dos:'2',tres:'3',cuatro:'4',cinco:'5',seis:'6',siete:'7',ocho:'8',nueve:'9',diez:'10'};
+  return text.replace(/\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|cero|uno|una|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez)\b/gi, word => numbers[word.toLowerCase()]);
+}
+function parseVoiceCheckin(transcript) {
+  const text = normalizeSpokenNumbers(transcript.toLowerCase());
+  setNumericField('pain_0_10', spokenNumber(text, ['pain','dolor']));
+  setNumericField('swallow_difficulty_0_10', spokenNumber(text, ['swallowing','swallow','tragar']));
+  setNumericField('nausea_0_10', spokenNumber(text, ['nausea','náusea','nauseas']));
+  setNumericField('fatigue_0_10', spokenNumber(text, ['fatigue','tiredness','fatiga','cansancio']));
+  setNumericField('fluid_cups', spokenNumber(text, ['fluid','cups','líquido','liquido','tazas']));
+  setNumericField('meals_eaten_pct', spokenNumber(text, ['meals','food','comidas','comida','por ciento']));
+}
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+function recognize(onResult, statusElement) {
+  if (!SpeechRecognition) { statusElement.textContent=t('voiceUnavailable'); return; }
+  const recognition = new SpeechRecognition();
+  recognition.lang = language === 'es' ? 'es-US' : 'en-US';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  statusElement.textContent = t('listening');
+  recognition.onresult = event => onResult(event.results[0][0].transcript);
+  recognition.onerror = () => { statusElement.textContent=t('couldNotHear'); };
+  recognition.onend = () => { if (statusElement.textContent === t('listening')) statusElement.textContent=''; };
+  recognition.start();
+}
+document.getElementById('checkin-voice').addEventListener('click', () => {
+  recognize(transcript => {
+    checkinInputMode='voice'; checkinTranscript=transcript; parseVoiceCheckin(transcript);
+    document.getElementById('voice-transcript').textContent=`“${transcript}”`;
+    document.getElementById('voice-review').hidden=false;
+    document.getElementById('voice-reviewed').checked=false;
+    document.getElementById('checkin-submit').disabled=true;
+    document.getElementById('checkin-voice-status').textContent=t('reviewBeforeSubmit');
+  }, document.getElementById('checkin-voice-status'));
+});
+document.getElementById('voice-reviewed').addEventListener('change', event => {
+  document.getElementById('checkin-submit').disabled=!event.target.checked;
+});
+document.getElementById('checkin').addEventListener('submit', async event => {
+  event.preventDefault();
+  if (checkinInputMode === 'voice' && !document.getElementById('voice-reviewed').checked) return;
+  const button=event.target.querySelector('button[type="submit"]'); button.disabled=true;
+  const body={};
+  for (const [key,value] of new FormData(event.target).entries()) body[key]=value===''?null:parseFloat(value);
+  body.language=language; body.input_mode=checkinInputMode; body.transcript=checkinTranscript || null;
+  const response=await fetch(`/api/patients/${PID}/checkins`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const message=document.getElementById('checkin-msg'); message.textContent=response.ok?'✓ '+t('checkinSuccess'):t('saveError'); message.className='form-message '+(response.ok?'success':'error');
+  if (checkinInputMode === 'voice') button.disabled=!document.getElementById('voice-reviewed').checked; else button.disabled=false;
+});
+function addTurn(author,text,inputMode='typed') {
+  document.querySelector('.empty-chat')?.remove(); const div=document.createElement('div'); div.className='turn turn-'+author; div.lang=language;
+  const who=document.createElement('span'); who.className='who'; who.textContent=author==='system'?t('careSupport'):author==='patient'?t('you'):t('careTeam');
+  const paragraph=document.createElement('p'); paragraph.textContent=text; div.append(who,paragraph);
+  if(inputMode==='voice'){const voice=document.createElement('small');voice.className='voice-origin';voice.textContent='🎙 Voice';div.appendChild(voice);}
+  document.getElementById('thread').appendChild(div); div.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+document.querySelectorAll('[data-prompt-en]').forEach(button=>button.addEventListener('click',()=>{document.getElementById('chatmsg').value=button.dataset[language==='es'?'promptEs':'promptEn'];document.getElementById('chatmsg').focus();}));
 function updateShare(){
   const selected=[...document.querySelectorAll('.sig:checked')];
-  const labels=selected.map(c=>c.dataset.label);
-  const summary=document.getElementById('share-summary');
-  summary.textContent=labels.length?'✓ Sharing '+labels.join(', '):'○ No wearable data selected';
-  summary.classList.toggle('active',labels.length>0);
+  const labels=selected.map(choice=>choice.dataset[language==='es'?'labelEs':'labelEn']);
+  const summary=document.getElementById('share-summary'); summary.textContent=labels.length?'✓ '+t('sharing')+' '+labels.join(', '):'○ '+t('noShare'); summary.classList.toggle('active',labels.length>0);
   document.getElementById('share-window').disabled=labels.length===0;
 }
-document.querySelectorAll('.sig').forEach(c=>c.addEventListener('change',updateShare));
-document.getElementById('clear-wearables').addEventListener('click',()=>{document.querySelectorAll('.sig').forEach(c=>c.checked=false);updateShare();});
-document.getElementById('chatform').addEventListener('submit', async (e) => {
-  e.preventDefault(); const input=document.getElementById('chatmsg'); const msg=input.value.trim(); if(!msg)return;
-  const selected=[...document.querySelectorAll('.sig:checked')];
-  const shared=selected.map(c=>c.value);
-  const shareWindow=shared.length?parseInt(document.getElementById('share-window').value,10):null;
-  const sharedLabels=selected.map(c=>c.dataset.label);
-  const send=e.target.querySelector('.send-button'); send.disabled=true; addTurn('patient',msg); input.value='';
-  const res=await fetch(`/api/patients/${PID}/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,shared_signals:shared,share_window_days:shareWindow})}); const out=await res.json(); const safety=document.getElementById('safety');
-  if(out.safety_message){safety.querySelector('p').textContent=out.safety_message;safety.hidden=false;addTurn('system',out.safety_message);}else{safety.hidden=true;if(out.followup?.text){addTurn('system',out.followup.text);}showToast(RECEIVED+(sharedLabels.length?' Shared: '+sharedLabels.join(', ')+'.':''));}
-  document.querySelectorAll('.sig').forEach(c=>c.checked=false);updateShare();send.disabled=false;
+document.querySelectorAll('.sig').forEach(choice=>choice.addEventListener('change',updateShare));
+document.getElementById('clear-wearables').addEventListener('click',()=>{document.querySelectorAll('.sig').forEach(choice=>choice.checked=false);updateShare();});
+document.getElementById('chat-voice').addEventListener('click',()=>{
+  recognize(transcript=>{const input=document.getElementById('chatmsg');input.value=transcript;input.focus();chatInputMode='voice';document.getElementById('chat-voice-status').textContent=t('reviewBeforeSubmit');},document.getElementById('chat-voice-status'));
 });
+document.getElementById('chatform').addEventListener('submit', async event => {
+  event.preventDefault(); const input=document.getElementById('chatmsg'); const message=input.value.trim(); if(!message)return;
+  const selected=[...document.querySelectorAll('.sig:checked')]; const shared=selected.map(choice=>choice.value); const shareWindow=shared.length?parseInt(document.getElementById('share-window').value,10):null;
+  const sharedLabels=selected.map(choice=>choice.dataset[language==='es'?'labelEs':'labelEn']); const send=event.target.querySelector('.send-button'); send.disabled=true;
+  addTurn('patient',message,chatInputMode); input.value='';
+  const response=await fetch(`/api/patients/${PID}/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,shared_signals:shared,share_window_days:shareWindow,language,input_mode:chatInputMode})});
+  const outcome=await response.json(); const safety=document.getElementById('safety');
+  if(outcome.safety_message){safety.querySelector('p').textContent=outcome.safety_message;safety.hidden=false;addTurn('system',outcome.safety_message);}else{safety.hidden=true;if(outcome.followup?.text)addTurn('system',outcome.followup.text);showToast(RECEIVED[language]+(sharedLabels.length?' '+t('sharing')+': '+sharedLabels.join(', ')+'.':''));}
+  document.querySelectorAll('.sig').forEach(choice=>choice.checked=false); updateShare(); send.disabled=false; chatInputMode='typed'; document.getElementById('chat-voice-status').textContent='';
+});
+if (!SpeechRecognition) document.querySelectorAll('.voice-button,.chat-voice-button').forEach(button=>{button.disabled=true;button.title=t('voiceUnavailable');});
+applyLanguage();
 </script>
 {% endblock %}

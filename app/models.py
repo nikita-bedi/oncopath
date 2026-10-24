@@ -284,6 +284,8 @@ class ChatTurn:
     shared_signals: list = field(default_factory=list)
     share_window_days: Optional[int] = None
     needs_nurse_review: bool = False
+    language: str = "en"                 # en | es
+    input_mode: str = "typed"            # typed | voice
 
     def to_dict(self) -> dict:
         return asdict(self)

@@ -48,16 +48,24 @@ def reload_all() -> None:
 # --- convenience accessors used by the chat engine and its tests ------------
 
 def approved_system_texts() -> set:
-    """Every string the system is allowed to emit as a chat turn."""
-    texts = {q["text"] for q in question_bank()["questions"]}
-    texts |= {m["text"] for m in safety_messages()["safety_messages"]}
+    """Every localized string the system is allowed to emit as a chat turn."""
+    texts = set()
+    for entry in question_bank()["questions"] + safety_messages()["safety_messages"]:
+        texts.add(entry["text"])
+        if entry.get("text_es"):
+            texts.add(entry["text_es"])
     return texts
 
 
-def safety_message(msg_id: str) -> str:
-    for m in safety_messages()["safety_messages"]:
-        if m["id"] == msg_id:
-            return m["text"]
+def localized_text(entry: dict, language: str = "en") -> str:
+    """Return fixed clinician-reviewed text for the supported locale."""
+    return entry.get("text_es", entry["text"]) if language == "es" else entry["text"]
+
+
+def safety_message(msg_id: str, language: str = "en") -> str:
+    for message in safety_messages()["safety_messages"]:
+        if message["id"] == msg_id:
+            return localized_text(message, language)
     raise KeyError(f"unknown safety message id: {msg_id}")
 
 

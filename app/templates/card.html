@@ -85,7 +85,7 @@
       <div class="trend-grid">{% for sig,s in timeseries.signals.items() %}{{ sparkline(sig,s) }}{% endfor %}</div>
     </section>
 
-    {% if card.chat_context and (card.chat_context.symptoms or card.chat_context.followup_answers or card.chat_context.flagged_for_review or card.chat_context.assistant_notes or card.chat_context.shared_context) %}
+    {% if card.chat_context and (card.chat_context.symptoms or card.chat_context.followup_answers or card.chat_context.flagged_for_review or card.chat_context.assistant_notes or card.chat_context.shared_context or card.chat_context.patient_messages) %}
     <section class="content-section chat-context-section">
       <div class="section-bar"><div><span class="section-kicker">Patient voice + assistant</span><h2>Chat context</h2></div><a href="/patient/{{ card.patient.id }}">Open patient thread →</a></div>
       {% if card.chat_context.assistant_notes %}<div class="ai-draft"><div class="ai-draft-head"><span class="ai-spark">✦</span><div><strong>AI-assisted context draft</strong><small>{{ card.chat_context.assistant_notes[0].provider | replace('-',' ') }} · nurse verification required</small></div><span>VERIFY</span></div><p>{{ card.chat_context.assistant_notes[0].summary }}</p>{% if card.chat_context.assistant_notes[0].question_id %}<small>Selected approved follow-up: {{ card.chat_context.assistant_notes[0].question_id | replace('q_','') | replace('_',' ') }}</small>{% endif %}</div>{% endif %}
@@ -93,6 +93,7 @@
         <div><h3>Reported symptoms</h3>{% for s in card.chat_context.symptoms %}<span class="symptom-chip {{ 'red' if s.tier == 'red_flag' else '' }}">{{ s.symptom }}{% if s.severity is not none %} · {{ s.severity }}/10{% endif %}{% if s.onset %} · {{ s.onset }}{% endif %}</span>{% else %}<p class="muted">No structured symptoms yet.</p>{% endfor %}</div>
         <div><h3>Follow-up answers</h3>{% for a in card.chat_context.followup_answers %}<p class="answer-line"><small>{{ a.question_id | replace('q_','') | replace('_',' ') }}</small><strong>{{ a.answer }}</strong></p>{% else %}<p class="muted">No follow-up answers yet.</p>{% endfor %}</div>
       </div>
+      {% if card.chat_context.patient_messages %}<div class="source-messages"><h3>Original patient messages</h3>{% for message in card.chat_context.patient_messages[-3:] %}<article><div><span>{{ 'Spanish original' if message.language == 'es' else 'English original' }}</span>{% if message.input_mode == 'voice' %}<b>🎙 Voice dictation</b>{% endif %}</div><p lang="{{ message.language }}">{{ message.text }}</p>{% if message.language == 'es' %}<small>Structured symptoms above use English clinical labels. Verify the original wording with a qualified interpreter when needed.</small>{% endif %}</article>{% endfor %}</div>{% endif %}
       {% if card.chat_context.shared_context %}<div class="consent-receipt"><span>⌁</span><div><strong>Patient-approved wearable context</strong>{% for share in card.chat_context.shared_context[:3] %}<p>{{ share.signals | join(', ') | replace('_',' ') }}{% if share.window_days %} · last {{ share.window_days }} days{% endif %}</p>{% endfor %}</div></div>{% endif %}
       {% if card.chat_context.flagged_for_review %}<div class="review-flag">! {{ card.chat_context.flagged_for_review | length }} message(s) need manual review because parsing confidence was low.</div>{% endif %}
     </section>

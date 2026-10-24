@@ -46,6 +46,9 @@ class CheckInBody(BaseModel):
     fatigue_0_10: Optional[float] = None
     fluid_cups: Optional[float] = None
     meals_eaten_pct: Optional[float] = None
+    language: Literal["en", "es"] = "en"
+    input_mode: Literal["typed", "voice"] = "typed"
+    transcript: Optional[str] = None
 
 
 class ChatBody(BaseModel):
@@ -54,15 +57,20 @@ class ChatBody(BaseModel):
         "resting_heart_rate", "hrv_rmssd_milli", "skin_temp_celsius",
         "sleep_performance_percentage", "strain"]] = []
     share_window_days: Optional[Literal[3, 7, 14]] = None
+    language: Literal["en", "es"] = "en"
+    input_mode: Literal["typed", "voice"] = "typed"
 
 
 class FollowupBody(BaseModel):
     question_id: str
+    language: Literal["en", "es"] = "en"
 
 
 class FollowupAnswerBody(BaseModel):
     question_id: str
     answer: str
+    language: Literal["en", "es"] = "en"
+    input_mode: Literal["typed", "voice"] = "typed"
 
 
 class ActionBody(BaseModel):
@@ -166,11 +174,11 @@ def api_hospital(alert_id: str):
 
 # -- chat -------------------------------------------------------------------
 @app.get("/api/patients/{pid}/chat")
-def api_chat_thread(pid: str):
+def api_chat_thread(pid: str, language: Literal["en", "es"] = "en"):
     if pid not in svc.cohort.patients:
         raise HTTPException(404, "unknown patient")
     return {"thread": svc.store.thread(pid),
-            "banner": cfg.safety_message("sm_expectations_banner")}
+            "banner": cfg.safety_message("sm_expectations_banner", language)}
 
 
 @app.post("/api/patients/{pid}/chat")
@@ -179,7 +187,7 @@ def api_chat_send(pid: str, body: ChatBody):
         raise HTTPException(404, "unknown patient")
     outcome = chat_mod.handle_patient_message(
         svc.store, pid, body.message, body.shared_signals,
-        body.share_window_days)
+        body.share_window_days, body.language, body.input_mode)
 
     # Deterministic red flags always win and bypass the model. For other
     # messages, the assistant may choose an approved follow-up question ID.
@@ -196,7 +204,8 @@ def api_chat_send(pid: str, body: ChatBody):
             "question_id": result.question_id,
         }
         if result.question_id:
-            followup = chat_mod.ask_followup(svc.store, pid, result.question_id)
+            followup = chat_mod.ask_followup(
+                svc.store, pid, result.question_id, body.language)
             outcome["followup"] = followup.to_dict()
     return outcome
 
@@ -206,7 +215,8 @@ def api_chat_followup(pid: str, body: FollowupBody):
     if pid not in svc.cohort.patients:
         raise HTTPException(404, "unknown patient")
     try:
-        turn = chat_mod.ask_followup(svc.store, pid, body.question_id)
+        turn = chat_mod.ask_followup(
+            svc.store, pid, body.question_id, body.language)
     except KeyError:
         raise HTTPException(400, "unknown question id")
     return turn.to_dict()
@@ -216,7 +226,9 @@ def api_chat_followup(pid: str, body: FollowupBody):
 def api_chat_followup_answer(pid: str, body: FollowupAnswerBody):
     if pid not in svc.cohort.patients:
         raise HTTPException(404, "unknown patient")
-    return chat_mod.answer_followup(svc.store, pid, body.question_id, body.answer).to_dict()
+    return chat_mod.answer_followup(
+        svc.store, pid, body.question_id, body.answer,
+        body.language, body.input_mode).to_dict()
 
 
 @app.get("/api/patients/{pid}/chat/context")
@@ -414,8 +426,14 @@ def patient_view(request: Request, pid: str):
         "treatment_weeks": p.planned_treatment_weeks,
         "wearable_name": wearable_name,
         "baseline_days": baseline.n_valid_days,
-        "banner": cfg.safety_message("sm_expectations_banner"),
-        "received_message": cfg.safety_message("sm_received"),
+        "banners": {
+            "en": cfg.safety_message("sm_expectations_banner", "en"),
+            "es": cfg.safety_message("sm_expectations_banner", "es"),
+        },
+        "received_messages": {
+            "en": cfg.safety_message("sm_received", "en"),
+            "es": cfg.safety_message("sm_received", "es"),
+        },
         "assistant_status": assistant.status(),
         "questions": cfg.question_bank()["questions"],
         "thread": svc.store.thread(pid)})

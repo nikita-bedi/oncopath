@@ -52,6 +52,26 @@ Run all detector, property-based safety, LLM-boundary, FHIR, and UI tests:
 .venv/bin/python -m pytest
 ```
 
+## Spanish and voice check-in prototype
+
+The patient app supports English and Spanish through the language selector. Check-in
+labels, status text, consent controls, fixed safety messages, and approved follow-up
+questions use locally stored translations. Spanish symptom terms are matched from the
+clinician-reviewable configuration in `config/symptom_rules.yaml`.
+
+When the browser provides the Web Speech Recognition API, patients can dictate a
+check-in or care-team message in the selected language. Voice recognition fills the
+form but never submits it: the patient must review the transcript and extracted values,
+confirm the review, and press the normal submit button. Typed entry remains available.
+OncoPath stores the resulting text and `voice` input-mode label, not an audio recording.
+Browser speech services may process audio outside OncoPath, so a production deployment
+handling PHI would require an approved speech provider, consent, a BAA where applicable,
+and a documented retention policy.
+
+The clinician card preserves the patient's original Spanish message and labels voice
+input. Structured symptom labels remain in English for clinical review; the prototype
+does not present an unverified machine translation as authoritative.
+
 ## Optional Amazon Bedrock assistant
 
 The app works without a model by using deterministic approved-question selection. To

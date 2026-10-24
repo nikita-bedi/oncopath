@@ -1,9 +1,13 @@
 version: 1
 reviewed_by: "<clinician name / date — fill at review>"
+# English and Spanish safety wording is fixed locally and never machine-translated.
 safety_messages:
-  - id: sm_red_flag            # shown verbatim on any red-flag detection; no interpretation
+  - id: sm_red_flag
     text: "Contact your care team now. If this is an emergency, call 911."
-  - id: sm_expectations_banner # persistent banner on the chat, not a per-message turn
+    text_es: "Comuníquese ahora con su equipo de atención. Si se trata de una emergencia, llame al 911."
+  - id: sm_expectations_banner
     text: "This chat is not monitored 24/7. For anything urgent after hours, call <AFTER_HOURS_NUMBER>. If this is an emergency, call 911."
-  - id: sm_received            # optional neutral acknowledgement; no triage
+    text_es: "Este chat no se monitorea las 24 horas. Para asuntos urgentes fuera del horario de atención, llame al <AFTER_HOURS_NUMBER>. Si se trata de una emergencia, llame al 911."
+  - id: sm_received
     text: "Thanks — your message has been sent to your care team."
+    text_es: "Gracias. Su mensaje fue enviado a su equipo de atención."

@@ -71,7 +71,9 @@ class Store:
                 parsed_json TEXT NOT NULL DEFAULT '[]',
                 shared_json TEXT NOT NULL DEFAULT '[]',
                 share_window_days INTEGER,
-                needs_nurse_review INTEGER NOT NULL DEFAULT 0
+                needs_nurse_review INTEGER NOT NULL DEFAULT 0,
+                language TEXT NOT NULL DEFAULT 'en',
+                input_mode TEXT NOT NULL DEFAULT 'typed'
             );
             CREATE TABLE IF NOT EXISTS assistant_notes (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -89,6 +91,10 @@ class Store:
         columns = {r[1] for r in c.execute("PRAGMA table_info(chat_turns)").fetchall()}
         if "share_window_days" not in columns:
             c.execute("ALTER TABLE chat_turns ADD COLUMN share_window_days INTEGER")
+        if "language" not in columns:
+            c.execute("ALTER TABLE chat_turns ADD COLUMN language TEXT NOT NULL DEFAULT 'en'")
+        if "input_mode" not in columns:
+            c.execute("ALTER TABLE chat_turns ADD COLUMN input_mode TEXT NOT NULL DEFAULT 'typed'")
         c.commit()
 
     # -- alerts --------------------------------------------------------------
@@ -186,12 +192,12 @@ class Store:
         self.conn.execute(
             """INSERT INTO chat_turns (id, patient_id, author, kind, text, created_at,
                    question_id, parsed_json, shared_json, share_window_days,
-                   needs_nurse_review)
-               VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+                   needs_nurse_review, language, input_mode)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (turn.id, turn.patient_id, turn.author, turn.kind, turn.text, turn.created_at,
              turn.question_id, json.dumps(turn.parsed_symptoms),
              json.dumps(turn.shared_signals), turn.share_window_days,
-             int(turn.needs_nurse_review)))
+             int(turn.needs_nurse_review), turn.language, turn.input_mode))
         self.conn.commit()
 
     def thread(self, patient_id: str) -> list:
@@ -225,20 +231,28 @@ class Store:
 
     def chat_context(self, patient_id: str) -> dict:
         turns = self.thread(patient_id)
-        symptoms, answers, review, shared_context = [], [], [], []
-        for t in turns:
-            symptoms.extend(t["parsed_symptoms"])
-            if t["shared_signals"]:
-                shared_context.append({
-                    "turn_id": t["id"], "signals": t["shared_signals"],
-                    "window_days": t.get("share_window_days"),
-                    "created_at": t["created_at"],
+        symptoms, answers, review, shared_context, patient_messages = [], [], [], [], []
+        for turn in turns:
+            symptoms.extend(turn["parsed_symptoms"])
+            if turn["author"] == "patient" and turn["text"]:
+                patient_messages.append({
+                    "turn_id": turn["id"], "text": turn["text"],
+                    "language": turn.get("language", "en"),
+                    "input_mode": turn.get("input_mode", "typed"),
+                    "created_at": turn["created_at"],
                 })
-            if t["author"] == "patient" and t["question_id"]:
-                answers.append({"question_id": t["question_id"], "answer": t["text"]})
-            if t["needs_nurse_review"]:
-                review.append({"turn_id": t["id"], "text": t["text"]})
+            if turn["shared_signals"]:
+                shared_context.append({
+                    "turn_id": turn["id"], "signals": turn["shared_signals"],
+                    "window_days": turn.get("share_window_days"),
+                    "created_at": turn["created_at"],
+                })
+            if turn["author"] == "patient" and turn["question_id"]:
+                answers.append({"question_id": turn["question_id"], "answer": turn["text"]})
+            if turn["needs_nurse_review"]:
+                review.append({"turn_id": turn["id"], "text": turn["text"]})
         return {"symptoms": symptoms, "followup_answers": answers,
                 "flagged_for_review": review,
                 "shared_context": shared_context,
+                "patient_messages": patient_messages,
                 "assistant_notes": self.assistant_notes(patient_id)}

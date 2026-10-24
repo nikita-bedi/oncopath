@@ -1,54 +1,79 @@
 version: 1
 reviewed_by: "<clinician name / date — fill at review>"
-red_flags:              # any match -> immediate urgent escalation (notification-only)
+# English and Spanish terms are clinician-reviewable local configuration.
+red_flags:
   - id: rf_fever
     label: "Fever"
+    label_es: "Fiebre"
     match: ["fever", "temperature over 100.4", "temp 101", "burning up", "very hot"]
+    match_es: ["fiebre", "temperatura mayor de 38", "tengo 38", "ardiendo", "muy caliente"]
   - id: rf_chills_rigors
     label: "Chills or shaking"
+    label_es: "Escalofríos o temblores"
     match: ["chills", "shaking", "shivering", "rigors", "teeth chattering"]
+    match_es: ["escalofríos", "escalofrios", "temblores", "tiritando", "me castañetean los dientes"]
   - id: rf_no_fluids_24h
     label: "Unable to keep fluids down for 24 hours"
-    match: ["can't keep fluids", "cannot keep water down", "vomiting everything",
-            "throwing up everything", "nothing stays down", "no fluids for a day"]
+    label_es: "No puede retener líquidos durante 24 horas"
+    match: ["can't keep fluids", "cannot keep water down", "vomiting everything", "throwing up everything", "nothing stays down", "no fluids for a day"]
+    match_es: ["no puedo retener líquidos", "no puedo retener liquidos", "vomito todo", "nada se queda", "no he tomado líquidos en un día", "no he tomado liquidos en un dia"]
   - id: rf_fainting_confusion
     label: "Fainting or confusion"
-    match: ["fainted", "passed out", "blacked out", "confused", "disoriented",
-            "not making sense"]
+    label_es: "Desmayo o confusión"
+    match: ["fainted", "passed out", "blacked out", "confused", "disoriented", "not making sense"]
+    match_es: ["me desmayé", "me desmaye", "perdí el conocimiento", "perdi el conocimiento", "confusión", "confusion", "desorientado", "desorientada"]
   - id: rf_trouble_breathing
     label: "Trouble breathing"
-    match: ["trouble breathing", "can't breathe", "short of breath",
-            "hard to breathe", "gasping"]
+    label_es: "Dificultad para respirar"
+    match: ["trouble breathing", "can't breathe", "short of breath", "hard to breathe", "gasping"]
+    match_es: ["dificultad para respirar", "no puedo respirar", "falta de aire", "me cuesta respirar", "jadeando"]
   - id: rf_chest_pain
     label: "Chest pain"
+    label_es: "Dolor de pecho"
     match: ["chest pain", "chest pressure", "chest tightness", "pain in my chest"]
+    match_es: ["dolor de pecho", "dolor en el pecho", "presión en el pecho", "presion en el pecho", "opresión en el pecho", "opresion en el pecho"]
   - id: rf_bleeding
     label: "Bleeding"
-    match: ["bleeding", "coughing up blood", "blood in", "vomiting blood",
-            "nose won't stop bleeding"]
+    label_es: "Sangrado"
+    match: ["bleeding", "coughing up blood", "blood in", "vomiting blood", "nose won't stop bleeding"]
+    match_es: ["sangrado", "tosiendo sangre", "sangre en", "vomitando sangre", "no para de sangrar la nariz"]
   - id: rf_cant_swallow_saliva
     label: "Unable to swallow saliva"
-    match: ["can't swallow my spit", "cannot swallow saliva",
-            "drooling can't swallow", "can't swallow at all"]
+    label_es: "No puede tragar saliva"
+    match: ["can't swallow my spit", "cannot swallow saliva", "drooling can't swallow", "can't swallow at all"]
+    match_es: ["no puedo tragar saliva", "no puedo tragar mi saliva", "babeando y no puedo tragar", "no puedo tragar nada"]
 
-soft_symptoms:          # context only -> never alerts on its own, may corroborate
+soft_symptoms:
   - id: ss_tired
     label: "Tired / fatigue"
+    label_es: "Cansancio o fatiga"
     match: ["tired", "fatigue", "worn out", "no energy", "exhausted"]
+    match_es: ["cansado", "cansada", "fatiga", "agotado", "agotada", "sin energía", "sin energia"]
   - id: ss_mild_nausea
     label: "Mild nausea"
+    label_es: "Náusea leve"
     match: ["a little nauseous", "mild nausea", "queasy", "slightly sick to my stomach"]
+    match_es: ["un poco de náusea", "un poco de nausea", "náusea leve", "nausea leve", "revuelto el estómago", "revuelto el estomago"]
   - id: ss_sore_throat
     label: "Sore throat"
+    label_es: "Dolor de garganta"
     match: ["sore throat", "throat hurts", "scratchy throat", "throat is raw"]
+    match_es: ["dolor de garganta", "me duele la garganta", "garganta irritada", "garganta está en carne viva", "garganta esta en carne viva"]
   - id: ss_mild_dizzy
     label: "A little dizzy"
+    label_es: "Un poco mareado/a"
     match: ["a little dizzy", "slightly lightheaded", "bit woozy", "mildly dizzy"]
+    match_es: ["un poco mareado", "un poco mareada", "ligeramente mareado", "ligeramente mareada", "mareo leve"]
   - id: ss_mouth_sores
     label: "Mouth sores / mucositis discomfort"
+    label_es: "Llagas en la boca"
     match: ["mouth sores", "sores in my mouth", "mouth is sore", "ulcers in my mouth"]
+    match_es: ["llagas en la boca", "heridas en la boca", "me duele la boca", "úlceras en la boca", "ulceras en la boca"]
   - id: ss_poor_appetite
     label: "Poor appetite"
+    label_es: "Poco apetito"
     match: ["not hungry", "no appetite", "can't eat much", "don't feel like eating"]
+    match_es: ["no tengo hambre", "sin apetito", "no puedo comer mucho", "no tengo ganas de comer"]
 
 negations: ["no ", "not ", "without ", "don't have ", "denies ", "didn't "]
+negations_es: ["no ", "sin ", "niega ", "nunca "]

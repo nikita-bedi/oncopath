@@ -1,36 +1,48 @@
 version: 1
 reviewed_by: "<clinician name / date — fill at review>"
-# The system may ONLY render one of these exact strings as a follow-up turn.
-# It records the answer verbatim and attaches it to the nurse card.
-# It NEVER scores, triages, interprets, or advises.
+# The system may ONLY render one of these exact clinician-approved strings.
+# English and Spanish wording are stored locally; runtime machine translation
+# is never used for patient-facing questions.
 questions:
   - id: q_onset
     text: "When did this start? (for example: today, yesterday, a few days ago)"
+    text_es: "¿Cuándo comenzó esto? (por ejemplo: hoy, ayer o hace unos días)"
     answer_type: text
   - id: q_severity
     text: "On a scale of 0 to 10, how bad is it right now, where 0 is none and 10 is the worst you can imagine?"
+    text_es: "En una escala de 0 a 10, ¿qué tan intenso es ahora, donde 0 significa nada y 10 es lo peor que puede imaginar?"
     answer_type: integer_0_10
   - id: q_trend
     text: "Is it getting better, staying the same, or getting worse?"
+    text_es: "¿Está mejorando, sigue igual o está empeorando?"
     answer_type: choice
     choices: ["better", "same", "worse"]
+    choices_es: ["mejor", "igual", "peor"]
   - id: q_fluids_today
     text: "About how many cups of fluid have you had today?"
+    text_es: "¿Aproximadamente cuántas tazas de líquido ha tomado hoy?"
     answer_type: number
   - id: q_fluids_keeping_down
     text: "Are you able to keep fluids down?"
+    text_es: "¿Puede tomar líquidos sin vomitarlos?"
     answer_type: choice
     choices: ["yes", "no", "not sure"]
+    choices_es: ["sí", "no", "no estoy seguro/a"]
   - id: q_temperature
     text: "If you have a thermometer, what is your temperature? (leave blank if you don't have one)"
+    text_es: "Si tiene un termómetro, ¿cuál es su temperatura? (déjelo en blanco si no tiene uno)"
     answer_type: text
   - id: q_eating
     text: "About what fraction of your meals have you been able to eat today?"
+    text_es: "¿Aproximadamente qué porcentaje de sus comidas pudo comer hoy?"
     answer_type: text
   - id: q_swallowing
     text: "How difficult is swallowing right now, from 0 to 10?"
+    text_es: "¿Qué tan difícil es tragar ahora, de 0 a 10?"
     answer_type: integer_0_10
   - id: q_meds_taken
     text: "Have you been able to take your prescribed medications today?"
+    text_es: "¿Pudo tomar hoy sus medicamentos recetados?"
     answer_type: choice
     choices: ["yes", "no", "partly"]
+    choices_es: ["sí", "no", "en parte"]
