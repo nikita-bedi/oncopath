@@ -10,6 +10,28 @@
 
 ---
 
+## Judge navigation
+
+- **[Open the live care-team dashboard](https://between-visits-hr9m.vercel.app/clinician)** or **[try the Spanish patient app](https://between-visits-hr9m.vercel.app/patient/P001)**
+- [The problem](#the-problem)
+- [Who benefits and the business case](#who-benefits-and-how-it-pays-for-itself)
+- [What OncoPath does](#what-oncopath-does)
+  - [72-hour prediction layer](#prediction-layer-72-hour-outlook)
+  - [Three demo stories](#the-three-demo-stories)
+- [Accessibility, Spanish and voice](#accessibility-and-equity)
+  - [Spanish patient-app screenshot](#spanish-patient-experience)
+- [Public data and standards](#public-data-and-standards-used)
+- [How we built it with Kiro](#how-we-built-it-with-kiro)
+  - [Kiro features: Specs, Agent Focus, Workflows and Kiro Crew](#kiro-features-we-used)
+- [Safety design](#safety-design)
+- [Limitations](#limitations)
+- [Run OncoPath locally](#run-the-oncopath-demo)
+- [SMART on FHIR integration](#smart-on-fhir-and-synthetic-laboratory-data)
+- [Synthetic data](#synthetic-data)
+- [Sources](#sources)
+
+---
+
 ## The problem
 
 Patients on cancer treatment get sick at home, between weekly visits, and the warning signs show up days before the ER.
@@ -78,6 +100,18 @@ It is a transparent, rule-based prototype ranking signal, not a calibrated clini
 - **Voice or typing.** Optional browser dictation for check-ins and messages. Voice fills the form but never submits it; the patient reviews first. No audio is stored. Typed entry is always available.
 - **Consent by design.** Nothing is shared unless the patient selects it, per message, and the selection resets afterwards.
 - **Low burden.** One-minute check-in with sliders and plain language, works on any phone browser.
+
+### Spanish patient experience
+
+The same check-in can be completed in Spanish by touch or voice. Voice fills the form
+without submitting it, so the patient can review every value first. The larger type and
+touch targets are designed for older adults receiving cancer treatment.
+
+<p align="center">
+  <img src="docs/assets/spanish-patient-view.png" width="520" alt="OncoPath patient app in Spanish showing the connected wearable, treatment week, status, and voice-assisted daily check-in">
+</p>
+
+<p align="center"><em>Spanish patient view with WHOOP connection, translated status, larger controls and reviewed voice entry.</em></p>
 
 ## Public data and standards used
 
