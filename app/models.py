@@ -1,4 +1,4 @@
-"""Typed domain models for Between Visits.
+"""Typed domain models for OncoPath.
 
 Kept as plain dataclasses so they serialize cleanly to JSON for the API and
 templates, and so tests can construct them without a database.
@@ -31,6 +31,10 @@ class Patient:
     # Synthetic location (lat/lon) used only for the MassGIS hospital locator.
     lat: Optional[float] = None
     lon: Optional[float] = None
+    # The cohort is a point-in-time snapshot even though generated files retain
+    # complete trajectories for detector evaluation.
+    as_of_date: Optional[date] = None
+    planned_treatment_weeks: int = 7
 
 
 @dataclass

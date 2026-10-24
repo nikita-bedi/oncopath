@@ -1,4 +1,4 @@
-"""Between Visits — synthetic-data decision-support demo.
+"""OncoPath — synthetic-data decision-support demo.
 
 All data is synthetic. Decision support only; never a diagnosis.
 """

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Idempotently seed Between Visits synthetic patients and routine labs to HAPI R4.
+"""Idempotently seed OncoPath synthetic patients and routine labs to HAPI R4.
 
 The public HAPI server is shared and periodically reset. Run this script again
 before a demo if needed. Counterfactual natural-course ED rows are excluded by

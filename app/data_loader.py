@@ -132,6 +132,8 @@ def load_cohort() -> Cohort:
             story=r["story"],
             lat=lat,
             lon=lon,
+            as_of_date=_d(r.get("as_of_date", "")),
+            planned_treatment_weeks=_i(r.get("planned_treatment_weeks", "")) or 7,
         )
         c.recovery[pid] = []
         c.sleep[pid] = []

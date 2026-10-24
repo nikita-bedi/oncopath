@@ -1,8 +1,8 @@
-# Design — Between Visits
+# Design — OncoPath
 
 ## Overview
 
-Between Visits ingests a synthetic cohort of chemoradiation patients, computes each
+OncoPath ingests a synthetic cohort of chemoradiation patients, computes each
 patient's **personal pre-treatment baseline**, evaluates daily wearable + check-in data
 against that baseline with a rules-based drift detector, and raises **explained** alerts
 to a care-team nurse. The nurse works a **risk-ranked** patient list, opens a **CMS
@@ -620,7 +620,7 @@ explicit clinician-verification requirement. Write-back is not performed in the 
 1. **SMART EHR launch:** Register a confidential SMART client with each health system,
    use exact HTTPS redirect URIs, least-privilege v2 scopes, issuer-specific allowlists,
    encrypted shared token storage, refresh-token rotation, audit logging, and explicit
-   mapping between EHR patient identity and the Between Visits enrollment record.
+   mapping between EHR patient identity and the OncoPath enrollment record.
 2. **CDS Hooks `patient-view`:** A production CDS service can respond to the
    `patient-view` hook with a concise, non-diagnostic card containing current risk,
    reasons, data freshness, and a SMART deep link to the full context card. The hook card

@@ -1,4 +1,4 @@
-# Implementation Plan — Between Visits
+# Implementation Plan — OncoPath
 
 - [x] 1. Scaffold project and load the synthetic cohort
   - Create backend (FastAPI) and frontend project structure in the workspace. (Frontend is server-rendered HTML/CSS/JS, not React/Vite — the environment has Python but no Node toolchain; see design.md.)

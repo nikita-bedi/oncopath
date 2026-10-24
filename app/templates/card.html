@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ data.card.patient.name }} · Alert review — Between Visits{% endblock %}
+{% block title %}{{ data.card.patient.name }} · Alert review — OncoPath{% endblock %}
 
 {% macro sparkline(sig, s) %}
   {% set vals = s.series | map(attribute='value') | select('ne', None) | list %}
@@ -29,10 +29,18 @@
     <p>{{ card.reason_for_update.summary }}</p>
     <div class="patient-meta"><span>{{ card.patient.id }}</span><i></i><span>{{ card.patient.age }}{{ card.patient.sex }}</span><i></i><span>Treatment day {{ alert.tx_day or '—' }}</span><i></i><span>{{ card.patient.diagnosis }}</span></div>
   </div>
-  <div class="hero-risk"><div class="risk-ring risk-ring-large"><b>{{ '%.0f'|format(alert.risk_score) }}</b><small>risk score</small></div><span>Compared with this patient’s own baseline</span></div>
+  <div class="hero-risk"><div class="risk-ring risk-ring-large" style="--risk: {{ [100, alert.risk_score] | min }}%"><b>{{ '%.0f'|format(alert.risk_score) }}</b><small>risk score</small></div><span>Compared with this patient’s own baseline</span></div>
 </section>
 
 <div class="safety-ribbon"><span>ⓘ</span><p><strong>Decision support, not a diagnosis.</strong> Review the evidence below and make the clinical decision.</p><a href="#care-actions">Take action ↓</a></div>
+
+<section class="outlook-panel outlook-{{ data.outlook.level }}" aria-label="Short-term deterioration outlook">
+  <div class="outlook-score"><span>{{ data.outlook.score | round | int }}</span><small>outlook</small></div>
+  <div class="outlook-summary"><span class="section-kicker">{{ data.outlook.window }}</span><h2>{{ data.outlook.level | capitalize }} deterioration outlook</h2><p>{{ data.outlook.pattern | replace('_',' ') | capitalize }} pattern · {{ data.outlook.direction }} · {{ data.outlook.confidence }} confidence</p></div>
+  <ol>{% for driver in data.outlook.drivers %}<li>{{ driver }}</li>{% else %}<li>Not enough recent data to calculate an outlook.</li>{% endfor %}</ol>
+  <small class="outlook-disclaimer">Prototype estimate from recent personal-baseline trends. This is not a calibrated probability or diagnosis.</small>
+</section>
+
 {% if smart_session %}<div class="ehr-context-bar"><span>⚕</span><div><strong>SMART EHR context connected</strong><small>Issuer: {{ smart_session.issuer }} · EHR patient {{ smart_session.fhir_patient_id or 'not supplied' }} · mapped to synthetic {{ smart_session.local_patient_id }}</small></div><a href="/smart/setup">SMART settings</a></div>{% else %}<div class="ehr-context-bar disconnected"><span>⚕</span><div><strong>Standalone synthetic demo</strong><small>Launch through SMART Health IT to test EHR context and OAuth.</small></div><a href="/smart/setup">Launch from EHR →</a></div>{% endif %}
 
 <section class="clinical-facts" aria-label="Patient clinical summary">
@@ -49,7 +57,7 @@
       <div class="reason-grid">
         {% for r in alert.reasons %}
         <article class="reason-card">
-          <div class="reason-top"><span class="reason-icon">{{ '♥' if r.signal == 'resting_heart_rate' else '≈' if r.signal == 'hrv_rmssd_milli' else '◉' if r.signal == 'skin_temp_celsius' else '◒' if r.signal == 'fluid_cups' else '⌁' }}</span><span>{{ r.signal | replace('_',' ') }}</span>{% if r.deviation is not none %}<b class="delta {{ 'down' if r.deviation < 0 else '' }}">{{ '%+.1f'|format(r.deviation) }} SD</b>{% endif %}</div>
+          <div class="reason-top"><span class="reason-number">{{ loop.index }}.</span><span class="reason-icon">{{ '♥' if r.signal == 'resting_heart_rate' else '≈' if r.signal == 'hrv_rmssd_milli' else '◉' if r.signal == 'skin_temp_celsius' else '◒' if r.signal == 'fluid_cups' else '⌁' }}</span><span>{{ r.signal | replace('_',' ') }}</span>{% if r.deviation is not none %}<b class="delta {{ 'down' if r.deviation < 0 else '' }}">{{ '%+.1f'|format(r.deviation) }} SD</b>{% endif %}</div>
           <p>{{ r.text }}</p>
           {% if r.current_value is not none and r.baseline_value is not none %}<div class="comparison"><div><small>Current</small><strong>{{ '%.1f'|format(r.current_value) }}</strong></div><span>vs</span><div><small>Baseline</small><strong>{{ '%.1f'|format(r.baseline_value) }}</strong></div></div>{% endif %}
           <small class="window-label">Observed {{ r.window }}</small>

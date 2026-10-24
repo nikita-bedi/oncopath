@@ -26,7 +26,7 @@ from .service import Service
 from .smart import SmartLaunchManager
 
 BASE = Path(__file__).resolve().parent
-app = FastAPI(title="Between Visits", description="Synthetic-data decision-support demo")
+app = FastAPI(title="OncoPath", description="Synthetic-data decision-support demo")
 templates = Jinja2Templates(directory=str(BASE / "templates"))
 app.mount("/static", StaticFiles(directory=str(BASE / "static")), name="static")
 
@@ -335,7 +335,7 @@ def clinician(request: Request):
     overview = svc.cohort_overview()
     smart_session = smart.get_session(request.cookies.get("bv_smart_session"))
     alerts = svc.alerts()
-    active = [a for a in alerts if a["status"] in ("open", "acknowledged", "in_progress")]
+    active = svc.attention_alerts()
     overdue = {a["id"] for a in active if a.get("overdue")}
     stats = {
         "patients": len(overview),
@@ -343,6 +343,8 @@ def clinician(request: Request):
         "urgent": sum(1 for a in active if a["severity"] == "urgent"),
         "in_progress": sum(1 for a in active if a["status"] in ("acknowledged", "in_progress")),
         "resolved": sum(1 for a in alerts if a["status"] in ("resolved", "dismissed")),
+        "dehydration": sum(1 for a in active if a["type"] == "dehydration"),
+        "infection": sum(1 for a in active if a["type"] == "infection"),
     }
     return templates.TemplateResponse(request, "clinician.html", {
         "request": request, "label": SYNTHETIC_DATA_LABEL,
@@ -386,19 +388,31 @@ def patient_view(request: Request, pid: str):
         raise HTTPException(404, "unknown patient")
     p = svc.cohort.patients[pid]
     status = svc.patient_status(pid)
-    recovery = [r for r in svc.cohort.recovery.get(pid, []) if r.tx_day is not None]
-    sleep = [s for s in svc.cohort.sleep.get(pid, []) if s.tx_day is not None]
-    cycles = [c for c in svc.cohort.cycle.get(pid, []) if c.tx_day is not None]
+    recovery = [r for r in svc.visible_records(pid, svc.cohort.recovery.get(pid, []))
+                if r.tx_day is not None]
+    sleep = [s for s in svc.visible_records(pid, svc.cohort.sleep.get(pid, []))
+             if s.tx_day is not None]
+    cycles = [c for c in svc.visible_records(pid, svc.cohort.cycle.get(pid, []))
+              if c.tx_day is not None]
     latest = max(recovery, key=lambda r: r.date) if recovery else None
     latest_sleep = max(sleep, key=lambda s: s.date) if sleep else None
     latest_cycle = max(cycles, key=lambda c: c.date) if cycles else None
-    latest_tx_day = latest.tx_day if latest and latest.tx_day > 0 else 0
+    latest_tx_day = svc.current_tx_day(pid)
+    treatment_week = min(
+        p.planned_treatment_weeks,
+        max(1, (latest_tx_day + 6) // 7),
+    ) if latest_tx_day else 0
     baseline = svc.baselines[pid]
+    wearable_device = svc.cohort.profiles[pid].wearable_device
+    wearable_name = (wearable_device.replace("-style band", "")
+                     .replace("(synthetic)", "").strip())
     return templates.TemplateResponse(request, "patient.html", {
         "request": request, "label": SYNTHETIC_DATA_LABEL,
         "patient": p, "status": status,
         "latest": latest, "latest_sleep": latest_sleep, "latest_cycle": latest_cycle,
-        "treatment_week": max(1, (latest_tx_day + 6) // 7) if latest_tx_day else 0,
+        "treatment_week": treatment_week,
+        "treatment_weeks": p.planned_treatment_weeks,
+        "wearable_name": wearable_name,
         "baseline_days": baseline.n_valid_days,
         "banner": cfg.safety_message("sm_expectations_banner"),
         "received_message": cfg.safety_message("sm_received"),

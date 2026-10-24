@@ -183,7 +183,7 @@ def build_handoff_communication(patient, alert: dict, fhir_labs: dict) -> dict:
         "subject": {"reference": f"Patient/{patient.patient_id}",
                     "display": patient.name},
         "sent": _now(),
-        "sender": {"display": "Between Visits decision-support service"},
+        "sender": {"display": "OncoPath decision-support service"},
         "recipient": [{"display": "Care-team nurse"}],
         "payload": [{"contentCodeableConcept": {"text": summary}}],
         "note": [{"text": "Synthetic data. This handoff is not a diagnosis; clinician verification required."}],

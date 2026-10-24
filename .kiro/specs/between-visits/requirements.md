@@ -1,8 +1,8 @@
-# Requirements — Between Visits
+# Requirements — OncoPath
 
 ## Introduction
 
-Between Visits is a web application that turns wearable data into completed care for
+OncoPath is a web application that turns wearable data into completed care for
 cancer patients during the weeks of chemoradiation between their scheduled clinic
 visits. Patients going through head-and-neck chemoradiation deteriorate quietly at
 home: dehydration from mucositis, or neutropenic fever after a chemo cycle, often
@@ -10,7 +10,7 @@ builds over several days before anyone calls. Wearable physiology (resting heart
 HRV, sleep, skin temperature, strain) plus a short daily check-in frequently drift
 before labs or a phone call would catch it.
 
-Between Visits compares each patient's current signals against **their own** two-week
+OncoPath compares each patient's current signals against **their own** two-week
 pre-treatment baseline, raises an explained alert for the care-team nurse when signals
 drift in a clinically meaningful pattern, ranks the nurse's patient list by risk, and
 tracks each alert until care is completed. It is **decision support only** — it never
@@ -328,7 +328,7 @@ patient phone view and the clinician dashboard live.
 
 ### Requirement 13 — SMART on FHIR EMR integration
 
-**User Story:** As a care-team nurse, I want Between Visits to launch in EHR context and
+**User Story:** As a care-team nurse, I want OncoPath to launch in EHR context and
 show current laboratory results from FHIR, so that the alert can be reviewed without
 manually reconstructing the clinical picture.
 

@@ -20,6 +20,7 @@ OUT = os.path.dirname(os.path.abspath(__file__))
 BASELINE_DAYS = 14          # wear device 2 weeks before treatment to set a baseline
 TREATMENT_DAYS = 49         # 7 weeks of RT (70 Gy / 35 fx, weekdays)
 POST_DAYS = 7               # 1 week after RT ends
+COHORT_AS_OF_DATE = date(2026, 10, 18)  # shared point-in-time dashboard snapshot
 
 
 # ----------------------------------------------------------------------------
@@ -474,6 +475,8 @@ def main():
                          diagnosis=p["diagnosis"], stage=p["stage"], treatment=p["treatment"],
                          tx_start=p["tx_start"].isoformat(),
                          device_start=(p["tx_start"] - timedelta(days=BASELINE_DAYS)).isoformat(),
+                         as_of_date=COHORT_AS_OF_DATE.isoformat(),
+                         planned_treatment_weeks=6 if p["chemo"] == "none" else 7,
                          baseline_weight_kg=p["weight_kg"],
                          cohort="demo" if p in DEMO_PATIENTS else "cohort", story=p["story"]))
         if p in DEMO_PATIENTS:

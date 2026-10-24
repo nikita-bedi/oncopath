@@ -1,7 +1,7 @@
 """FHIR R4 laboratory Observation integration.
 
 Reads category=laboratory Observations from a FHIR server, maps the ten labs used
-by Between Visits by exact LOINC code, and selects the most recent result at or
+by OncoPath by exact LOINC code, and selects the most recent result at or
 before the alert's simulated date. The public HAPI server is the demo default;
 bundled synthetic labs are a deterministic fallback because the public server is
 shared and periodically reset.
@@ -182,7 +182,7 @@ def lab_to_observation(patient_id: str, lab, patient_fhir_id: Optional[str] = No
                            "system": "http://unitsofmeasure.org", "code": lab.unit},
         "extension": [{"url": "http://between-visits.example/fhir/StructureDefinition/treatment-day",
                        "valueInteger": lab.tx_day}],
-        "note": [{"text": "Synthetic data for Between Visits hackathon demo."}],
+        "note": [{"text": "Synthetic data for OncoPath hackathon demo."}],
     }
     if lab.ref_low is not None or lab.ref_high is not None:
         rr = {}

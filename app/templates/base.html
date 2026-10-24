@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0c504b">
-  <title>{% block title %}Between Visits{% endblock %}</title>
+  <meta name="theme-color" content="#2f5d8a">
+  <title>{% block title %}OncoPath{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -13,9 +16,8 @@
     <strong>Synthetic data</strong><span>Hackathon prototype · no real patients</span>
   </div>
   <header class="topbar">
-    <a class="brand" href="/" aria-label="Between Visits home">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span>Between <b>Visits</b></span>
+    <a class="brand" href="/" aria-label="OncoPath home">
+      <img class="brand-logo" src="/static/assets/OncoPath-logo-primary.png" alt="OncoPath">
     </a>
     <nav aria-label="Main navigation">
       <a class="{{ 'active' if request.url.path.startswith('/clinician') else '' }}" href="/clinician">
@@ -31,7 +33,7 @@
     {% block content %}{% endblock %}
   </main>
   <footer class="foot">
-    <div class="footer-lockup"><span class="brand-mark small-mark"><i></i><i></i><i></i></span> Between Visits</div>
+    <div class="footer-lockup"><img src="/static/assets/OncoPath-mark.png" alt=""> OncoPath</div>
     <p>Decision support only, never a diagnosis. Clinicians make every clinical decision.</p>
   </footer>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>

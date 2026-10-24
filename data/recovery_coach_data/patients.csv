@@ -1,24 +1,24 @@
-patient_id,name,age,sex,diagnosis,stage,treatment,tx_start,device_start,baseline_weight_kg,cohort,story
-P001,Maria Alvarez,58,F,HPV+ oropharyngeal SCC (right tonsil),T2N1M0 (AJCC8 stage I),RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-14,2026-08-31,68.0,demo,Mucositis + post-chemo nausea -> drinks less -> dehydration. Wearable drift visible from tx day 17-19; natural course = ED visit tx day 22.
-P002,James Okafor,64,M,Laryngeal SCC (supraglottic),T3N2bM0 (AJCC8 stage IVA),RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-14,2026-08-31,82.0,demo,"ANC falls after cycle 2 (tx day 22). Skin temp, RHR and resp rate rise overnight tx day 33 -> detectable on morning sync, hours before he calls."
-P003,Linda Chen,52,F,"Oral cavity SCC (lateral tongue), post-op",pT2N1M0,"Adjuvant RT 60 Gy/30 fx, no chemo",2026-09-14,2026-08-31,61.0,demo,Control patient: expected gradual fatigue only. One-night dip on tx day 10 (late night at a family event) that should NOT trigger an alert.
-P101,Ana Rivera,45,M,Hypopharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-21,2026-09-07,62.4,cohort,Cohort patient (random).
-P102,Robert Kim,70,M,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-09-21,2026-09-07,90.1,cohort,Cohort patient (random).
-P103,Grace Mensah,67,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-07,2026-08-24,91.0,cohort,Cohort patient (random).
-P104,David Moreau,68,F,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-09-07,2026-08-24,61.4,cohort,Cohort patient (random).
-P105,Priya Rossi,62,M,Nasopharyngeal carcinoma,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-21,2026-09-07,86.7,cohort,Cohort patient (random).
-P106,Michael Baker,66,F,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-28,2026-09-14,66.6,cohort,Cohort patient (random).
-P107,Sofia Ali,50,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-08-31,2026-08-17,72.2,cohort,Cohort patient (random).
-P108,Thomas Brown,62,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-21,2026-09-07,75.8,cohort,Cohort patient (random).
-P109,Aisha Singh,75,F,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-07,2026-08-24,72.2,cohort,Cohort patient (random).
-P110,William Silva,48,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-08-31,2026-08-17,69.2,cohort,Cohort patient (random).
-P111,Mei Kowalski,47,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-07,2026-08-24,76.2,cohort,Cohort patient (random).
-P112,Carlos Johansson,51,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-21,2026-09-07,76.8,cohort,Cohort patient (random).
-P113,Helen Tanaka,67,M,Nasopharyngeal carcinoma,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-07,2026-08-24,82.1,cohort,Cohort patient (random).
-P114,Samuel Patel,65,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-21,2026-09-07,81.6,cohort,Cohort patient (random).
-P115,Fatima Lopez,52,F,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-28,2026-09-14,62.5,cohort,Cohort patient (random).
-P116,George Wright,70,M,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-09-07,2026-08-24,106.2,cohort,Cohort patient (random).
-P117,Rosa Smith,52,M,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-08-31,2026-08-17,89.6,cohort,Cohort patient (random).
-P118,Daniel Murphy,68,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-28,2026-09-14,88.8,cohort,Cohort patient (random).
-P119,Irene Ortiz,71,M,Hypopharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-28,2026-09-14,88.4,cohort,Cohort patient (random).
-P120,Paul Nguyen,52,F,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-14,2026-08-31,54.5,cohort,Cohort patient (random).
+patient_id,name,age,sex,diagnosis,stage,treatment,tx_start,device_start,as_of_date,planned_treatment_weeks,baseline_weight_kg,cohort,story
+P001,Maria Alvarez,58,F,HPV+ oropharyngeal SCC (right tonsil),T2N1M0 (AJCC8 stage I),RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-14,2026-08-31,2026-10-18,7,68.0,demo,Mucositis + post-chemo nausea -> drinks less -> dehydration. Wearable drift visible from tx day 17-19; natural course = ED visit tx day 22.
+P002,James Okafor,64,M,Laryngeal SCC (supraglottic),T3N2bM0 (AJCC8 stage IVA),RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-14,2026-08-31,2026-10-18,7,82.0,demo,"ANC falls after cycle 2 (tx day 22). Skin temp, RHR and resp rate rise overnight tx day 33 -> detectable on morning sync, hours before he calls."
+P003,Linda Chen,52,F,"Oral cavity SCC (lateral tongue), post-op",pT2N1M0,"Adjuvant RT 60 Gy/30 fx, no chemo",2026-09-14,2026-08-31,2026-10-18,6,61.0,demo,Control patient: expected gradual fatigue only. One-night dip on tx day 10 (late night at a family event) that should NOT trigger an alert.
+P101,Ana Rivera,45,M,Hypopharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-21,2026-09-07,2026-10-18,7,62.4,cohort,Cohort patient (random).
+P102,Robert Kim,70,M,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-09-21,2026-09-07,2026-10-18,6,90.1,cohort,Cohort patient (random).
+P103,Grace Mensah,67,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-07,2026-08-24,2026-10-18,7,91.0,cohort,Cohort patient (random).
+P104,David Moreau,68,F,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-09-07,2026-08-24,2026-10-18,6,61.4,cohort,Cohort patient (random).
+P105,Priya Rossi,62,M,Nasopharyngeal carcinoma,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-21,2026-09-07,2026-10-18,7,86.7,cohort,Cohort patient (random).
+P106,Michael Baker,66,F,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-28,2026-09-14,2026-10-18,7,66.6,cohort,Cohort patient (random).
+P107,Sofia Ali,50,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-08-31,2026-08-17,2026-10-18,7,72.2,cohort,Cohort patient (random).
+P108,Thomas Brown,62,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-21,2026-09-07,2026-10-18,7,75.8,cohort,Cohort patient (random).
+P109,Aisha Singh,75,F,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-07,2026-08-24,2026-10-18,7,72.2,cohort,Cohort patient (random).
+P110,William Silva,48,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-08-31,2026-08-17,2026-10-18,7,69.2,cohort,Cohort patient (random).
+P111,Mei Kowalski,47,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-07,2026-08-24,2026-10-18,7,76.2,cohort,Cohort patient (random).
+P112,Carlos Johansson,51,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-21,2026-09-07,2026-10-18,7,76.8,cohort,Cohort patient (random).
+P113,Helen Tanaka,67,M,Nasopharyngeal carcinoma,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-07,2026-08-24,2026-10-18,7,82.1,cohort,Cohort patient (random).
+P114,Samuel Patel,65,M,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-21,2026-09-07,2026-10-18,7,81.6,cohort,Cohort patient (random).
+P115,Fatima Lopez,52,F,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-28,2026-09-14,2026-10-18,7,62.5,cohort,Cohort patient (random).
+P116,George Wright,70,M,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-09-07,2026-08-24,2026-10-18,6,106.2,cohort,Cohort patient (random).
+P117,Rosa Smith,52,M,"Oral cavity SCC, post-op",synthetic,"RT 60-66 Gy, no chemo",2026-08-31,2026-08-17,2026-10-18,6,89.6,cohort,Cohort patient (random).
+P118,Daniel Murphy,68,M,HPV+ oropharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-28,2026-09-14,2026-10-18,7,88.8,cohort,Cohort patient (random).
+P119,Irene Ortiz,71,M,Hypopharyngeal SCC,synthetic,RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2,2026-09-28,2026-09-14,2026-10-18,7,88.4,cohort,Cohort patient (random).
+P120,Paul Nguyen,52,F,Laryngeal SCC,synthetic,RT 70 Gy/35 fx + cisplatin 100 mg/m2 q3w,2026-09-14,2026-08-31,2026-10-18,7,54.5,cohort,Cohort patient (random).

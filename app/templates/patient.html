@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ patient.name }} — Between Visits{% endblock %}
+{% block title %}{{ patient.name }} — OncoPath{% endblock %}
 {% block content %}
 <section class="patient-stage">
   <div class="patient-demo-aside">
@@ -15,13 +15,16 @@
   <div class="phone-frame">
     <div class="phone-hardware"><span>9:41</span><i></i><span>● ◔</span></div>
     <div class="patient-app-head">
-      <div><small>BETWEEN VISITS</small><strong>Hi, {{ patient.name.split(' ')[0] }}</strong></div>
-      <div class="avatar avatar-coral">{{ patient.name.split(' ')[0][0] }}{{ patient.name.split(' ')[-1][0] }}</div>
+      <div><small>ONCOPATH</small><strong>Hi, {{ patient.name.split(' ')[0] }}</strong></div>
+      <div class="patient-head-tools">
+        <div class="wearable-connected" title="{{ wearable_name }} wearable connected"><span class="watch-icon"><i></i></span><div><b>{{ wearable_name }}</b><small><i></i> Connected</small></div></div>
+        <div class="avatar avatar-coral">{{ patient.name.split(' ')[0][0] }}{{ patient.name.split(' ')[-1][0] }}</div>
+      </div>
     </div>
 
     <div class="treatment-progress">
-      <div><span>Week {{ treatment_week }} of 7</span><small>Chemoradiation</small></div>
-      <div class="progress-track"><i style="width:{{ [100, (treatment_week / 7 * 100)] | min }}%"></i></div>
+      <div><span>Week {{ treatment_week }} of {{ treatment_weeks }}</span><small>{{ patient.treatment }}</small></div>
+      <div class="progress-track"><i style="width:{{ [100, (treatment_week / treatment_weeks * 100)] | min }}%"></i></div>
     </div>
 
     {% if status == 'alerting' %}
@@ -100,7 +103,7 @@ document.getElementById('checkin').addEventListener('submit', async (e) => {
   e.preventDefault(); const button=e.target.querySelector('button[type="submit"]'); button.disabled=true;
   const body={}; for (const [k,v] of new FormData(e.target).entries()) body[k]=v===''?null:parseFloat(v);
   const res=await fetch(`/api/patients/${PID}/checkins`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  const message=document.getElementById('checkin-msg'); message.textContent=res.ok?'✓ Check-in saved and shared with your care team.':'Could not save your check-in.'; message.className='form-message '+(res.ok?'success':'error'); button.disabled=false;
+  const message=document.getElementById('checkin-msg'); message.textContent=res.ok?'✓ Great job checking in today! Your care team is here to support you every step of the way.':'Could not save your check-in.'; message.className='form-message '+(res.ok?'success':'error'); button.disabled=false;
 });
 function addTurn(author,text) {
   document.querySelector('.empty-chat')?.remove(); const d=document.createElement('div'); d.className='turn turn-'+author;

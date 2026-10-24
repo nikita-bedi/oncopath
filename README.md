@@ -1,8 +1,8 @@
-# Recovery Coach: synthetic data (head & neck chemoradiation)
+# OncoPath: synthetic head & neck cancer recovery coach
 
 **All data is synthetic. No real patients.** Wearable fields mirror the WHOOP developer API (recovery, sleep, cycle) so real WHOOP data can be swapped in.
 
-23 patients: 3 scripted demo patients plus a random cohort of 20 (P101–P120). Each has 2 weeks of pre-treatment baseline, 7 weeks of radiation and 1 week after. To regenerate: `python generate.py` (seed 42; edit `DEMO_PATIENTS` to change the stories).
+23 patients: 3 scripted demo patients plus a random cohort of 20 (P101–P120). Each generated trajectory has 2 weeks of pre-treatment baseline, 7 weeks of radiation and 1 week after. The dashboard is a point-in-time snapshot dated **2026-10-18**, so patients appear in different treatment weeks according to their start dates; future trajectory rows remain available for detector evaluation. To regenerate: `python generate.py` (seed 42; edit `DEMO_PATIENTS` to change the stories).
 
 ## Demo patients
 
@@ -35,7 +35,7 @@
 - The dehydration story is the "natural course" with no intervention, so the ED visit actually happens. The demo point is that an alert on day 18–19 would have prevented it.
 - The physiology is simplified and tuned to be plausible for a demo. It is not a validated simulation.
 
-## Run the Between Visits demo
+## Run the OncoPath demo
 
 ```bash
 python3 -m venv .venv

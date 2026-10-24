@@ -20,3 +20,6 @@ infection:
 
 alert:
   overdue_hours: 24          # open alerts older than this are flagged overdue
+
+dashboard:
+  max_flagged_patients: 5    # forecast-priority queue size; urgent patient red flags are never capped
