@@ -81,17 +81,17 @@ graph TD
   baseline-vs-current series. (Originally specced as React + Vite; switched to
   server-rendered because the build/runtime environment has Python but no Node toolchain.
   The requirements only call for the two surfaces to exist and work, and a single Python
-  service is simpler to deploy as one AWS container.)
-- **Data store:** For the demo, load the synthetic CSV/JSON into an in-memory/SQLite
+  service is simpler to deploy as one Vercel Function.)
+- **Data store:** For the local demo, load the synthetic CSV/JSON into an in-memory/SQLite
   store at startup; alerts, actions, and messages persist to SQLite so lifecycle state
-  survives a reload. This keeps the deploy simple and reproducible.
-- **Deploy (AWS):** Containerized backend on a single service, frontend served as static
-  assets. See Deployment section. IaC or a scripted deploy makes it reproducible.
+  survives a reload. On Vercel, mutable SQLite state uses ephemeral `/tmp` storage.
+- **Deploy (Vercel Hobby):** One FastAPI function serves the backend and server-rendered
+  frontend. Vercel's Git integration deploys `main` without a webhook or deployment secret.
 
 > Rationale: the task is a demo over a fixed synthetic cohort, not a high-scale
-> production system. A single service + SQLite is the simplest thing that satisfies every
-> requirement and is reproducible on AWS. If asked to scale later, the ingestion and
-> store seams are where a managed DB would slot in.
+> production system. A single FastAPI function is the simplest free deployment. SQLite
+> remains suitable for local use, while the Vercel demo intentionally treats mutable
+> state as disposable; a managed database would replace that seam in production.
 
 ## Data model
 
@@ -565,20 +565,24 @@ flagged. "Synthetic data" label always visible.
 - **Frontend smoke:** patient check-in round-trips; dashboard renders ranked list, a
   context card with visible reasons, and a "synthetic data" label on every screen.
 
-## Deployment (AWS)
+## Deployment (Vercel Hobby)
 
-- Containerize the FastAPI backend (serving the API and the built static frontend, or a
-  static-site + API split).
-- Simplest reproducible target: a single container service (e.g. **AWS App Runner** or
-  **ECS Fargate**) fronting the API, with the SQLite file baked/mounted for the demo;
-  frontend static assets on **S3 + CloudFront** or served by the same container.
-- Make it reproducible via IaC (CDK/CloudFormation/Terraform) or a documented, scripted
-  deploy.
-- The deployed demo exposes both `/patient` and `/clinician` at a public URL, serves the
-  synthetic cohort, and preserves the "synthetic data" labeling.
+- Vercel detects the ASGI application at `app/main.py`. `vercel.json` configures that
+  function and includes `app/static`, `app/templates`, `config`, and `data` in its bundle.
+- Import `https://github.com/nikita-bedi/between-visits` into a Vercel Hobby project with
+  the repository root selected. No Build Command, Output Directory, deploy hook, API key,
+  model credential, or paid service is required.
+- Keep `main` as the Production Branch. Vercel's Git integration builds a preview for
+  branch pushes and a production deployment for every push to `main`; GitHub Actions
+  remains test-only.
+- The deployed demo exposes both `/patient` and `/clinician`, serves the synthetic cohort,
+  and preserves the "synthetic data" labeling.
+- Vercel deployment files are read-only. When `VERCEL=1`, the app writes SQLite to
+  `/tmp/between_visits.db`. That storage is ephemeral and not shared across function
+  instances, so chat and alert-lifecycle changes can reset on cold starts or deploys.
 
-> Note: production use would require a managed database, auth/PHI controls, and clinical
-> validation. This deployment is a synthetic-data demo and is scoped as such.
+> Production use requires a durable managed database, authentication, PHI controls,
+> audit, and clinical validation. This deployment is a synthetic-data demo.
 
 ## SMART on FHIR and production EMR integration
 
@@ -640,33 +644,29 @@ statement linked above.
 
 ### Free hackathon deployment profile
 
-The repository includes a Render Blueprint (`render.yaml`) for a Free Python web service.
-It installs `requirements.txt`, starts FastAPI with Uvicorn on Render's assigned `$PORT`,
-uses the no-cost deterministic chat assistant, and reads synthetic labs from public HAPI
-with the bundled fallback.
+The repository deploys as one FastAPI function on Vercel Hobby. Vercel uses
+`app/main.py` as the ASGI entrypoint, and `vercel.json` explicitly includes the static
+assets, Jinja templates, clinician-reviewed config, and synthetic cohort data needed at
+runtime. The deterministic assistant remains the default, so deployment requires no
+model credentials or paid credits. Public HAPI remains the primary synthetic FHIR lab
+source, with the bundled synthetic FHIR fallback available after a sandbox reset or
+network failure.
 
-Render Free web services sleep after 15 minutes without inbound traffic and use an
-ephemeral filesystem. Therefore SQLite chat turns and alert-lifecycle actions reset on
-restart/spin-down; the fixed cohort and detector alerts reseed at startup. This is
-acceptable for the hackathon but not production. Production requires durable encrypted
-storage, authentication, authorization, audit, and health-system-managed FHIR endpoints.
-See [Render Free service limitations](https://render.com/docs/free) and the
-[Render FastAPI guide](https://render.com/docs/deploy-fastapi).
+Import `https://github.com/nikita-bedi/between-visits` from **Add New > Project**, keep
+the repository root and detected FastAPI settings, and deploy without environment
+secrets. Keep `main` as the Production Branch. Vercel's Git integration then creates a
+production deployment for every `main` push and preview deployments for other branches.
+The GitHub Actions workflow runs tests only; there is no paid Render deploy hook or
+parallel deployment path.
 
-Content was rephrased for compliance with licensing restrictions.
+Vercel's deployed source is read-only. The `VERCEL` environment marker switches SQLite
+from the local `data/between_visits.db` path to `/tmp/between_visits.db`. Function-local
+`/tmp` storage is ephemeral and unshared, so chat turns and alert-lifecycle actions may
+reset after a cold start, redeploy, or instance change. The fixed synthetic cohort and
+detector alerts initialize again at startup. A production system must use durable,
+encrypted shared storage with authentication, authorization, and audit controls.
 
-### Deploy-hook CI/CD path
-
-When Render's native Git auto-deploy is unreliable, GitHub Actions runs the complete test
-suite and then calls the service's secret Render deploy-hook URL with the exact tested
-commit SHA. The hook is stored only as the GitHub Actions secret
-`RENDER_DEPLOY_HOOK_URL`; it is never committed or printed. Pull requests run tests but
-do not deploy. Pushes to `main` and manual workflow runs deploy after tests pass.
-
-Render Git auto-deploy is disabled in `render.yaml` and the API deployment payload to
-avoid duplicate builds. A deploy hook triggers an existing service only; initial service
-creation still uses the Blueprint button, dashboard, or `scripts/deploy_render.py`.
-Render accepts GET or POST for deploy hooks and recommends storing the hook URL as a CI
-secret. See [Render deploy hooks](https://render.com/docs/deploy-hooks).
-
-Content was rephrased for compliance with licensing restrictions.
+Content was rephrased for compliance with licensing restrictions. See the official
+[Vercel FastAPI guide](https://vercel.com/docs/frameworks/backend/fastapi),
+[Vercel Git deployment guide](https://vercel.com/docs/deployments/git), and
+[Vercel Python runtime documentation](https://vercel.com/docs/functions/runtimes/python).

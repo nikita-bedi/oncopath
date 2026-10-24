@@ -7,12 +7,22 @@ the db file to reset.
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-DB_PATH = Path(__file__).resolve().parent.parent / "data" / "between_visits.db"
+LOCAL_DB_PATH = Path(__file__).resolve().parent.parent / "data" / "between_visits.db"
+VERCEL_DB_PATH = Path("/tmp/between_visits.db")
+
+
+def default_db_path() -> Path:
+    """Use writable ephemeral storage in Vercel Functions."""
+    return VERCEL_DB_PATH if os.getenv("VERCEL") else LOCAL_DB_PATH
+
+
+DB_PATH = default_db_path()
 
 
 def _now() -> str:
@@ -20,9 +30,9 @@ def _now() -> str:
 
 
 class Store:
-    def __init__(self, path: Path = DB_PATH):
-        self.path = path
-        self.conn = sqlite3.connect(str(path), check_same_thread=False)
+    def __init__(self, path: Optional[Path] = None):
+        self.path = Path(path) if path is not None else default_db_path()
+        self.conn = sqlite3.connect(str(self.path), check_same_thread=False)
         self.conn.row_factory = sqlite3.Row
         self._init_schema()
 

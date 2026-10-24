@@ -137,10 +137,15 @@
   - Add a test/checklist verifying each guardrail (incl. single-bad-night rule, soft-symptom-alone rule, reason-presence, and question-bank-only chat output).
   - _Requirements: 11.1, 11.2, 11.3, 11.4, 11.5_
 
-- [ ] 14. Deploy the demo on AWS
-  - Containerize the backend; build/serve the frontend (`/patient` and `/clinician`).
-  - Deploy a single reproducible service (App Runner or ECS Fargate) + static hosting (S3/CloudFront or same container), serving the synthetic cohort with labeling intact.
-  - Capture the deploy as IaC or a documented, scripted procedure; record the public URL.
+- [x] 14. Deploy the demo with Vercel Hobby Git integration
+  - Configure the existing FastAPI ASGI app for one Vercel Function and bundle the
+    server-rendered frontend, config, and synthetic data.
+  - Import the public GitHub repository into Vercel with `main` as the Production Branch;
+    branch pushes create previews and every `main` push creates a production deployment.
+  - Keep deployment free and secretless: deterministic assistant by default, public HAPI
+    labs with bundled fallback, and no deploy webhook or paid model credentials.
+  - Store SQLite under ephemeral `/tmp` on Vercel while preserving the local data path;
+    document that mutable demo state can reset and is not shared across instances.
   - _Requirements: 12.1, 12.2, 12.3, 10.4_
 
 - [x] 15. SMART on FHIR EMR integration
@@ -157,12 +162,14 @@
   - Replace the collapsed wearable control with an always-visible per-message consent panel for RHR, HRV, skin temperature, sleep, and strain.
   - Show current values, allow 3/7/14-day windows, persist exact consent, surface it to nurses, and reset selections after each send.
   - Add property and UI tests for exact signal/window persistence and all five controls.
-  - Add a Render Free Blueprint, Procfile, deploy button, no-paid-LLM defaults, and documented ephemeral-state limitations.
+  - Keep the no-paid-LLM default and document ephemeral demo-state limitations.
   - _Requirements: 8.9, 8.10, 9.1, 12.1, 12.3_
 
-- [x] 17. Add tested Render deploy-hook workflow
-  - Add GitHub Actions CI for Python 3.11 with offline-safe FHIR and deterministic-assistant settings.
-  - Trigger the secret Render deploy hook only after tests pass on `main`, passing the exact tested commit SHA.
-  - Support manual dispatch, skip deploys on pull requests, and warn without failing when the secret is absent.
-  - Disable native Render Git auto-deploy to prevent duplicate builds and document secure secret setup.
+- [x] 17. Keep CI test-only and use Vercel native Git deployment
+  - Run GitHub Actions CI for Python 3.11 with offline-safe FHIR and deterministic-assistant settings on pushes and pull requests.
+  - Remove the Render deploy-hook job, secret, Blueprint, API deploy script, and Procfile.
+  - Let the connected Vercel Hobby project create previews and deploy every `main` push;
+    no webhook secret or separate deployment job is needed.
+  - Test the Vercel entry/config, required bundle paths, default free assistant, CI contract,
+    and local-versus-Vercel SQLite path behavior.
   - _Requirements: 12.1, 12.3_

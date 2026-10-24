@@ -96,53 +96,40 @@ card always identifies whether it is showing live HAPI results or fallback data.
 The SMART Health IT sandbox and public HAPI server must receive synthetic test data only.
 No real patient data belongs in either service.
 
-## Free hackathon deployment on Render
+## Free Vercel Hobby deployment
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/nikita-bedi/between-visits)
+Deploy directly from the public GitHub repository. This path uses Vercel's Git
+integration, not a deploy hook, API key, or paid model:
 
-The repository includes `render.yaml` and a `Procfile`. Click the button, authorize the
-GitHub repository, select the Free service plan if prompted, and create the Blueprint.
-Alternatively, deploy through the Render API without writing the key to disk:
+1. Sign in to a free Vercel Hobby account and choose **Add New > Project**.
+2. Import `https://github.com/nikita-bedi/between-visits`. Connect the Vercel
+   GitHub app if Vercel asks for repository access.
+3. Keep the repository root as the Root Directory. Vercel detects the FastAPI
+   application at `app/main.py`; leave Build and Output settings at their defaults.
+4. Do not add model credentials or paid-service secrets. The application defaults to
+   `BETWEEN_VISITS_LLM_PROVIDER=rules`, uses public HAPI for synthetic FHIR labs, and
+   automatically falls back to the bundled synthetic FHIR observations when HAPI is
+   unavailable.
+5. Select **Deploy**. In **Project Settings > Environments > Production > Branch
+   Tracking**, verify that `main` is the Production Branch.
 
-```bash
-export RENDER_API_KEY='your-key'
-.venv/bin/python scripts/deploy_render.py
-```
+Vercel's Git integration creates preview deployments for other branches and a production
+deployment for every push to `main`. GitHub Actions only runs the test suite; no webhook
+secret or separate deployment job is required.
 
-If your Render account has multiple workspaces, also set `RENDER_OWNER_ID`. The script
-creates or redeploys the `between-visits` Free web service, waits for the build, and
-checks the public URL. It never prints or stores the API key.
+`vercel.json` explicitly keeps `app/static`, `app/templates`, `config`, and `data` in the
+FastAPI function bundle. Vercel sets `VERCEL=1` in the function environment, so mutable
+SQLite state is written to `/tmp/between_visits.db` instead of the read-only deployment
+source. `/tmp` is ephemeral and is not shared between function instances. Chat messages
+and alert workflow changes can therefore disappear on a cold start, redeploy, or instance
+change. The fixed synthetic cohort and detector alerts load again at startup. Use a
+durable managed database before treating workflow state as persistent.
 
-### Deploy through a Render deploy hook
+After deployment, open `/smart/setup` on the generated `vercel.app` URL and use the shown
+HTTPS launch and callback values in the SMART Health IT launcher. Keep this public demo
+limited to synthetic data.
 
-After the Render service exists, open its **Settings** page and copy its secret Deploy
-Hook URL. Store it in GitHub, never in this repository:
-
-1. Open the GitHub repository's **Settings > Secrets and variables > Actions**.
-2. Create the repository secret `RENDER_DEPLOY_HOOK_URL` with the hook URL.
-3. Open **Actions > Test and deploy to Render > Run workflow**.
-
-`.github/workflows/test-and-deploy.yml` runs all tests first and calls the hook only after
-they pass. Pushes to `main` repeat the same flow and request deployment of the exact tested
-commit SHA. Native Render Git auto-deploy is disabled to avoid duplicate builds. If the
-secret is absent, tests still run and the deployment job emits a warning.
-
-A deploy hook can trigger only an existing Render service; it cannot create the initial
-service. The hook URL is a secret capable of starting builds and must be regenerated in
-Render if exposed.
-
-No paid LLM is configured: `BETWEEN_VISITS_LLM_PROVIDER=rules` uses the deterministic
-approved-question assistant.
-
-Render Free web services sleep after 15 minutes without traffic and can take about a
-minute to wake. Their filesystem is ephemeral, so chat and alert workflow changes stored
-in SQLite reset when the service restarts or spins down. The synthetic cohort and alerts
-reseed automatically, which is suitable for this hackathon demo. The public HAPI lab
-server remains the primary lab source with the bundled synthetic FHIR fallback available.
-
-After deployment, open `/smart/setup` on the `onrender.com` URL and use those HTTPS values
-in the SMART Health IT launcher. Do not use real patient data in this deployment.
-
-Content was rephrased for compliance with licensing restrictions. See the official
-[Render free service limitations](https://render.com/docs/free) and
-[FastAPI deployment guide](https://render.com/docs/deploy-fastapi).
+Content was rephrased for compliance with licensing restrictions. See Vercel's official
+[FastAPI deployment guide](https://vercel.com/docs/frameworks/backend/fastapi),
+[Git deployment guide](https://vercel.com/docs/deployments/git), and
+[Python runtime documentation](https://vercel.com/docs/functions/runtimes/python).
