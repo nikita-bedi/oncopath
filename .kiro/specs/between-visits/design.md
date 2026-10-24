@@ -654,3 +654,19 @@ See [Render Free service limitations](https://render.com/docs/free) and the
 [Render FastAPI guide](https://render.com/docs/deploy-fastapi).
 
 Content was rephrased for compliance with licensing restrictions.
+
+### Deploy-hook CI/CD path
+
+When Render's native Git auto-deploy is unreliable, GitHub Actions runs the complete test
+suite and then calls the service's secret Render deploy-hook URL with the exact tested
+commit SHA. The hook is stored only as the GitHub Actions secret
+`RENDER_DEPLOY_HOOK_URL`; it is never committed or printed. Pull requests run tests but
+do not deploy. Pushes to `main` and manual workflow runs deploy after tests pass.
+
+Render Git auto-deploy is disabled in `render.yaml` and the API deployment payload to
+avoid duplicate builds. A deploy hook triggers an existing service only; initial service
+creation still uses the Blueprint button, dashboard, or `scripts/deploy_render.py`.
+Render accepts GET or POST for deploy hooks and recommends storing the hook URL as a CI
+secret. See [Render deploy hooks](https://render.com/docs/deploy-hooks).
+
+Content was rephrased for compliance with licensing restrictions.

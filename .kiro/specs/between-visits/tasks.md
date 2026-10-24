@@ -159,3 +159,10 @@
   - Add property and UI tests for exact signal/window persistence and all five controls.
   - Add a Render Free Blueprint, Procfile, deploy button, no-paid-LLM defaults, and documented ephemeral-state limitations.
   - _Requirements: 8.9, 8.10, 9.1, 12.1, 12.3_
+
+- [x] 17. Add tested Render deploy-hook workflow
+  - Add GitHub Actions CI for Python 3.11 with offline-safe FHIR and deterministic-assistant settings.
+  - Trigger the secret Render deploy hook only after tests pass on `main`, passing the exact tested commit SHA.
+  - Support manual dispatch, skip deploys on pull requests, and warn without failing when the secret is absent.
+  - Disable native Render Git auto-deploy to prevent duplicate builds and document secure secret setup.
+  - _Requirements: 12.1, 12.3_

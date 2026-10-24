@@ -113,6 +113,24 @@ If your Render account has multiple workspaces, also set `RENDER_OWNER_ID`. The 
 creates or redeploys the `between-visits` Free web service, waits for the build, and
 checks the public URL. It never prints or stores the API key.
 
+### Deploy through a Render deploy hook
+
+After the Render service exists, open its **Settings** page and copy its secret Deploy
+Hook URL. Store it in GitHub, never in this repository:
+
+1. Open the GitHub repository's **Settings > Secrets and variables > Actions**.
+2. Create the repository secret `RENDER_DEPLOY_HOOK_URL` with the hook URL.
+3. Open **Actions > Test and deploy to Render > Run workflow**.
+
+`.github/workflows/test-and-deploy.yml` runs all tests first and calls the hook only after
+they pass. Pushes to `main` repeat the same flow and request deployment of the exact tested
+commit SHA. Native Render Git auto-deploy is disabled to avoid duplicate builds. If the
+secret is absent, tests still run and the deployment job emits a warning.
+
+A deploy hook can trigger only an existing Render service; it cannot create the initial
+service. The hook URL is a secret capable of starting builds and must be regenerated in
+Render if exposed.
+
 No paid LLM is configured: `BETWEEN_VISITS_LLM_PROVIDER=rules` uses the deterministic
 approved-question assistant.
 

@@ -23,7 +23,7 @@ def service_payload(owner_id: str) -> dict:
         "ownerId": owner_id,
         "repo": REPO,
         "branch": "main",
-        "autoDeployTrigger": "commit",
+        "autoDeployTrigger": "off",
         "envVars": [
             {"key": "PYTHON_VERSION", "value": "3.11.9"},
             {"key": "BETWEEN_VISITS_LLM_PROVIDER", "value": "rules"},
