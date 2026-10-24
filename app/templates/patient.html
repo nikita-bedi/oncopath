@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}{{ patient.name }} — Between Visits{% endblock %}
+{% block content %}
+<section class="patient-stage">
+  <div class="patient-demo-aside">
+    <div class="eyebrow compact"><span></span> Patient experience</div>
+    <h1>Support that travels<br>home with you.</h1>
+    <p>A calm daily ritual for patients, and clearer context for the people caring for them.</p>
+    <div class="aside-proof"><span>⌁</span><div><strong>{{ baseline_days }}-day personal baseline</strong><small>Compared to {{ patient.name.split(' ')[0] }}’s normal, never the crowd.</small></div></div>
+    <div class="aside-proof"><span>◉</span><div><strong>Wearable connected</strong><small>Recovery, sleep, temperature, and strain are synced.</small></div></div>
+    <div class="aside-proof"><span>♡</span><div><strong>Care team in the loop</strong><small>Symptoms and approved context reach the nurse.</small></div></div>
+    <a href="/clinician" class="text-link">Switch to care-team view →</a>
+  </div>
+
+  <div class="phone-frame">
+    <div class="phone-hardware"><span>9:41</span><i></i><span>● ◔</span></div>
+    <div class="patient-app-head">
+      <div><small>BETWEEN VISITS</small><strong>Hi, {{ patient.name.split(' ')[0] }}</strong></div>
+      <div class="avatar avatar-coral">{{ patient.name.split(' ')[0][0] }}{{ patient.name.split(' ')[-1][0] }}</div>
+    </div>
+
+    <div class="treatment-progress">
+      <div><span>Week {{ treatment_week }} of 7</span><small>Chemoradiation</small></div>
+      <div class="progress-track"><i style="width:{{ [100, (treatment_week / 7 * 100)] | min }}%"></i></div>
+    </div>
+
+    {% if status == 'alerting' %}
+      <div class="patient-status status-watch"><span class="status-illustration">↗</span><div><small>YOUR STATUS</small><strong>Your care team is reviewing your recent readings.</strong><p>You don’t need to interpret the numbers. Keep checking in and contact your team if you’re worried.</p></div></div>
+    {% elif status == 'insufficient_baseline' %}
+      <div class="patient-status status-neutral"><span class="status-illustration">⌁</span><div><small>YOUR STATUS</small><strong>We’re learning your normal.</strong><p>Keep wearing your device so your care team can understand changes over time.</p></div></div>
+    {% else %}
+      <div class="patient-status status-ok"><span class="status-illustration">✓</span><div><small>YOUR STATUS</small><strong>You’re tracking okay today.</strong><p>Your recent readings are close to your personal baseline.</p></div></div>
+    {% endif %}
+
+    <div class="today-strip">
+      <div><span class="metric-glyph heart">♥</span><strong>{{ latest.resting_heart_rate | int if latest and latest.resting_heart_rate else '—' }}</strong><small>resting HR</small></div>
+      <div><span class="metric-glyph recovery">◐</span><strong>{{ latest.recovery_score | int if latest and latest.recovery_score else '—' }}</strong><small>recovery</small></div>
+      <div><span class="metric-glyph sync">✓</span><strong>Synced</strong><small>wearable</small></div>
+    </div>
+
+    <section class="phonecard checkin-card">
+      <div class="phone-section-title"><div><span>Daily check-in</span><small>Usually takes under a minute</small></div><b>Today</b></div>
+      <form id="checkin">
+        <div class="slider-question"><label for="pain">Pain</label><output id="pain-out">0</output><input id="pain" type="range" min="0" max="10" value="0" name="pain_0_10"><div class="range-ends"><span>None</span><span>Worst</span></div></div>
+        <div class="slider-question"><label for="swallow">Swallowing difficulty</label><output id="swallow-out">0</output><input id="swallow" type="range" min="0" max="10" value="0" name="swallow_difficulty_0_10"><div class="range-ends"><span>Easy</span><span>Unable</span></div></div>
+        <div class="slider-question"><label for="nausea">Nausea</label><output id="nausea-out">0</output><input id="nausea" type="range" min="0" max="10" value="0" name="nausea_0_10"><div class="range-ends"><span>None</span><span>Severe</span></div></div>
+        <div class="checkin-row"><label>Fluid today<div class="unit-input"><input type="number" min="0" step="0.5" value="6" name="fluid_cups"><span>cups</span></div></label><label>Meals eaten<div class="unit-input"><input type="number" min="0" max="100" value="75" name="meals_eaten_pct"><span>%</span></div></label></div>
+        <input type="hidden" value="0" name="fatigue_0_10">
+        <button class="button button-primary full-button" type="submit"><span>Save today’s check-in</span> →</button>
+      </form>
+      <p id="checkin-msg" class="form-message" aria-live="polite"></p>
+    </section>
+
+    <section class="phonecard chat-card">
+      <div class="phone-section-title"><div><span>Message your care team</span><small>Share symptoms in your own words</small></div><div class="chat-badges"><span class="ai-chip">✦ Approved AI follow-ups</span><span class="secure-chip">● Secure</span></div></div>
+      <div class="chat-banner"><span>ⓘ</span><p>{{ banner }}</p></div>
+      <div id="thread" class="thread">
+        {% if not thread %}<div class="empty-chat"><span>♡</span><strong>What would you like your care team to know?</strong><small>Try one of the examples or type your own message.</small></div>{% endif %}
+        {% for t in thread %}
+          <div class="turn turn-{{ t.author }}"><span class="who">{{ 'Care support' if t.author == 'system' else 'You' if t.author == 'patient' else 'Care team' }}</span><p>{{ t.text }}</p>{% if t.shared_signals %}<div class="shared-inline">Shared: {{ t.shared_signals | join(', ') | replace('_',' ') }}</div>{% endif %}</div>
+        {% endfor %}
+      </div>
+      <div class="prompt-chips"><button type="button" data-prompt="I feel a little dizzy today">A little dizzy</button><button type="button" data-prompt="I have mild nausea today">Mild nausea</button><button type="button" data-prompt="My throat is sore today">Sore throat</button><button type="button" class="danger-prompt" data-prompt="I have chills and shaking">Try red flag</button></div>
+      <form id="chatform" class="chat-compose">
+        <textarea id="chatmsg" rows="2" placeholder="Tell your team how you’re feeling…"></textarea>
+        <details class="share"><summary><span>⊕</span> Add wearable context</summary><div class="share-panel"><p>You decide what goes with this message.</p><label class="share-option"><input type="checkbox" class="sig" value="resting_heart_rate"><span>Heart rate</span></label><label class="share-option"><input type="checkbox" class="sig" value="hrv_rmssd_milli"><span>HRV</span></label><label class="share-option"><input type="checkbox" class="sig" value="skin_temp_celsius"><span>Skin temp</span></label><label class="share-option"><input type="checkbox" class="sig" value="sleep_performance_percentage"><span>Sleep</span></label></div></details>
+        <button class="send-button" type="submit" aria-label="Send message">↑</button>
+      </form>
+      <div id="share-summary" class="share-summary">No wearable data attached</div>
+      <div id="safety" class="safety-msg" hidden><span>!</span><p></p></div>
+    </section>
+
+    <p class="patient-disclaimer">This app does not diagnose or replace your care team.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const PID = {{ patient.patient_id | tojson }};
+const RECEIVED = {{ received_message | tojson }};
+function showToast(text) { const t=document.getElementById('toast'); t.textContent=text; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2600); }
+document.querySelectorAll('input[type="range"]').forEach(input => {
+  const output=document.getElementById(input.id+'-out');
+  input.addEventListener('input',()=>{ output.value=input.value; input.style.setProperty('--value', input.value*10+'%'); });
+  input.dispatchEvent(new Event('input'));
+});
+document.getElementById('checkin').addEventListener('submit', async (e) => {
+  e.preventDefault(); const button=e.target.querySelector('button[type="submit"]'); button.disabled=true;
+  const body={}; for (const [k,v] of new FormData(e.target).entries()) body[k]=v===''?null:parseFloat(v);
+  const res=await fetch(`/api/patients/${PID}/checkins`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const message=document.getElementById('checkin-msg'); message.textContent=res.ok?'✓ Check-in saved and shared with your care team.':'Could not save your check-in.'; message.className='form-message '+(res.ok?'success':'error'); button.disabled=false;
+});
+function addTurn(author,text) {
+  document.querySelector('.empty-chat')?.remove(); const d=document.createElement('div'); d.className='turn turn-'+author;
+  const who=document.createElement('span'); who.className='who'; who.textContent=author==='system'?'Care support':author==='patient'?'You':'Care team';
+  const p=document.createElement('p'); p.textContent=text; d.append(who,p); document.getElementById('thread').appendChild(d); d.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('chatmsg').value=b.dataset.prompt;document.getElementById('chatmsg').focus();}));
+function updateShare(){const labels=[...document.querySelectorAll('.sig:checked')].map(c=>c.nextElementSibling.textContent);document.getElementById('share-summary').textContent=labels.length?'Sharing: '+labels.join(', '):'No wearable data attached';}
+document.querySelectorAll('.sig').forEach(c=>c.addEventListener('change',updateShare));
+document.getElementById('chatform').addEventListener('submit', async (e) => {
+  e.preventDefault(); const input=document.getElementById('chatmsg'); const msg=input.value.trim(); if(!msg)return;
+  const shared=[...document.querySelectorAll('.sig:checked')].map(c=>c.value); const send=e.target.querySelector('.send-button'); send.disabled=true; addTurn('patient',msg); input.value='';
+  const res=await fetch(`/api/patients/${PID}/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,shared_signals:shared})}); const out=await res.json(); const safety=document.getElementById('safety');
+  if(out.safety_message){safety.querySelector('p').textContent=out.safety_message;safety.hidden=false;addTurn('system',out.safety_message);}else{safety.hidden=true;if(out.followup?.text){addTurn('system',out.followup.text);}showToast(RECEIVED);} send.disabled=false;
+});
+</script>
+{% endblock %}

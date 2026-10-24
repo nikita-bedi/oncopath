@@ -1,0 +1,164 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Scaffold project and load the synthetic cohort": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099380
+      },
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860105535
+      }
+    ],
+    "2. Support WHOOP-shaped JSON ingestion for demo patients": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099469
+      }
+    ],
+    "3. Build the per-patient baseline engine": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099518
+      }
+    ],
+    "4.1 Dehydration pattern": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099561
+      }
+    ],
+    "4.2 Infection / possible neutropenic fever pattern": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099611
+      }
+    ],
+    "4.3 Single-bad-night suppression": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099658
+      }
+    ],
+    "5. Ground-truth evaluation routine and correctness gate": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099701
+      }
+    ],
+    "6. Alert lifecycle service": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099742
+      }
+    ],
+    "7. CMS care-update context card + FHIR export": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099777
+      }
+    ],
+    "8. Nearest suitable hospital (MassGIS)": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099820
+      }
+    ],
+    "9.1 Clinician-reviewed config files": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099864
+      }
+    ],
+    "9.2 Conversation thread + turn model": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099903
+      }
+    ],
+    "9.3 Two-tier symptom classifier": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099942
+      }
+    ],
+    "9.4 Free-text symptom parser": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860099983
+      }
+    ],
+    "9.5 Scripted follow-up engine": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100019
+      }
+    ],
+    "9.6 Scoped data sharing": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100052
+      }
+    ],
+    "9.7 Property-based safety tests (critical gate)": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100087
+      }
+    ],
+    "10. Backend API surface": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100122
+      }
+    ],
+    "11. Patient phone view (frontend)": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100155
+      }
+    ],
+    "12. Clinician dashboard (frontend)": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100188
+      }
+    ],
+    "13. Safety-guardrail pass across the app": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100222
+      }
+    ],
+    "14. Deploy the demo on AWS": [
+      {
+        "executionId": "ef4ab43f-9b74-4a89-8087-5b2df4bb9050",
+        "chatSessionId": "sess_c5fd02b3-aac2-4a62-8736-3d8424c38757",
+        "timestamp": 1792860100255
+      }
+    ]
+  }
+}

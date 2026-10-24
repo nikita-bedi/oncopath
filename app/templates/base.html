@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c504b">
+  <title>{% block title %}Between Visits{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="synthetic-banner" role="note">
+    <span class="synthetic-dot"></span>
+    <strong>Synthetic data</strong><span>Hackathon prototype · no real patients</span>
+  </div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Between Visits home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Between <b>Visits</b></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a class="{{ 'active' if request.url.path.startswith('/clinician') else '' }}" href="/clinician">
+        <span class="nav-icon">⌁</span> Care team
+      </a>
+      <a class="{{ 'active' if request.url.path.startswith('/patient') else '' }}" href="/patient">
+        <span class="nav-icon">♡</span> Patient view
+      </a>
+    </nav>
+    <div class="prototype-chip"><span></span> Demo online</div>
+  </header>
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="foot">
+    <div class="footer-lockup"><span class="brand-mark small-mark"><i></i><i></i><i></i></span> Between Visits</div>
+    <p>Decision support only, never a diagnosis. Clinicians make every clinical decision.</p>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+version: 1
+# All comparisons are relative to each patient's OWN pre-treatment baseline (tx_day <= 0).
+baseline:
+  min_valid_days: 7          # below this -> baseline "insufficient", no baseline-relative alerts
+
+dehydration:
+  rhr_z_min: 2.5             # resting HR elevated vs baseline (z-score)
+  hrv_z_max: -1.5            # HRV depressed vs baseline (z-score)
+  persist_days: 3            # must hold across this many days in the window
+  window_days: 4             # rolling window to evaluate persistence
+  fluid_drop_cups: 2.0       # window-average fluid intake down by at least this many cups vs baseline
+  day_fluid_drop_cups: 1.5   # the firing day itself must be down this much (rejects recovered dips)
+
+infection:
+  skin_temp_z_min: 3.0       # overnight skin temp spike vs baseline
+  rhr_z_min: 4.0             # overnight resting HR spike vs baseline
+  support_resp_z_min: 1.0    # supporting respiratory rate rise
+  support_spo2_z_max: -1.0   # supporting SpO2 drop
+  min_supporting: 1          # at least this many supporting signals required
+
+alert:
+  overdue_hours: 24          # open alerts older than this are flagged overdue

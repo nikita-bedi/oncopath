@@ -1,0 +1,36 @@
+version: 1
+reviewed_by: "<clinician name / date — fill at review>"
+# The system may ONLY render one of these exact strings as a follow-up turn.
+# It records the answer verbatim and attaches it to the nurse card.
+# It NEVER scores, triages, interprets, or advises.
+questions:
+  - id: q_onset
+    text: "When did this start? (for example: today, yesterday, a few days ago)"
+    answer_type: text
+  - id: q_severity
+    text: "On a scale of 0 to 10, how bad is it right now, where 0 is none and 10 is the worst you can imagine?"
+    answer_type: integer_0_10
+  - id: q_trend
+    text: "Is it getting better, staying the same, or getting worse?"
+    answer_type: choice
+    choices: ["better", "same", "worse"]
+  - id: q_fluids_today
+    text: "About how many cups of fluid have you had today?"
+    answer_type: number
+  - id: q_fluids_keeping_down
+    text: "Are you able to keep fluids down?"
+    answer_type: choice
+    choices: ["yes", "no", "not sure"]
+  - id: q_temperature
+    text: "If you have a thermometer, what is your temperature? (leave blank if you don't have one)"
+    answer_type: text
+  - id: q_eating
+    text: "About what fraction of your meals have you been able to eat today?"
+    answer_type: text
+  - id: q_swallowing
+    text: "How difficult is swallowing right now, from 0 to 10?"
+    answer_type: integer_0_10
+  - id: q_meds_taken
+    text: "Have you been able to take your prescribed medications today?"
+    answer_type: choice
+    choices: ["yes", "no", "partly"]

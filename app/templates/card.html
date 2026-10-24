@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}{{ data.card.patient.name }} · Alert review — Between Visits{% endblock %}
+
+{% macro sparkline(sig, s) %}
+  {% set vals = s.series | map(attribute='value') | select('ne', None) | list %}
+  {% if vals | length > 1 %}
+    {% set vmin = vals | min %}{% set vmax = vals | max %}{% set span = (vmax-vmin) if (vmax-vmin)>0 else 1 %}{% set n = s.series | length %}
+    <article class="trend-card">
+      <div class="trend-head"><div><span>{{ sig | replace('_',' ') }}</span><small>Personal baseline <b>{{ '%.1f'|format(s.baseline_mean) }}</b></small></div><span class="trend-legend"><i></i> Daily <i class="dash"></i> Baseline</span></div>
+      <svg viewBox="0 0 {{ n * 6 }} 90" preserveAspectRatio="none" class="trend-svg" aria-label="{{ sig }} trend">
+        <defs><linearGradient id="fill-{{ sig }}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d8279" stop-opacity=".28"/><stop offset="1" stop-color="#0d8279" stop-opacity="0"/></linearGradient></defs>
+        {% if s.baseline_mean is not none %}{% set by=82-((s.baseline_mean-vmin)/span)*70 %}<line x1="0" y1="{{ '%.1f'|format(by) }}" x2="{{ n*6 }}" y2="{{ '%.1f'|format(by) }}" class="baseline-line"/>{% endif %}
+        <polyline class="trend-area" points="0,88 {% for pt in s.series %}{% if pt.value is not none %}{{ loop.index0*6 }},{{ '%.1f'|format(82-((pt.value-vmin)/span)*70) }} {% endif %}{% endfor %} {{ n*6 }},88" fill="url(#fill-{{ sig }})"/>
+        <polyline class="trend-line" points="{% for pt in s.series %}{% if pt.value is not none %}{{ loop.index0*6 }},{{ '%.1f'|format(82-((pt.value-vmin)/span)*70) }} {% endif %}{% endfor %}"/>
+      </svg>
+      <div class="trend-axis"><span>Baseline</span><span>Treatment</span><span>Today</span></div>
+    </article>
+  {% endif %}
+{% endmacro %}
+
+{% block content %}
+{% set alert=data.alert %}{% set card=data.card %}{% set clinical=data.clinical %}{% set fhir=data.fhir_labs %}
+<nav class="breadcrumbs"><a href="/clinician">Care command center</a><span>›</span><span>Alert review</span></nav>
+
+<section class="alert-hero alert-{{ alert.severity }}">
+  <div class="alert-hero-copy">
+    <div class="alert-kicker"><span class="severity-dot"></span>{{ alert.severity }} · {{ alert.type | replace('_',' ') }}</div>
+    <h1>{{ card.patient.name }}</h1>
+    <p>{{ card.reason_for_update.summary }}</p>
+    <div class="patient-meta"><span>{{ card.patient.id }}</span><i></i><span>{{ card.patient.age }}{{ card.patient.sex }}</span><i></i><span>Treatment day {{ alert.tx_day or '—' }}</span><i></i><span>{{ card.patient.diagnosis }}</span></div>
+  </div>
+  <div class="hero-risk"><div class="risk-ring risk-ring-large"><b>{{ '%.0f'|format(alert.risk_score) }}</b><small>risk score</small></div><span>Compared with this patient’s own baseline</span></div>
+</section>
+
+<div class="safety-ribbon"><span>ⓘ</span><p><strong>Decision support, not a diagnosis.</strong> Review the evidence below and make the clinical decision.</p><a href="#care-actions">Take action ↓</a></div>
+{% if smart_session %}<div class="ehr-context-bar"><span>⚕</span><div><strong>SMART EHR context connected</strong><small>Issuer: {{ smart_session.issuer }} · EHR patient {{ smart_session.fhir_patient_id or 'not supplied' }} · mapped to synthetic {{ smart_session.local_patient_id }}</small></div><a href="/smart/setup">SMART settings</a></div>{% else %}<div class="ehr-context-bar disconnected"><span>⚕</span><div><strong>Standalone synthetic demo</strong><small>Launch through SMART Health IT to test EHR context and OAuth.</small></div><a href="/smart/setup">Launch from EHR →</a></div>{% endif %}
+
+<section class="clinical-facts" aria-label="Patient clinical summary">
+  <div><small>Age / sex</small><strong>{{ card.patient.age }} · {{ card.patient.sex }}</strong></div>
+  <div><small>TNM stage</small><strong>{{ card.patient.stage }}</strong></div>
+  <div class="wide-fact"><small>Diagnosis</small><strong>{{ card.patient.diagnosis }}</strong></div>
+  <div class="wide-fact"><small>Treatment regimen</small><strong>{{ card.patient.treatment }}</strong></div>
+</section>
+
+<section class="review-layout">
+  <div class="review-main">
+    <section class="content-section">
+      <div class="section-bar"><div><span class="section-kicker">Transparent reasoning</span><h2>Why this surfaced</h2></div><span class="evidence-chip">{{ alert.reasons | length }} signals agree</span></div>
+      <div class="reason-grid">
+        {% for r in alert.reasons %}
+        <article class="reason-card">
+          <div class="reason-top"><span class="reason-icon">{{ '♥' if r.signal == 'resting_heart_rate' else '≈' if r.signal == 'hrv_rmssd_milli' else '◉' if r.signal == 'skin_temp_celsius' else '◒' if r.signal == 'fluid_cups' else '⌁' }}</span><span>{{ r.signal | replace('_',' ') }}</span>{% if r.deviation is not none %}<b class="delta {{ 'down' if r.deviation < 0 else '' }}">{{ '%+.1f'|format(r.deviation) }} SD</b>{% endif %}</div>
+          <p>{{ r.text }}</p>
+          {% if r.current_value is not none and r.baseline_value is not none %}<div class="comparison"><div><small>Current</small><strong>{{ '%.1f'|format(r.current_value) }}</strong></div><span>vs</span><div><small>Baseline</small><strong>{{ '%.1f'|format(r.baseline_value) }}</strong></div></div>{% endif %}
+          <small class="window-label">Observed {{ r.window }}</small>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="content-section clinical-picture">
+      <div class="section-bar"><div><span class="section-kicker">Point-in-time chart context</span><h2>Clinical picture at alert</h2></div><span class="asof-chip">As of treatment day {{ clinical.as_of_tx_day }} · detector-independent</span></div>
+      <div class="clinical-picture-grid">
+        {% if clinical.exam %}<article class="clinical-panel exam-panel"><div class="clinical-panel-head"><span class="clinical-panel-icon">✚</span><div><small>Latest physical exam</small><strong>{{ clinical.exam.exam_type }}</strong></div><time>Day {{ clinical.exam.tx_day }}</time></div><p class="exam-summary">{{ clinical.exam.exam_summary }}</p><div class="clinical-metrics"><div><small>ECOG</small><strong>{{ clinical.exam.ecog }}</strong></div><div><small>Weight</small><strong>{{ clinical.exam.weight_kg }} kg</strong></div><div><small>Temp</small><strong>{{ clinical.exam.temp_c }}°C</strong></div><div><small>BP</small><strong>{{ clinical.exam.sbp }}/{{ clinical.exam.dbp }}</strong></div><div><small>Mucositis</small><strong>Grade {{ clinical.exam.oral_mucositis_grade_ctcae }}</strong></div><div><small>Dysphagia</small><strong>Grade {{ clinical.exam.dysphagia_grade_ctcae }}</strong></div></div></article>{% endif %}
+        {% if clinical.nutrition %}<article class="clinical-panel nutrition-panel"><div class="clinical-panel-head"><span class="clinical-panel-icon nutrition-icon">◒</span><div><small>Latest nutrition assessment</small><strong>{{ clinical.nutrition.pg_sga_category }}</strong></div><time>Day {{ clinical.nutrition.tx_day }}</time></div><div class="nutrition-focus"><div><span>{{ clinical.nutrition.avg_fluid_cups_7d }}</span><small>avg cups / 7d</small><i>goal {{ clinical.nutrition.fluid_goal_cups }}</i></div><div><span>{{ clinical.nutrition.avg_meals_eaten_pct_7d }}%</span><small>meals eaten</small><i>7-day average</i></div><div><span>{{ clinical.nutrition.weight_change_pct_from_baseline }}%</span><small>weight change</small><i>from baseline</i></div></div><p><strong>Route:</strong> {{ clinical.nutrition.feeding_route }} · {{ clinical.nutrition.diet_texture }} texture</p></article>{% endif %}
+      </div>
+      {% if fhir.labs %}<article class="lab-panel fhir-lab-panel"><div class="clinical-panel-head"><span class="clinical-panel-icon lab-icon">⌁</span><div><small>FHIR R4 Observations · category=laboratory</small><strong>Latest result for each mapped LOINC code</strong></div><span class="fhir-source {{ 'live' if fhir.source == 'fhir-server' else 'fallback' }}">{{ 'Live HAPI FHIR' if fhir.source == 'fhir-server' else 'Bundled FHIR fallback' }}</span></div>
+      {% if fhir.stale %}<div class="freshness-warning"><span>!</span><p><strong>Lab freshness warning</strong>{{ fhir.warning }}</p></div>{% else %}<div class="freshness-ok"><span>✓</span> Latest panel {{ fhir.panel_date }} · {{ fhir.age_days }} day(s) old</div>{% endif %}
+      {% if fhir.remote_error %}<p class="fhir-fallback-note">Public HAPI fallback: {{ fhir.remote_error }}</p>{% endif %}
+      <div class="fhir-lab-table"><div class="fhir-lab-head"><span>Lab / LOINC</span><span>Latest</span><span>Reference</span><span>Flag</span><span>Trend vs prior</span><span>Collected</span></div>{% for lab in fhir.labs %}<div class="fhir-lab-row {{ 'flagged' if lab.flag else '' }}"><span><strong>{{ lab.display }}</strong><small>{{ lab.loinc }}</small></span><span><strong>{{ lab.value }}</strong> <small>{{ lab.unit }}</small></span><span>{{ lab.reference_low if lab.reference_low is not none else '—' }}–{{ lab.reference_high if lab.reference_high is not none else '—' }}</span><span>{% if lab.flag %}<b class="lab-flag">{{ lab.flag }}</b>{% else %}<b class="lab-normal">Normal</b>{% endif %}</span><span class="trend-{{ lab.trend }}">{% if lab.change is not none %}{{ '↑' if lab.trend == 'up' else '↓' if lab.trend == 'down' else '→' }} {{ lab.change | abs }} <small>from {{ lab.previous_value }}</small>{% else %}No prior result{% endif %}</span><time>{{ lab.collected_date }}</time></div>{% endfor %}</div></article>{% endif %}
+      {% if clinical.medications %}<div class="medication-row"><span>Active at alert:</span>{% for med in clinical.medications[:6] %}<span class="medication-chip"><b>{{ med.medication }}</b> {{ med.dose }}</span>{% endfor %}</div>{% endif %}
+      <p class="context-disclaimer">Synthetic chart context only. These records are never detector inputs, and rows labeled natural-course counterfactual are excluded.</p>
+    </section>
+
+    <section class="content-section">
+      <div class="section-bar"><div><span class="section-kicker">Longitudinal view</span><h2>Signals over time</h2></div><span class="baseline-key">Dashed line = personal baseline</span></div>
+      <div class="trend-grid">{% for sig,s in timeseries.signals.items() %}{{ sparkline(sig,s) }}{% endfor %}</div>
+    </section>
+
+    {% if card.chat_context and (card.chat_context.symptoms or card.chat_context.followup_answers or card.chat_context.flagged_for_review or card.chat_context.assistant_notes) %}
+    <section class="content-section chat-context-section">
+      <div class="section-bar"><div><span class="section-kicker">Patient voice + assistant</span><h2>Chat context</h2></div><a href="/patient/{{ card.patient.id }}">Open patient thread →</a></div>
+      {% if card.chat_context.assistant_notes %}<div class="ai-draft"><div class="ai-draft-head"><span class="ai-spark">✦</span><div><strong>AI-assisted context draft</strong><small>{{ card.chat_context.assistant_notes[0].provider | replace('-',' ') }} · nurse verification required</small></div><span>VERIFY</span></div><p>{{ card.chat_context.assistant_notes[0].summary }}</p>{% if card.chat_context.assistant_notes[0].question_id %}<small>Selected approved follow-up: {{ card.chat_context.assistant_notes[0].question_id | replace('q_','') | replace('_',' ') }}</small>{% endif %}</div>{% endif %}
+      <div class="context-grid">
+        <div><h3>Reported symptoms</h3>{% for s in card.chat_context.symptoms %}<span class="symptom-chip {{ 'red' if s.tier == 'red_flag' else '' }}">{{ s.symptom }}{% if s.severity is not none %} · {{ s.severity }}/10{% endif %}{% if s.onset %} · {{ s.onset }}{% endif %}</span>{% else %}<p class="muted">No structured symptoms yet.</p>{% endfor %}</div>
+        <div><h3>Follow-up answers</h3>{% for a in card.chat_context.followup_answers %}<p class="answer-line"><small>{{ a.question_id | replace('q_','') | replace('_',' ') }}</small><strong>{{ a.answer }}</strong></p>{% else %}<p class="muted">No follow-up answers yet.</p>{% endfor %}</div>
+      </div>
+      {% if card.chat_context.flagged_for_review %}<div class="review-flag">! {{ card.chat_context.flagged_for_review | length }} message(s) need manual review because parsing confidence was low.</div>{% endif %}
+    </section>
+    {% endif %}
+  </div>
+
+  <aside class="review-side">
+    <section class="side-card care-summary"><span class="section-kicker">Access & support</span><h2>Beyond the signals</h2><dl><div><dt>Home</dt><dd>{{ clinical.profile.home_town }}, {{ clinical.profile.county }} County</dd></div><div><dt>Travel to cancer center</dt><dd>{{ clinical.profile.distance_to_center_miles }} mi · about {{ clinical.profile.est_drive_time_min }} min</dd></div><div><dt>Support at home</dt><dd>{{ clinical.profile.lives_with }} · caregiver {{ 'available' if clinical.profile.caregiver_available else 'not available' }}</dd></div><div><dt>Home thermometer</dt><dd>{{ 'Available' if clinical.profile.has_home_thermometer else 'Not available' }}</dd></div><div><dt>Language / broadband</dt><dd>{{ clinical.profile.primary_language }} · {{ clinical.profile.broadband }} internet</dd></div><div><dt>Comorbidities / allergies</dt><dd>{{ clinical.profile.comorbidities }} · {{ clinical.profile.allergies }}</dd></div></dl><div class="handoff-actions"><a class="button button-outline full-button" href="/api/alerts/{{ alert.id }}/fhir" target="_blank">Export FHIR Bundle <span>↗</span></a><a class="button button-primary full-button" href="/api/alerts/{{ alert.id }}/handoff">Download nurse handoff <span>↓</span></a></div></section>
+
+    {% if data.hospital and data.hospital.found %}<section class="side-card hospital-card"><div class="mini-map"><span class="map-road road-one"></span><span class="map-road road-two"></span><div class="map-origin">Patient</div><div class="map-pin"><i></i></div><div class="map-route"></div></div><span class="section-kicker">Suggested nearby care</span><h2>{{ data.hospital.name }}</h2><p>{{ data.hospital.address }}</p><div class="distance-row"><strong>{{ data.hospital.distance_km }} km</strong><span>ED-capable</span></div><small>{{ data.hospital.note }}</small></section>{% endif %}
+
+    <section class="side-card care-timeline"><span class="section-kicker">Closed-loop care</span><h2>Alert journey</h2><ol><li class="done"><i>✓</i><div><strong>Signal detected</strong><small>Reasons attached automatically</small></div></li><li class="{{ 'done' if alert.status in ['acknowledged','in_progress','resolved'] else 'current' }}"><i>{{ '✓' if alert.status in ['acknowledged','in_progress','resolved'] else '2' }}</i><div><strong>Nurse acknowledged</strong><small>Human review required</small></div></li><li class="{{ 'done' if alert.status in ['in_progress','resolved'] else 'current' if alert.status == 'acknowledged' else '' }}"><i>{{ '✓' if alert.status in ['in_progress','resolved'] else '3' }}</i><div><strong>Care in progress</strong><small>Contact, assessment, or referral</small></div></li><li class="{{ 'done' if alert.status == 'resolved' else 'current' if alert.status == 'in_progress' else '' }}"><i>{{ '✓' if alert.status == 'resolved' else '4' }}</i><div><strong>Care completed</strong><small>Outcome documented</small></div></li></ol></section>
+  </aside>
+</section>
+
+<section class="action-dock" id="care-actions">
+  <div><span class="section-kicker">Clinician action required</span><h2>What happens next?</h2><p>Status: <strong id="status">{{ alert.status | replace('_',' ') }}</strong></p></div>
+  <div class="action-controls"><input id="note" type="text" placeholder="Add a clinical note (optional)"><div class="actions">
+    {% if alert.status == 'open' %}<button class="button button-primary" data-action="acknowledge">Acknowledge & review</button>{% elif alert.status == 'acknowledged' %}<button class="button button-primary" data-action="start">Start care plan</button>{% elif alert.status == 'in_progress' %}<button class="button button-primary" data-action="resolve">Mark care completed</button>{% else %}<button class="button button-primary" disabled>Workflow complete</button>{% endif %}
+    {% if alert.status not in ['resolved','dismissed'] %}<button class="button button-quiet" data-action="dismiss">Dismiss as false alarm</button>{% endif %}
+  </div><p id="actmsg" class="form-message" aria-live="polite"></p></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const ALERT_ID={{ data.alert.id | tojson }};
+function showToast(text){const t=document.getElementById('toast');t.textContent=text;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
+document.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click',async()=>{btn.disabled=true;const action=btn.dataset.action;const note=document.getElementById('note').value;const res=await fetch(`/api/alerts/${ALERT_ID}/actions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({actor:'nurse',action,note})});const msg=document.getElementById('actmsg');if(res.ok){const out=await res.json();document.getElementById('status').textContent=out.status.replace('_',' ');msg.textContent='✓ Care journey updated.';msg.className='form-message success';showToast('Alert status updated');setTimeout(()=>location.reload(),700);}else{const err=await res.json();msg.textContent=err.detail||'Could not update alert.';msg.className='form-message error';btn.disabled=false;}}));
+</script>
+{% endblock %}

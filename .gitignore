@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.DS_Store
+*.db
+*.zip
+*.docx
+*.pdf
+~$*

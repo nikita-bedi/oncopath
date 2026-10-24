@@ -1,0 +1,81 @@
+"""Smoke coverage for the hackathon presentation surfaces.
+
+These tests protect the visible product story as the UI evolves: the synthetic-data
+label, demo outcomes, risk queue, explained alert, patient check-in, and chat safety
+notice must remain present.
+"""
+from fastapi.testclient import TestClient
+
+from app.main import app
+
+
+client = TestClient(app)
+
+
+def _page(path: str) -> str:
+    response = client.get(path)
+    assert response.status_code == 200
+    assert "Synthetic data" in response.text
+    return response.text
+
+
+def test_landing_page_tells_the_closed_loop_story():
+    html = _page("/")
+    assert "Catch the drift" in html
+    assert "13/13" in html
+    assert "0</strong><span>false-alarm nights escalated" in html
+    assert "Maria drinks less" in html
+    assert "From signal to completed care" in html
+
+
+def test_clinician_dashboard_has_priority_queue_and_full_cohort():
+    html = _page("/clinician")
+    assert "Care command center" in html
+    assert "Priority queue" in html
+    assert "Needs review" in html
+    assert "All patients" in html
+    assert "Search patient or diagnosis" in html
+
+
+def test_alert_card_keeps_reasons_baseline_and_human_action_visible():
+    html = _page("/clinician/P002-infection")
+    assert "Why this surfaced" in html
+    assert "Personal baseline" in html
+    assert "Decision support, not a diagnosis" in html
+    assert "Closed-loop care" in html
+    assert "Clinician action required" in html
+    assert "Export FHIR Bundle" in html
+    assert "Download nurse handoff" in html
+    assert "FHIR R4 Observations" in html
+    assert "TNM stage" in html
+    assert "T3N2bM0" in html
+
+
+def test_patient_view_has_checkin_chat_and_expectations_banner():
+    html = _page("/patient/P001")
+    assert "Daily check-in" in html
+    assert "Message your care team" in html
+    assert "not monitored 24/7" in html
+    assert "Add wearable context" in html
+    assert "Try red flag" in html
+    assert "This app does not diagnose" in html
+
+
+def test_patient_story_picker_highlights_all_three_demo_cases():
+    html = _page("/patient")
+    assert "Dehydration story" in html
+    assert "Fever story" in html
+    assert "False-alarm control" in html
+
+
+def test_smart_setup_and_fhir_lab_ui_are_visible():
+    setup = _page("/smart/setup")
+    assert "SMART Health IT launcher" in setup
+    assert "/smart/launch?synthetic_patient=P001" in setup
+    assert "/smart/callback" in setup
+
+    card = _page("/clinician/P002-infection")
+    assert "FHIR R4 Observations" in card
+    assert "Latest result for each mapped LOINC code" in card
+    assert "Download nurse handoff" in card
+    assert "Launch from EHR" in card

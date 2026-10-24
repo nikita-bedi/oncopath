@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Care command center — Between Visits{% endblock %}
+{% block content %}
+<section class="page-head dashboard-head">
+  <div><div class="eyebrow compact"><span></span> Care command center</div><h1>Good morning, Sarah.</h1><p>Here’s what changed between visits. Highest-risk patients are first.</p></div>
+  <div class="head-actions"><span class="assistant-chip"><b>✦</b> Guardrailed AI · {{ 'Bedrock' if assistant_status.model_configured else 'local demo' }}</span>{% if smart_session %}<form method="post" action="/smart/disconnect"><button class="smart-connected" type="submit"><i></i> EHR connected · disconnect</button></form>{% else %}<a class="smart-connect" href="/smart/setup"><span>⚕</span> Launch from EHR</a>{% endif %}<button class="button button-quiet" onclick="location.reload()">↻ Refresh signals</button><span class="last-sync"><i></i> Synced with wearables</span></div>
+</section>
+
+<section class="metric-grid">
+  <article class="metric-card metric-urgent"><div class="metric-icon">!</div><div><small>Urgent review</small><strong>{{ stats.urgent }}</strong><span>patients need attention</span></div><em>now</em></article>
+  <article class="metric-card"><div class="metric-icon teal">⌁</div><div><small>Active alerts</small><strong>{{ stats.active }}</strong><span>across {{ stats.patients }} patients</span></div></article>
+  <article class="metric-card"><div class="metric-icon blue">↻</div><div><small>Care in progress</small><strong>{{ stats.in_progress }}</strong><span>acknowledged by team</span></div></article>
+  <article class="metric-card"><div class="metric-icon green">✓</div><div><small>Loop closed</small><strong>{{ stats.resolved }}</strong><span>resolved or dismissed</span></div></article>
+</section>
+
+<section class="queue-section">
+  <div class="section-bar"><div><span class="section-kicker">Priority queue</span><h2>Needs review</h2></div><a href="#all-patients">View all {{ stats.patients }} patients ↓</a></div>
+  <div class="priority-grid">
+    {% for a in active[:3] %}
+    <a class="priority-card priority-{{ a.severity }}" href="/clinician/{{ a.id }}">
+      <div class="priority-top"><span class="severity-dot"></span><span>{{ a.severity }} · {{ a.status | replace('_',' ') }}</span>{% if a.overdue %}<b>OVERDUE</b>{% endif %}</div>
+      <div class="priority-person"><div class="avatar">{{ a.patient_name.split(' ')[0][0] }}{{ a.patient_name.split(' ')[-1][0] }}</div><div><h3>{{ a.patient_name }}</h3><p>{{ a.patient_id }} · treatment day {{ a.tx_day or '—' }}</p></div><div class="risk-ring small-ring"><b>{{ '%.0f'|format(a.risk_score) }}</b><small>risk</small></div></div>
+      <div class="priority-pattern"><span>{{ 'Temperature + HR spike' if a.type == 'infection' else 'RHR + HRV + fluids' if a.type == 'dehydration' else 'Patient red flag' }}</span><strong>{{ a.type | replace('_',' ') }}</strong></div>
+      <p class="reason-preview">{{ a.reasons[0].text if a.reasons else 'Review patient context.' }}</p>
+      <div class="card-link">Open context card <span>→</span></div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="patient-roster" id="all-patients">
+  <div class="section-bar roster-bar"><div><span class="section-kicker">Full cohort</span><h2>All patients</h2></div><div class="roster-tools"><label class="search-box"><span>⌕</span><input id="patient-search" type="search" placeholder="Search patient or diagnosis"></label><select id="status-filter"><option value="all">All statuses</option><option value="alerting">Alerting</option><option value="baseline_ok">Baseline OK</option></select></div></div>
+  <div class="table-shell">
+    <table class="risk modern-table">
+      <thead><tr><th>Risk</th><th>Patient</th><th>Treatment</th><th>Status</th><th>Signal</th><th></th></tr></thead>
+      <tbody>
+      {% for row in overview %}
+        <tr data-status="{{ row.status }}" data-search="{{ (row.name ~ ' ' ~ row.patient_id ~ ' ' ~ row.diagnosis) | lower }}">
+          <td>{% if row.risk_score > 0 %}<div class="risk-score risk-{{ 'hi' if row.risk_score >= 75 else 'mid' if row.risk_score >= 50 else 'lo' }}">{{ '%.0f'|format(row.risk_score) }}</div>{% else %}<div class="risk-score risk-none">—</div>{% endif %}</td>
+          <td><div class="person-cell"><div class="avatar avatar-soft">{{ row.name.split(' ')[0][0] }}{{ row.name.split(' ')[-1][0] }}</div><div><strong>{{ row.name }}</strong><small>{{ row.patient_id }} · {{ row.diagnosis }}</small></div></div></td>
+          <td><strong>Week {{ row.treatment_week }}</strong><small class="cell-sub">Day {{ row.tx_day }} of treatment</small></td>
+          <td>{% if row.status == 'alerting' %}<span class="status-chip alert"><i></i>Needs review</span>{% elif row.status == 'insufficient_baseline' %}<span class="status-chip warn"><i></i>Learning baseline</span>{% else %}<span class="status-chip ok"><i></i>Tracking</span>{% endif %}</td>
+          <td><span class="signal-label">{{ row.alert_types | join(' + ') | replace('_',' ') or 'No active pattern' }}</span></td>
+          <td>{% if row.top_alert_id %}<a class="row-action" href="/clinician/{{ row.top_alert_id }}">→</a>{% else %}<span class="row-action muted-action">·</span>{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <div id="no-results" class="empty-state" hidden>No patients match that view.</div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const search = document.getElementById('patient-search');
+const filter = document.getElementById('status-filter');
+function filterRows() {
+  const q = search.value.trim().toLowerCase(); const status = filter.value; let shown = 0;
+  document.querySelectorAll('.modern-table tbody tr').forEach(row => {
+    const match = (!q || row.dataset.search.includes(q)) && (status === 'all' || row.dataset.status === status);
+    row.hidden = !match; if (match) shown++;
+  });
+  document.getElementById('no-results').hidden = shown > 0;
+}
+search.addEventListener('input', filterRows); filter.addEventListener('change', filterRows);
+</script>
+{% endblock %}

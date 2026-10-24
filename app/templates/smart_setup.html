@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}SMART on FHIR setup — Between Visits{% endblock %}
+{% block content %}
+<section class="page-head"><div><div class="eyebrow compact"><span></span> EHR integration</div><h1>Launch from a SMART EHR.</h1><p>Use the SMART Health IT launcher to test the clinician workflow.</p></div></section>
+<section class="smart-setup-grid">
+  <article class="side-card smart-instructions">
+    <span class="section-kicker">SMART Health IT launcher</span><h2>Provider EHR launch</h2>
+    <ol>
+      <li>Open the public SMART launcher.</li>
+      <li>Select an <strong>R4 Provider EHR Launch</strong>.</li>
+      <li>Paste the App Launch URL and Redirect URI below.</li>
+      <li>Use the displayed public client ID and launch a patient context.</li>
+    </ol>
+    <a class="button button-primary" href="https://launch.smarthealthit.org/" target="_blank" rel="noopener">Open SMART launcher ↗</a>
+  </article>
+  <article class="side-card smart-values"><span class="section-kicker">Launcher values</span><h2>Copy these settings</h2>
+    <label>App Launch URL<code>{{ app_launch_url }}</code></label>
+    <label>Redirect URI<code>{{ redirect_uri }}</code></label>
+    <label>Client ID<code>{{ client_id }}</code></label>
+    <label>Scopes<code>launch openid fhirUser patient/*.read</code></label>
+  </article>
+</section>
+<div class="safety-ribbon"><span>ⓘ</span><p><strong>Synthetic demo only.</strong> The SMART launch establishes EHR context. Lab results shown in this prototype come from synthetic FHIR R4 Observations seeded to the shared public HAPI test server.</p></div>
+<section class="side-card"><span class="section-kicker">Local testing note</span><h2>Callback access</h2><p>The launcher redirects through your browser, so a localhost callback works when the app is running on this machine. For a hosted demo, set <code>SMART_REDIRECT_URI</code> to the deployed HTTPS callback and add the host to <code>SMART_ALLOWED_HOSTS</code> only when testing another issuer.</p></section>
+{% endblock %}

@@ -1,0 +1,350 @@
+patient_id,medication,dose,route_frequency,start_tx_day,stop_tx_day,indication,status
+P001,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P001,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P001,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P001,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P001,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P001,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P001,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P001,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P001,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P001,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P001,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P001,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P001,oxycodone oral solution,5 mg,PO q4h PRN,29,,severe mucositis pain,active
+P001,senna-docusate,8.6/50 mg,PO BID,29,,opioid-induced constipation,active
+P001,IV normal saline bolus,2 L,IV in ED,22,22,dehydration / AKI,completed
+P001,IV hydration clinic,1 L,IV 3x/week,23,36,prevent recurrent dehydration,completed
+P002,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P002,metformin,500 mg,PO BID,-60,,type 2 diabetes,active
+P002,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P002,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P002,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P002,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P002,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P002,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P002,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P002,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P002,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P002,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P002,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P002,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P002,oxycodone oral solution,5 mg,PO q4h PRN,29,,severe mucositis pain,active
+P002,senna-docusate,8.6/50 mg,PO BID,29,,opioid-induced constipation,active
+P002,aztreonam,2 g,IV q8h,34,39,febrile neutropenia (empiric),completed
+P002,filgrastim,5 mcg/kg,SC daily until ANC recovery,34,38,febrile neutropenia,completed
+P002,acetaminophen,650 mg,PO q6h PRN fever,34,,fever,active
+P003,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P003,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P003,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P003,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,29,,mucositis pain,active
+P003,gabapentin,300 mg,PO TID,29,,mucositis neuropathic pain,active
+P003,fluconazole,100 mg,PO daily x7 days,15,22,oral candidiasis,completed
+P101,levothyroxine,75 mcg,PO daily,-60,,hypothyroidism,active
+P101,metformin,500 mg,PO BID,-60,,type 2 diabetes,active
+P101,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P101,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P101,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P101,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P101,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P101,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P101,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P101,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P101,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P101,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P101,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P101,oxycodone oral solution,5 mg,PO q4h PRN,29,,severe mucositis pain,active
+P101,senna-docusate,8.6/50 mg,PO BID,29,,opioid-induced constipation,active
+P101,fluconazole,100 mg,PO daily x7 days,43,50,oral candidiasis,completed
+P101,cefepime,2 g,IV q8h,34,39,febrile neutropenia (empiric),completed
+P101,filgrastim,5 mcg/kg,SC daily until ANC recovery,34,38,febrile neutropenia,completed
+P101,acetaminophen,650 mg,PO q6h PRN fever,34,,fever,active
+P102,levothyroxine,75 mcg,PO daily,-60,,hypothyroidism,active
+P102,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P102,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P102,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P102,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,29,,mucositis pain,active
+P102,gabapentin,300 mg,PO TID,29,,mucositis neuropathic pain,active
+P102,fluconazole,100 mg,PO daily x7 days,22,29,oral candidiasis,completed
+P103,acetaminophen,650 mg,PO q6h PRN,-60,,osteoarthritis,active
+P103,tiotropium,18 mcg,inhaled daily,-60,,COPD,active
+P103,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P103,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P103,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P103,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P103,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P103,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P103,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P103,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P103,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P103,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P103,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,29,,mucositis pain,active
+P103,gabapentin,300 mg,PO TID,29,,mucositis neuropathic pain,active
+P103,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P103,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P103,cefepime,2 g,IV q8h,38,43,febrile neutropenia (empiric),completed
+P103,filgrastim,5 mcg/kg,SC daily until ANC recovery,38,42,febrile neutropenia,completed
+P103,acetaminophen,650 mg,PO q6h PRN fever,38,,fever,active
+P104,acetaminophen,650 mg,PO q6h PRN,-60,,osteoarthritis,active
+P104,omeprazole,20 mg,PO daily,-60,,GERD,active
+P104,sertraline,50 mg,PO daily,-60,,depression,active
+P104,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P104,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P104,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P104,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P104,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P104,fluconazole,100 mg,PO daily x7 days,29,36,oral candidiasis,completed
+P104,IV normal saline bolus,2 L,IV in ED,23,23,dehydration / AKI,completed
+P104,IV hydration clinic,1 L,IV 3x/week,24,37,prevent recurrent dehydration,completed
+P105,acetaminophen,650 mg,PO q6h PRN,-60,,osteoarthritis,active
+P105,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P105,sertraline,50 mg,PO daily,-60,,depression,active
+P105,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P105,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P105,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P105,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P105,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P105,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P105,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P105,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P105,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P105,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P105,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P105,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P105,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P105,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P106,omeprazole,20 mg,PO daily,-60,,GERD,active
+P106,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P106,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P106,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P106,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P106,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P106,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P106,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P106,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P106,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P106,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P106,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,29,,mucositis pain,active
+P106,gabapentin,300 mg,PO TID,29,,mucositis neuropathic pain,active
+P106,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P106,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P107,omeprazole,20 mg,PO daily,-60,,GERD,active
+P107,aspirin,81 mg,PO daily,-60,,coronary artery disease,active
+P107,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P107,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P107,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P107,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P107,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P107,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P107,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P107,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P107,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P107,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P107,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P107,oxycodone oral solution,5 mg,PO q4h PRN,29,,severe mucositis pain,active
+P107,senna-docusate,8.6/50 mg,PO BID,29,,opioid-induced constipation,active
+P107,IV normal saline bolus,2 L,IV in ED,18,18,dehydration / AKI,completed
+P107,IV hydration clinic,1 L,IV 3x/week,19,32,prevent recurrent dehydration,completed
+P108,metformin,500 mg,PO BID,-60,,type 2 diabetes,active
+P108,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P108,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P108,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P108,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P108,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P108,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P108,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P108,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P108,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P108,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P108,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P108,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P108,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P108,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P108,fluconazole,100 mg,PO daily x7 days,29,36,oral candidiasis,completed
+P109,aspirin,81 mg,PO daily,-60,,coronary artery disease,active
+P109,tiotropium,18 mcg,inhaled daily,-60,,COPD,active
+P109,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P109,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P109,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P109,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P109,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P109,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P109,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P109,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P109,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P109,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P109,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P109,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P109,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P109,fluconazole,100 mg,PO daily x7 days,29,36,oral candidiasis,completed
+P110,atorvastatin,20 mg,PO nightly,-60,,hyperlipidemia,active
+P110,sertraline,50 mg,PO daily,-60,,depression,active
+P110,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P110,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P110,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P110,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P110,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P110,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P110,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P110,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P110,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P110,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P110,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P110,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P110,oxycodone oral solution,5 mg,PO q4h PRN,29,,severe mucositis pain,active
+P110,senna-docusate,8.6/50 mg,PO BID,29,,opioid-induced constipation,active
+P110,fluconazole,100 mg,PO daily x7 days,15,22,oral candidiasis,completed
+P111,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P111,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P111,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P111,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P111,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P111,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P111,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P111,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P111,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P111,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P111,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P111,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P111,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P112,levothyroxine,75 mcg,PO daily,-60,,hypothyroidism,active
+P112,sertraline,50 mg,PO daily,-60,,depression,active
+P112,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P112,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P112,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P112,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P112,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P112,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P112,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P112,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P112,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P112,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P112,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P112,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P112,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P112,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P112,IV normal saline bolus,2 L,IV in ED,40,40,dehydration / AKI,completed
+P112,IV hydration clinic,1 L,IV 3x/week,41,49,prevent recurrent dehydration,completed
+P113,metformin,500 mg,PO BID,-60,,type 2 diabetes,active
+P113,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P113,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P113,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P113,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P113,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P113,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P113,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P113,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P113,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P113,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P113,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P113,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P113,oxycodone oral solution,5 mg,PO q4h PRN,29,,severe mucositis pain,active
+P113,senna-docusate,8.6/50 mg,PO BID,29,,opioid-induced constipation,active
+P113,fluconazole,100 mg,PO daily x7 days,43,50,oral candidiasis,completed
+P113,IV normal saline bolus,2 L,IV in ED,34,34,dehydration / AKI,completed
+P113,IV hydration clinic,1 L,IV 3x/week,35,48,prevent recurrent dehydration,completed
+P114,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P114,atorvastatin,20 mg,PO nightly,-60,,hyperlipidemia,active
+P114,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P114,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P114,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P114,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P114,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P114,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P114,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P114,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P114,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P114,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P114,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P114,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P114,oxycodone oral solution,5 mg,PO q4h PRN,29,,severe mucositis pain,active
+P114,senna-docusate,8.6/50 mg,PO BID,29,,opioid-induced constipation,active
+P114,IV normal saline bolus,2 L,IV in ED,33,33,dehydration / AKI,completed
+P114,IV hydration clinic,1 L,IV 3x/week,34,47,prevent recurrent dehydration,completed
+P115,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P115,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P115,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P115,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P115,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P115,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P115,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P115,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P115,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P115,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P115,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P115,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P115,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P115,IV normal saline bolus,2 L,IV in ED,37,37,dehydration / AKI,completed
+P115,IV hydration clinic,1 L,IV 3x/week,38,49,prevent recurrent dehydration,completed
+P116,atorvastatin,20 mg,PO nightly,-60,,hyperlipidemia,active
+P116,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P116,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P116,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P116,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P116,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,29,,mucositis pain,active
+P116,gabapentin,300 mg,PO TID,29,,mucositis neuropathic pain,active
+P116,fluconazole,100 mg,PO daily x7 days,15,22,oral candidiasis,completed
+P117,acetaminophen,650 mg,PO q6h PRN,-60,,osteoarthritis,active
+P117,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P117,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P117,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P117,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,29,,mucositis pain,active
+P117,gabapentin,300 mg,PO TID,29,,mucositis neuropathic pain,active
+P117,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P117,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P117,fluconazole,100 mg,PO daily x7 days,15,22,oral candidiasis,completed
+P117,IV normal saline bolus,2 L,IV in ED,39,39,dehydration / AKI,completed
+P117,IV hydration clinic,1 L,IV 3x/week,40,42,prevent recurrent dehydration,completed
+P118,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P118,omeprazole,20 mg,PO daily,-60,,GERD,active
+P118,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P118,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P118,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P118,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P118,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P118,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P118,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P118,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P118,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P118,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P118,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P118,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P118,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P118,IV normal saline bolus,2 L,IV in ED,26,26,dehydration / AKI,completed
+P118,IV hydration clinic,1 L,IV 3x/week,27,40,prevent recurrent dehydration,completed
+P119,atorvastatin,20 mg,PO nightly,-60,,hyperlipidemia,active
+P119,sertraline,50 mg,PO daily,-60,,depression,active
+P119,aspirin,81 mg,PO daily,-60,,coronary artery disease,active
+P119,cisplatin,40 mg/m2,IV weekly,1,36,concurrent chemoradiation,completed
+P119,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P119,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P119,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P119,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P119,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P119,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P119,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P119,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P119,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P119,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P119,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P119,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active
+P119,fluconazole,100 mg,PO daily x7 days,29,36,oral candidiasis,completed
+P119,cefepime,2 g,IV q8h,35,40,febrile neutropenia (empiric),completed
+P119,filgrastim,5 mcg/kg,SC daily until ANC recovery,35,39,febrile neutropenia,completed
+P119,acetaminophen,650 mg,PO q6h PRN fever,35,,fever,active
+P120,lisinopril,10 mg,PO daily,-60,,hypertension,active
+P120,atorvastatin,20 mg,PO nightly,-60,,hyperlipidemia,active
+P120,cisplatin,100 mg/m2,IV every 3 weeks,1,43,concurrent chemoradiation,completed
+P120,fosaprepitant,150 mg,IV with each cisplatin dose,1,43,CINV prophylaxis,completed
+P120,ondansetron,8 mg,PO q8h PRN nausea,1,,CINV,active
+P120,dexamethasone,8 mg,PO daily days 2-3 after cisplatin,1,,delayed CINV,active
+P120,olanzapine,5 mg,PO nightly x4 days after cisplatin,1,,CINV,active
+P120,IV normal saline pre/post-hydration,1-2 L,IV with cisplatin,1,,nephroprotection,active
+P120,magnesium sulfate,2 g,IV with cisplatin,1,,cisplatin-related magnesium wasting,active
+P120,sodium bicarbonate / salt mouth rinse,15 mL,swish 4-6x/day,1,,oral care during RT,active
+P120,fluoride gel 1.1%,trays,nightly,-14,,radiation caries prevention,active
+P120,topical moisturizer (radiation skin care),thin layer,BID to neck,1,,radiation dermatitis,active
+P120,viscous lidocaine-diphenhydramine-antacid mouthwash,10 mL,swish/spit q4h PRN,22,,mucositis pain,active
+P120,gabapentin,300 mg,PO TID,22,,mucositis neuropathic pain,active
+P120,oxycodone oral solution,5 mg,PO q4h PRN,36,,severe mucositis pain,active
+P120,senna-docusate,8.6/50 mg,PO BID,36,,opioid-induced constipation,active

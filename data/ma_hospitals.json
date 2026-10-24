@@ -1,0 +1,24 @@
+{
+  "note": "Subset of Massachusetts acute-care hospitals with approximate coordinates, modeled on the MassGIS hospitals dataset. For the synthetic demo only.",
+  "source": "MassGIS (Bureau of Geographic Information) hospitals layer — subset",
+  "hospitals": [
+    {"name": "Massachusetts General Hospital", "city": "Boston", "address": "55 Fruit St, Boston, MA 02114", "lat": 42.3626, "lon": -71.0686, "ed": true},
+    {"name": "Brigham and Women's Hospital", "city": "Boston", "address": "75 Francis St, Boston, MA 02115", "lat": 42.3362, "lon": -71.1065, "ed": true},
+    {"name": "Beth Israel Deaconess Medical Center", "city": "Boston", "address": "330 Brookline Ave, Boston, MA 02215", "lat": 42.3399, "lon": -71.1053, "ed": true},
+    {"name": "Boston Medical Center", "city": "Boston", "address": "1 Boston Medical Center Pl, Boston, MA 02118", "lat": 42.3351, "lon": -71.0723, "ed": true},
+    {"name": "Tufts Medical Center", "city": "Boston", "address": "800 Washington St, Boston, MA 02111", "lat": 42.3493, "lon": -71.0636, "ed": true},
+    {"name": "Cambridge Health Alliance - Cambridge Hospital", "city": "Cambridge", "address": "1493 Cambridge St, Cambridge, MA 02139", "lat": 42.3736, "lon": -71.1010, "ed": true},
+    {"name": "Mount Auburn Hospital", "city": "Cambridge", "address": "330 Mount Auburn St, Cambridge, MA 02138", "lat": 42.3760, "lon": -71.1316, "ed": true},
+    {"name": "Newton-Wellesley Hospital", "city": "Newton", "address": "2014 Washington St, Newton, MA 02462", "lat": 42.3179, "lon": -71.2320, "ed": true},
+    {"name": "Lahey Hospital & Medical Center", "city": "Burlington", "address": "41 Mall Rd, Burlington, MA 01805", "lat": 42.4865, "lon": -71.2140, "ed": true},
+    {"name": "Winchester Hospital", "city": "Winchester", "address": "41 Highland Ave, Winchester, MA 01890", "lat": 42.4523, "lon": -71.1370, "ed": true},
+    {"name": "Melrose-Wakefield Hospital", "city": "Melrose", "address": "585 Lebanon St, Melrose, MA 02176", "lat": 42.4556, "lon": -71.0589, "ed": true},
+    {"name": "Salem Hospital", "city": "Salem", "address": "81 Highland Ave, Salem, MA 01970", "lat": 42.5100, "lon": -70.9034, "ed": true},
+    {"name": "South Shore Hospital", "city": "Weymouth", "address": "55 Fogg Rd, South Weymouth, MA 02190", "lat": 42.1686, "lon": -70.9460, "ed": true},
+    {"name": "UMass Memorial Medical Center", "city": "Worcester", "address": "55 Lake Ave N, Worcester, MA 01655", "lat": 42.2745, "lon": -71.7676, "ed": true},
+    {"name": "Baystate Medical Center", "city": "Springfield", "address": "759 Chestnut St, Springfield, MA 01199", "lat": 42.1143, "lon": -72.5905, "ed": true},
+    {"name": "Cape Cod Hospital", "city": "Hyannis", "address": "27 Park St, Hyannis, MA 02601", "lat": 41.6530, "lon": -70.2860, "ed": true},
+    {"name": "Berkshire Medical Center", "city": "Pittsfield", "address": "725 North St, Pittsfield, MA 01201", "lat": 42.4668, "lon": -73.2446, "ed": true},
+    {"name": "Lowell General Hospital", "city": "Lowell", "address": "295 Varnum Ave, Lowell, MA 01854", "lat": 42.6580, "lon": -71.3400, "ed": true}
+  ]
+}

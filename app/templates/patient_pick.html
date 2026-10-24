@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Choose a patient — Between Visits{% endblock %}
+{% block content %}
+<section class="page-head picker-head"><div><div class="eyebrow compact"><span></span> Patient experience</div><h1>Choose a synthetic story.</h1><p>Open the mobile view as a patient or caregiver.</p></div></section>
+
+<div class="demo-picks">
+  {% for p in patients if p.cohort == 'demo' %}
+  <a class="demo-pick" href="/patient/{{ p.id }}">
+    <div class="avatar avatar-large {{ 'avatar-coral' if p.id == 'P001' else 'avatar-blue' if p.id == 'P002' else 'avatar-green' }}">{{ p.name.split(' ')[0][0] }}{{ p.name.split(' ')[-1][0] }}</div>
+    <div><span class="story-tag">{{ 'Dehydration story' if p.id == 'P001' else 'Fever story' if p.id == 'P002' else 'False-alarm control' }}</span><h2>{{ p.name }}</h2><p>{{ p.diagnosis }}</p><small>{{ p.story }}</small></div>
+    <span class="pick-arrow">→</span>
+  </a>
+  {% endfor %}
+</div>
+
+<section class="cohort-pick"><div class="section-bar"><div><span class="section-kicker">Explore the cohort</span><h2>20 additional patients</h2></div></div>
+  <div class="patient-chip-grid">
+  {% for p in patients if p.cohort != 'demo' %}
+    <a href="/patient/{{ p.id }}"><span class="avatar avatar-tiny">{{ p.name.split(' ')[0][0] }}{{ p.name.split(' ')[-1][0] }}</span><span><strong>{{ p.name }}</strong><small>{{ p.id }} · {{ p.status | replace('_',' ') }}</small></span><i>→</i></a>
+  {% endfor %}
+  </div>
+</section>
+{% endblock %}

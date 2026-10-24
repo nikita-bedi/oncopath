@@ -1,0 +1,16 @@
+patient_id,event_type,onset_tx_day,onset_date,earliest_reasonable_alert_tx_day,counterfactual_ed_tx_day,counterfactual_ed_date,should_alert
+P001,dehydration,15,2026-09-28,18.0,22.0,2026-10-05,True
+P002,neutropenic_fever,33,2026-10-16,34.0,34.0,2026-10-17,True
+P003,false_alarm_confounder,10,2026-09-23,,,,False
+P101,neutropenic_fever,33,2026-10-23,34.0,34.0,2026-10-24,True
+P102,false_alarm_confounder,17,2026-10-07,,,,False
+P103,neutropenic_fever,37,2026-10-13,38.0,38.0,2026-10-14,True
+P104,dehydration,15,2026-09-21,19.0,23.0,2026-09-29,True
+P107,dehydration,12,2026-09-11,15.0,18.0,2026-09-17,True
+P112,dehydration,33,2026-10-23,36.0,40.0,2026-10-30,True
+P113,dehydration,28,2026-10-04,31.0,34.0,2026-10-10,True
+P114,dehydration,27,2026-10-17,30.0,33.0,2026-10-23,True
+P115,dehydration,31,2026-10-28,34.0,37.0,2026-11-03,True
+P117,dehydration,32,2026-10-01,35.0,39.0,2026-10-08,True
+P118,dehydration,18,2026-10-15,22.0,26.0,2026-10-23,True
+P119,neutropenic_fever,34,2026-10-31,35.0,35.0,2026-11-01,True

@@ -1,0 +1,185 @@
+patient_id,date,tx_day,weight_kg,height_cm,bmi,weight_change_pct_from_baseline,avg_meals_eaten_pct_7d,avg_fluid_cups_7d,est_energy_need_kcal,est_energy_intake_kcal,est_protein_need_g,est_protein_intake_g,fluid_goal_cups,diet_texture,feeding_route,oral_nutrition_supplement,pg_sga_score,pg_sga_category,pg_sga_triage,glim_criteria,dietitian_seen,taste_change,synthetic
+P001,2026-09-07,-6,67.8,162.0,25.8,-0.3,97.0,8.5,2050,2087,88,85,8,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P001,2026-09-14,1,67.7,162.0,25.8,-0.5,94.8,8.2,2050,2039,88,83,8,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P001,2026-09-21,8,67.5,162.0,25.7,-0.8,85.4,7.5,2000,1708,88,75,8,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P001,2026-09-28,15,67.0,162.0,25.5,-1.5,84.0,7.3,2000,1680,87,73,8,regular,oral + ONS,1-2 bottles/day,3,A (well nourished),patient education,not met,False,yes,True
+P001,2026-10-05,22,64.9,162.0,24.7,-4.6,56.1,3.9,1950,1094,84,47,8,soft/moist,oral + ONS,1-2 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P001,2026-10-12,29,64.3,162.0,24.5,-5.5,59.9,5.4,1950,1167,84,50,8,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P001,2026-10-19,36,63.5,162.0,24.2,-6.6,53.6,5.3,1900,1017,83,44,8,pureed/liquid,oral + ONS,1-2 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P001,2026-10-26,43,62.7,162.0,23.9,-7.8,53.0,5.4,1900,1007,82,43,8,pureed/liquid,oral + ONS,1-2 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P002,2026-09-07,-6,82.1,178.0,25.9,0.1,97.0,8.5,2450,2495,107,103,10,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P002,2026-09-14,1,81.9,178.0,25.8,-0.1,95.5,7.7,2450,2456,106,101,10,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P002,2026-09-21,8,81.7,178.0,25.8,-0.3,85.0,7.4,2450,2082,106,90,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P002,2026-09-28,15,81.4,178.0,25.7,-0.7,91.7,7.9,2450,2358,106,97,10,regular,oral,none,1,A (well nourished),no intervention,not met,False,yes,True
+P002,2026-10-05,22,80.9,178.0,25.5,-1.4,80.1,6.9,2450,1963,105,84,10,soft/moist,oral + ONS,1-2 bottles/day,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P002,2026-10-12,29,80.1,178.0,25.3,-2.4,55.1,5.6,2400,1323,104,57,10,pureed/liquid,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P002,2026-10-19,36,79.1,178.0,25.0,-3.6,47.6,5.9,2350,1117,103,48,10,pureed/liquid,oral + ONS,1-2 bottles/day,15,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P002,2026-10-26,43,78.4,178.0,24.7,-4.4,60.9,5.8,2350,1430,102,62,10,pureed/liquid,NG tube placed,none,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P003,2026-09-07,-6,60.8,165.0,22.3,-0.4,97.0,8.5,1800,1833,79,76,8,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P003,2026-09-14,1,60.6,165.0,22.3,-0.7,100.0,8.0,1800,1890,79,79,8,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P003,2026-09-21,8,60.5,165.0,22.2,-0.8,98.7,7.5,1800,1864,79,77,8,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P003,2026-09-28,15,60.3,165.0,22.1,-1.1,95.2,7.7,1800,1798,78,74,8,regular,oral,none,2,A (well nourished),patient education,not met,False,yes,True
+P003,2026-10-05,22,60.2,165.0,22.1,-1.2,88.8,7.6,1800,1599,78,69,8,regular,oral,none,6,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P003,2026-10-12,29,59.9,165.0,22.0,-1.9,74.0,6.7,1800,1332,78,57,8,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P003,2026-10-19,36,59.2,165.0,21.7,-2.9,73.0,6.7,1800,1314,77,56,8,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P003,2026-10-26,43,58.6,165.0,21.5,-3.9,66.6,6.3,1750,1165,76,50,8,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P101,2026-09-14,-6,62.6,175.8,20.3,0.3,97.0,8.5,1900,1935,81,78,8,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P101,2026-09-21,1,62.5,175.8,20.2,0.1,93.5,8.1,1900,1865,81,75,8,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P101,2026-09-28,8,62.2,175.8,20.1,-0.3,90.0,8.0,1850,1665,81,72,8,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P101,2026-10-05,15,62.0,175.8,20.1,-0.6,85.7,7.6,1850,1585,81,69,8,regular,oral,none,3,A (well nourished),patient education,not met,False,yes,True
+P101,2026-10-12,22,61.6,175.8,19.9,-1.2,75.5,6.5,1850,1396,80,60,8,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P101,2026-10-19,29,60.9,175.8,19.7,-2.4,56.7,6.1,1850,1048,79,44,8,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P101,2026-10-26,36,60.0,175.8,19.4,-3.9,41.9,4.7,1800,753,78,32,8,pureed/liquid,oral + ONS,1-2 bottles/day,16,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P101,2026-11-02,43,59.1,175.8,19.1,-5.2,56.0,5.7,1750,980,77,43,8,pureed/liquid,NG tube placed,3 bottles/day,14,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P102,2026-09-14,-6,90.0,181.3,27.4,-0.1,97.0,8.5,2700,2749,117,113,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P102,2026-09-21,1,89.9,181.3,27.4,-0.2,98.0,7.8,2700,2778,117,114,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P102,2026-09-28,8,89.8,181.3,27.3,-0.3,95.1,7.7,2700,2697,117,111,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P102,2026-10-05,15,89.5,181.3,27.2,-0.7,89.9,7.8,2700,2426,116,104,10,regular,oral,none,3,A (well nourished),patient education,not met,False,yes,True
+P102,2026-10-12,22,89.1,181.3,27.1,-1.1,84.3,7.0,2650,2234,116,97,10,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P102,2026-10-19,29,88.5,181.3,26.9,-1.8,69.1,6.6,2650,1832,115,79,10,soft/moist,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P102,2026-10-26,36,87.9,181.3,26.7,-2.5,70.0,6.4,2650,1855,114,79,10,soft/moist,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P102,2026-11-02,43,87.2,181.3,26.5,-3.2,69.0,6.2,2600,1794,113,77,10,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P103,2026-08-31,-6,91.1,172.8,30.5,0.1,97.0,8.5,2750,2800,118,114,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P103,2026-09-07,1,91.1,172.8,30.5,0.1,93.5,8.0,2750,2699,118,110,10,regular,PEG in place,none,2,A (well nourished),patient education,not met,False,no,True
+P103,2026-09-14,8,90.7,172.8,30.4,-0.4,83.9,7.1,2700,2264,118,98,10,regular,PEG in place,none,3,A (well nourished),patient education,not met,False,no,True
+P103,2026-09-21,15,90.5,172.8,30.3,-0.6,90.4,7.6,2700,2563,118,106,10,regular,PEG in place,none,2,A (well nourished),patient education,not met,False,yes,True
+P103,2026-09-28,22,89.9,172.8,30.1,-1.2,75.4,7.1,2700,2036,117,88,10,soft/moist,PEG in place,none,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P103,2026-10-05,29,88.9,172.8,29.8,-2.3,54.8,5.5,2650,1453,116,63,10,pureed/liquid,PEG in place,3 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P103,2026-10-12,36,88.1,172.8,29.5,-3.2,59.2,6.2,2650,1567,115,68,10,pureed/liquid,PEG in place,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P103,2026-10-19,43,86.8,172.8,29.1,-4.7,40.3,5.2,2600,1047,113,45,10,pureed/liquid,PEG in place,3 bottles/day,16,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P104,2026-08-31,-6,61.2,170.5,21.1,-0.4,97.0,8.5,1850,1884,80,77,8,regular,oral,none,3,A (well nourished),patient education,not met,True,no,True
+P104,2026-09-07,1,61.2,170.5,21.1,-0.3,98.7,8.1,1850,1916,80,78,8,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P104,2026-09-14,8,61.2,170.5,21.1,-0.4,98.1,7.8,1850,1906,80,78,8,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P104,2026-09-21,15,60.9,170.5,20.9,-0.8,94.0,7.8,1850,1825,79,74,8,regular,oral,none,3,A (well nourished),patient education,not met,False,yes,True
+P104,2026-09-28,22,59.2,170.5,20.4,-3.5,68.4,4.6,1800,1231,77,52,8,soft/moist,oral + ONS,1-2 bottles/day,15,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P104,2026-10-05,29,58.4,170.5,20.1,-4.9,67.4,5.7,1750,1180,76,51,8,soft/moist,oral + ONS,1-2 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P104,2026-10-12,36,57.7,170.5,19.8,-5.9,64.3,6.4,1750,1125,75,48,8,pureed/liquid,oral + ONS,1-2 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P104,2026-10-19,43,57.2,170.5,19.7,-6.9,65.1,6.5,1700,1107,74,48,8,pureed/liquid,oral + ONS,1-2 bottles/day,14,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P105,2026-09-14,-6,86.5,172.9,28.9,-0.3,97.0,8.5,2600,2648,112,108,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P105,2026-09-21,1,86.5,172.9,28.9,-0.2,95.2,7.8,2600,2600,112,106,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P105,2026-09-28,8,86.2,172.9,28.8,-0.6,87.7,6.9,2600,2280,112,98,10,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P105,2026-10-05,15,86.2,172.9,28.8,-0.6,94.4,7.8,2600,2577,112,105,10,regular,oral,none,2,A (well nourished),patient education,not met,False,yes,True
+P105,2026-10-12,22,86.0,172.9,28.8,-0.8,84.4,6.7,2600,2195,112,94,10,soft/moist,oral + ONS,1-2 bottles/day,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P105,2026-10-19,29,85.0,172.9,28.4,-2.0,55.2,5.1,2550,1406,110,60,10,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P105,2026-10-26,36,84.1,172.9,28.1,-3.0,60.5,5.5,2500,1512,109,65,10,pureed/liquid,oral + ONS,1-2 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P105,2026-11-02,43,83.2,172.9,27.8,-4.1,60.6,5.7,2500,1514,108,65,10,pureed/liquid,oral + ONS,1-2 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P106,2026-09-21,-6,66.8,161.2,25.7,0.3,97.0,8.5,2000,2037,87,84,8,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P106,2026-09-28,1,66.7,161.2,25.7,0.1,94.8,7.7,2000,1989,87,82,8,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P106,2026-10-05,8,66.3,161.2,25.5,-0.5,90.2,7.2,2000,1893,86,77,8,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P106,2026-10-12,15,66.1,161.2,25.4,-0.8,90.6,8.0,2000,1902,86,77,8,regular,oral,none,2,A (well nourished),patient education,not met,False,yes,True
+P106,2026-10-19,22,65.7,161.2,25.3,-1.4,82.8,6.9,1950,1615,85,70,8,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P106,2026-10-26,29,64.9,161.2,25.0,-2.6,56.8,5.2,1950,1108,84,47,8,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P106,2026-11-02,36,64.2,161.2,24.7,-3.6,63.9,5.9,1950,1245,83,53,8,pureed/liquid,NG tube placed,none,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P106,2026-11-09,43,63.4,161.2,24.4,-4.8,60.5,6.1,1900,1149,82,49,8,pureed/liquid,oral + ONS,1-2 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P107,2026-08-24,-6,72.2,168.8,25.3,-0.0,97.0,8.5,2150,2189,94,91,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P107,2026-08-31,1,72.0,168.8,25.3,-0.2,93.5,8.0,2150,2110,94,87,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P107,2026-09-07,8,71.8,168.8,25.2,-0.6,89.3,7.4,2150,1919,93,83,10,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P107,2026-09-14,15,70.9,168.8,24.9,-1.9,78.1,6.3,2150,1680,92,71,10,regular,oral + ONS,1-2 bottles/day,4,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P107,2026-09-21,22,69.4,168.8,24.4,-3.9,61.1,4.5,2100,1284,90,55,8,soft/moist,oral + ONS,1-2 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P107,2026-09-28,29,68.7,168.8,24.1,-4.8,61.7,5.5,2050,1264,89,54,8,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P107,2026-10-05,36,67.9,168.8,23.8,-6.0,57.0,5.4,2050,1168,88,50,8,pureed/liquid,NG tube placed,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P107,2026-10-12,43,67.0,168.8,23.5,-7.2,57.6,5.7,2000,1151,87,50,8,pureed/liquid,NG tube placed,3 bottles/day,14,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P108,2026-09-14,-6,75.8,178.5,23.8,0.0,97.0,8.5,2250,2291,99,96,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P108,2026-09-21,1,75.9,178.5,23.8,0.1,99.0,8.0,2300,2390,99,98,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P108,2026-09-28,8,75.6,178.5,23.7,-0.3,91.0,7.8,2250,2149,98,89,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P108,2026-10-05,15,75.6,178.5,23.7,-0.3,83.9,7.1,2250,1886,98,82,10,regular,oral + ONS,1-2 bottles/day,3,A (well nourished),patient education,not met,False,yes,True
+P108,2026-10-12,22,74.8,178.5,23.5,-1.4,72.3,6.9,2250,1626,97,70,10,soft/moist,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P108,2026-10-19,29,73.9,178.5,23.2,-2.5,57.1,6.0,2200,1257,96,54,10,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P108,2026-10-26,36,73.2,178.5,23.0,-3.4,56.1,5.1,2200,1235,95,53,10,pureed/liquid,NG tube placed,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P108,2026-11-02,43,72.2,178.5,22.7,-4.8,51.0,5.7,2150,1096,94,47,10,pureed/liquid,NG tube placed,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P109,2026-08-31,-6,72.1,162.0,27.5,-0.1,97.0,8.5,2150,2189,94,91,10,regular,oral,none,3,A (well nourished),patient education,not met,True,no,True
+P109,2026-09-07,1,72.2,162.0,27.5,-0.0,96.7,8.3,2150,2182,94,90,10,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P109,2026-09-14,8,72.2,162.0,27.5,0.0,90.0,7.4,2150,1935,94,84,10,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P109,2026-09-21,15,72.1,162.0,27.5,-0.2,83.7,7.4,2150,1798,94,78,10,regular,oral + ONS,1-2 bottles/day,4,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P109,2026-09-28,22,71.6,162.0,27.3,-0.8,76.9,6.3,2150,1652,93,71,10,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P109,2026-10-05,29,70.9,162.0,27.0,-1.9,58.0,5.9,2150,1247,92,53,10,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P109,2026-10-12,36,70.0,162.0,26.7,-3.1,55.0,5.6,2100,1155,91,50,8,pureed/liquid,oral + ONS,1-2 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P109,2026-10-19,43,69.4,162.0,26.4,-3.8,57.0,5.8,2100,1197,90,51,8,pureed/liquid,oral + ONS,1-2 bottles/day,14,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P110,2026-08-24,-6,69.1,172.1,23.3,-0.1,97.0,8.5,2050,2087,90,87,8,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P110,2026-08-31,1,68.8,172.1,23.2,-0.6,98.2,7.7,2050,2114,89,87,8,regular,PEG in place,none,1,A (well nourished),no intervention,not met,False,no,True
+P110,2026-09-07,8,68.5,172.1,23.1,-1.0,87.3,7.4,2050,1789,89,77,8,regular,PEG in place,none,3,A (well nourished),patient education,not met,False,no,True
+P110,2026-09-14,15,68.1,172.1,23.0,-1.5,90.4,7.7,2050,1946,89,80,8,regular,PEG in place,none,2,A (well nourished),patient education,not met,False,yes,True
+P110,2026-09-21,22,67.6,172.1,22.8,-2.4,78.3,6.9,2050,1604,88,68,8,soft/moist,PEG in place,none,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P110,2026-09-28,29,66.5,172.1,22.5,-4.0,56.3,5.7,2000,1125,86,48,8,pureed/liquid,PEG in place,3 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P110,2026-10-05,36,65.8,172.1,22.2,-5.0,61.7,5.8,1950,1202,86,53,8,pureed/liquid,PEG in place,none,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P110,2026-10-12,43,65.1,172.1,22.0,-5.9,61.1,5.7,1950,1192,85,51,8,pureed/liquid,PEG in place,none,13,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P111,2026-08-31,-6,76.1,165.8,27.7,-0.1,97.0,8.5,2300,2342,99,96,10,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P111,2026-09-07,1,76.0,165.8,27.6,-0.3,96.2,8.1,2300,2324,99,95,10,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P111,2026-09-14,8,76.0,165.8,27.6,-0.3,90.9,7.4,2300,2194,99,89,10,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P111,2026-09-21,15,75.7,165.8,27.5,-0.6,84.6,7.1,2250,1902,98,82,10,regular,oral + ONS,1-2 bottles/day,2,A (well nourished),patient education,not met,False,yes,True
+P111,2026-09-28,22,75.2,165.8,27.4,-1.3,71.8,6.3,2250,1616,98,70,10,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P111,2026-10-05,29,74.7,165.8,27.2,-2.0,64.0,6.1,2250,1440,97,62,10,pureed/liquid,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P111,2026-10-12,36,73.7,165.8,26.8,-3.3,54.9,5.4,2200,1206,96,52,10,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P111,2026-10-19,43,72.8,165.8,26.5,-4.4,51.6,5.1,2200,1135,95,49,10,pureed/liquid,NG tube placed,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P112,2026-09-14,-6,76.6,185.3,22.3,-0.2,97.0,8.5,2300,2342,100,97,10,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P112,2026-09-21,1,76.6,185.3,22.3,-0.2,96.0,7.9,2300,2318,100,96,10,regular,PEG in place,none,1,A (well nourished),no intervention,not met,False,no,True
+P112,2026-09-28,8,76.4,185.3,22.3,-0.5,85.7,7.4,2300,1971,99,84,10,regular,PEG in place,none,2,A (well nourished),patient education,not met,False,no,True
+P112,2026-10-05,15,76.3,185.3,22.2,-0.7,95.0,7.9,2300,2294,99,94,10,regular,PEG in place,none,1,A (well nourished),no intervention,not met,False,yes,True
+P112,2026-10-12,22,75.9,185.3,22.1,-1.2,76.4,7.3,2300,1757,99,75,10,soft/moist,PEG in place,none,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P112,2026-10-19,29,75.0,185.3,21.8,-2.4,56.6,5.8,2250,1273,98,55,10,pureed/liquid,PEG in place,3 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P112,2026-10-26,36,74.4,185.3,21.7,-3.1,52.6,5.0,2250,1182,97,50,10,pureed/liquid,PEG in place,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P112,2026-11-02,43,72.6,185.3,21.1,-5.4,40.7,3.0,2200,894,94,38,10,pureed/liquid,PEG in place,3 bottles/day,16,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P113,2026-08-31,-6,82.1,166.3,29.7,0.0,97.0,8.5,2450,2495,107,103,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P113,2026-09-07,1,82.2,166.3,29.7,0.2,93.0,7.3,2450,2392,107,99,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P113,2026-09-14,8,81.7,166.3,29.5,-0.5,86.7,7.3,2450,2123,106,91,10,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P113,2026-09-21,15,81.6,166.3,29.5,-0.6,94.8,7.4,2450,2439,106,100,10,regular,oral,none,2,A (well nourished),patient education,not met,False,yes,True
+P113,2026-09-28,22,81.1,166.3,29.3,-1.2,81.5,6.9,2450,1996,105,85,10,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P113,2026-10-05,29,80.7,166.3,29.2,-1.8,52.2,5.4,2400,1252,105,54,10,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P113,2026-10-12,36,79.0,166.3,28.6,-3.8,43.7,3.4,2350,1027,103,45,10,pureed/liquid,NG tube placed,3 bottles/day,15,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P113,2026-10-19,43,78.0,166.3,28.2,-5.0,56.7,5.5,2350,1331,101,57,10,pureed/liquid,NG tube placed,3 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P114,2026-09-14,-6,81.7,167.3,29.2,0.2,97.0,8.5,2450,2495,106,102,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P114,2026-09-21,1,81.8,167.3,29.2,0.2,96.2,7.8,2450,2476,106,102,10,regular,PEG in place,none,2,A (well nourished),patient education,not met,False,no,True
+P114,2026-09-28,8,81.4,167.3,29.1,-0.3,85.2,7.3,2450,2086,106,90,10,regular,PEG in place,none,3,A (well nourished),patient education,not met,False,no,True
+P114,2026-10-05,15,81.7,167.3,29.2,0.1,94.1,7.7,2450,2421,106,99,10,regular,PEG in place,none,2,A (well nourished),patient education,not met,False,yes,True
+P114,2026-10-12,22,81.4,167.3,29.1,-0.2,82.7,6.8,2450,2026,106,87,10,soft/moist,PEG in place,none,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P114,2026-10-19,29,80.7,167.3,28.8,-1.1,47.6,4.7,2400,1142,105,49,10,pureed/liquid,PEG in place,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P114,2026-10-26,36,78.8,167.3,28.2,-3.4,42.0,3.8,2350,987,102,42,10,pureed/liquid,PEG in place,3 bottles/day,15,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P114,2026-11-02,43,77.8,167.3,27.8,-4.7,57.6,6.3,2350,1352,101,58,10,pureed/liquid,PEG in place,3 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P115,2026-09-21,-6,62.5,150.3,27.7,0.1,97.0,8.5,1900,1935,81,78,8,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P115,2026-09-28,1,62.4,150.3,27.6,-0.1,95.2,8.3,1850,1850,81,77,8,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P115,2026-10-05,8,62.4,150.3,27.6,-0.2,91.7,7.9,1850,1781,81,74,8,regular,oral,none,1,A (well nourished),no intervention,not met,False,no,True
+P115,2026-10-12,15,62.0,150.3,27.4,-0.9,90.0,7.1,1850,1665,81,72,8,regular,oral,none,1,A (well nourished),no intervention,not met,False,yes,True
+P115,2026-10-19,22,61.4,150.3,27.2,-1.7,75.1,6.8,1850,1390,80,60,8,soft/moist,oral + ONS,1-2 bottles/day,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P115,2026-10-26,29,60.9,150.3,27.0,-2.5,53.5,5.3,1850,989,79,42,8,pureed/liquid,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P115,2026-11-02,36,59.5,150.3,26.3,-4.9,39.4,3.4,1800,709,77,30,8,pureed/liquid,NG tube placed,3 bottles/day,16,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P115,2026-11-09,43,58.3,150.3,25.8,-6.7,46.7,4.7,1750,817,76,35,8,pureed/liquid,NG tube placed,3 bottles/day,15,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P116,2026-08-31,-6,106.0,178.8,33.2,-0.2,97.0,8.5,3200,3259,138,133,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P116,2026-09-07,1,106.1,178.8,33.2,-0.1,98.8,7.6,3200,3318,138,136,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P116,2026-09-14,8,106.1,178.8,33.2,-0.1,97.2,8.0,3200,3265,138,134,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P116,2026-09-21,15,105.7,178.8,33.1,-0.5,97.7,7.7,3150,3230,137,133,10,regular,oral,none,2,A (well nourished),patient education,not met,False,yes,True
+P116,2026-09-28,22,105.6,178.8,33.0,-0.6,87.2,7.5,3150,2745,137,119,10,soft/moist,oral,none,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P116,2026-10-05,29,105.1,178.8,32.9,-1.1,77.3,6.8,3150,2434,137,105,10,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P116,2026-10-12,36,104.6,178.8,32.7,-1.5,70.8,6.6,3150,2231,136,96,10,soft/moist,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P116,2026-10-19,43,103.7,178.8,32.4,-2.3,65.8,5.8,3100,2040,135,88,10,pureed/liquid,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P117,2026-08-24,-6,89.4,175.9,28.9,-0.3,97.0,8.5,2700,2749,116,112,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P117,2026-08-31,1,89.4,175.9,28.9,-0.2,99.8,8.1,2700,2827,116,115,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P117,2026-09-07,8,89.4,175.9,28.9,-0.3,97.2,7.8,2700,2755,116,112,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P117,2026-09-14,15,89.4,175.9,28.9,-0.2,97.0,7.8,2700,2749,116,112,10,regular,oral,none,2,A (well nourished),patient education,not met,False,yes,True
+P117,2026-09-21,22,88.9,175.9,28.7,-0.8,85.9,7.4,2650,2275,116,99,10,soft/moist,oral,none,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P117,2026-09-28,29,88.3,175.9,28.5,-1.4,73.6,6.9,2650,1950,115,84,10,soft/moist,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P117,2026-10-05,36,87.8,175.9,28.4,-2.0,57.5,4.6,2650,1523,114,65,10,pureed/liquid,oral + ONS,1-2 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P117,2026-10-12,43,86.6,175.9,28.0,-3.3,56.4,4.2,2600,1467,113,63,10,pureed/liquid,oral + ONS,1-2 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P118,2026-09-21,-6,88.6,153.2,37.7,-0.2,97.0,8.5,2650,2699,115,111,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P118,2026-09-28,1,88.6,153.2,37.7,-0.3,96.0,7.2,2650,2671,115,110,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P118,2026-10-05,8,88.5,153.2,37.7,-0.3,86.6,7.2,2650,2294,115,99,10,regular,oral,none,3,A (well nourished),patient education,not met,False,no,True
+P118,2026-10-12,15,88.1,153.2,37.5,-0.8,79.2,7.3,2650,2100,115,91,10,regular,oral + ONS,1-2 bottles/day,3,A (well nourished),patient education,not met,False,yes,True
+P118,2026-10-19,22,86.8,153.2,37.0,-2.3,64.1,5.5,2600,1667,113,72,10,soft/moist,oral + ONS,1-2 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P118,2026-10-26,29,85.0,153.2,36.2,-4.2,45.4,3.6,2550,1158,110,49,10,pureed/liquid,NG tube placed,3 bottles/day,16,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P118,2026-11-02,36,83.9,153.2,35.7,-5.5,54.7,5.6,2500,1366,109,59,10,pureed/liquid,oral + ONS,1-2 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P118,2026-11-09,43,82.9,153.2,35.3,-6.6,49.1,5.5,2500,1228,108,53,10,pureed/liquid,oral + ONS,1-2 bottles/day,16,C (severely malnourished),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True
+P119,2026-09-21,-6,88.3,179.9,27.3,-0.2,97.0,8.5,2650,2699,115,111,10,regular,oral,none,2,A (well nourished),patient education,not met,True,no,True
+P119,2026-09-28,1,88.3,179.9,27.3,-0.2,96.0,7.5,2650,2671,115,110,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P119,2026-10-05,8,88.2,179.9,27.3,-0.2,92.4,7.8,2650,2571,115,106,10,regular,oral,none,2,A (well nourished),patient education,not met,False,no,True
+P119,2026-10-12,15,87.9,179.9,27.2,-0.5,82.7,7.1,2650,2191,114,94,10,regular,oral + ONS,1-2 bottles/day,3,A (well nourished),patient education,not met,False,yes,True
+P119,2026-10-19,22,87.6,179.9,27.1,-0.9,73.5,6.7,2650,1947,114,83,10,soft/moist,oral + ONS,1-2 bottles/day,9,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P119,2026-10-26,29,86.7,179.9,26.8,-1.9,58.9,5.8,2600,1530,113,66,10,pureed/liquid,oral + ONS,1-2 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P119,2026-11-02,36,85.6,179.9,26.4,-3.1,44.6,4.8,2550,1136,111,49,10,pureed/liquid,oral + ONS,1-2 bottles/day,16,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P119,2026-11-09,43,84.8,179.9,26.2,-4.1,52.8,4.8,2550,1347,110,58,10,pureed/liquid,NG tube placed,3 bottles/day,13,C (severely malnourished),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P120,2026-09-07,-6,54.4,165.3,19.9,-0.1,97.0,8.5,1650,1680,71,68,8,regular,oral,none,1,A (well nourished),no intervention,not met,True,no,True
+P120,2026-09-14,1,54.4,165.3,19.9,-0.2,97.2,7.9,1650,1684,71,69,8,regular,PEG in place,none,1,A (well nourished),no intervention,not met,False,no,True
+P120,2026-09-21,8,54.3,165.3,19.9,-0.4,87.7,7.4,1650,1447,71,62,8,regular,PEG in place,none,2,A (well nourished),patient education,not met,False,no,True
+P120,2026-09-28,15,54.1,165.3,19.8,-0.8,90.4,7.8,1600,1519,70,63,8,regular,PEG in place,none,1,A (well nourished),no intervention,not met,False,yes,True
+P120,2026-10-05,22,53.7,165.3,19.7,-1.4,79.5,7.0,1600,1272,70,55,8,soft/moist,PEG in place,none,8,B (moderate/suspected malnutrition),dietitian intervention,not met,True,yes,True
+P120,2026-10-12,29,52.8,165.3,19.3,-3.1,52.4,4.9,1600,838,69,36,8,pureed/liquid,PEG in place,3 bottles/day,10,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P120,2026-10-19,36,51.9,165.3,19.0,-4.8,55.6,5.9,1550,861,67,37,8,pureed/liquid,PEG in place,3 bottles/day,11,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,not met,True,yes,True
+P120,2026-10-26,43,50.9,165.3,18.6,-6.6,56.7,5.7,1550,879,66,37,8,pureed/liquid,PEG in place,3 bottles/day,12,B (moderate/suspected malnutrition),critical need for symptom management + nutrition intervention,moderate malnutrition,True,yes,True

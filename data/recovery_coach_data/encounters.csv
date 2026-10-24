@@ -1,0 +1,326 @@
+patient_id,date,tx_day,encounter_type,department,reason,disposition,length_of_stay_days,natural_course_counterfactual
+P001,2026-08-09,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P001,2026-08-18,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P001,2026-08-19,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P001,2026-08-23,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P001,2026-08-24,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P001,2026-08-25,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P001,2026-08-26,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P001,2026-09-14,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P001,2026-09-21,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P001,2026-09-28,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P001,2026-10-05,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P001,2026-10-05,22,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",admitted,2,True
+P001,2026-10-12,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P001,2026-10-19,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P001,2026-10-26,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P002,2026-08-09,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P002,2026-08-18,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P002,2026-08-19,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P002,2026-08-23,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P002,2026-08-24,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P002,2026-08-25,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P002,2026-08-26,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P002,2026-09-14,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P002,2026-09-21,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P002,2026-09-28,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P002,2026-10-05,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P002,2026-10-12,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P002,2026-10-17,34,emergency department,Emergency medicine,fever with neutropenia,admitted to oncology,6,True
+P002,2026-10-19,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P002,2026-10-26,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P003,2026-08-09,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P003,2026-08-18,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P003,2026-08-23,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P003,2026-08-25,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P003,2026-08-26,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P003,2026-09-14,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P003,2026-09-21,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P003,2026-09-28,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P003,2026-10-05,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P003,2026-10-12,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P003,2026-10-19,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P003,2026-10-26,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P101,2026-08-16,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P101,2026-08-25,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P101,2026-08-26,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P101,2026-08-30,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P101,2026-08-31,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P101,2026-09-01,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P101,2026-09-02,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P101,2026-09-21,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P101,2026-09-28,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P101,2026-10-05,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P101,2026-10-12,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P101,2026-10-19,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P101,2026-10-24,34,emergency department,Emergency medicine,fever with neutropenia,admitted to oncology,6,True
+P101,2026-10-26,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P101,2026-11-02,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P102,2026-08-16,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P102,2026-08-25,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P102,2026-08-30,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P102,2026-09-01,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P102,2026-09-02,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P102,2026-09-21,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P102,2026-09-28,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P102,2026-10-05,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P102,2026-10-12,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P102,2026-10-19,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P102,2026-10-26,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P102,2026-11-02,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P103,2026-08-02,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P103,2026-08-11,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P103,2026-08-12,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P103,2026-08-16,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P103,2026-08-17,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P103,2026-08-18,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P103,2026-08-19,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P103,2026-09-07,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P103,2026-09-14,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P103,2026-09-21,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P103,2026-09-28,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P103,2026-10-05,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P103,2026-10-12,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P103,2026-10-14,38,emergency department,Emergency medicine,fever with neutropenia,admitted to oncology,5,True
+P103,2026-10-19,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P104,2026-08-02,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P104,2026-08-11,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P104,2026-08-16,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P104,2026-08-18,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P104,2026-08-19,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P104,2026-09-07,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P104,2026-09-14,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P104,2026-09-21,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P104,2026-09-28,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P104,2026-09-29,23,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",admitted,2,True
+P104,2026-10-05,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P104,2026-10-12,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P104,2026-10-19,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P105,2026-08-16,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P105,2026-08-25,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P105,2026-08-26,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P105,2026-08-30,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P105,2026-08-31,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P105,2026-09-01,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P105,2026-09-02,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P105,2026-09-21,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P105,2026-09-28,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P105,2026-10-05,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P105,2026-10-12,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P105,2026-10-19,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P105,2026-10-26,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P105,2026-11-02,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P106,2026-08-23,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P106,2026-09-01,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P106,2026-09-02,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P106,2026-09-06,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P106,2026-09-07,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P106,2026-09-08,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P106,2026-09-09,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P106,2026-09-28,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P106,2026-10-05,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P106,2026-10-12,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P106,2026-10-19,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P106,2026-10-26,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P106,2026-11-02,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P106,2026-11-09,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P107,2026-07-26,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P107,2026-08-04,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P107,2026-08-05,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P107,2026-08-09,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P107,2026-08-10,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P107,2026-08-11,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P107,2026-08-12,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P107,2026-08-31,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P107,2026-09-07,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P107,2026-09-14,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P107,2026-09-17,18,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",discharged after IV fluids,0,True
+P107,2026-09-21,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P107,2026-09-28,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P107,2026-10-05,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P107,2026-10-12,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P108,2026-08-16,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P108,2026-08-25,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P108,2026-08-26,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P108,2026-08-30,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P108,2026-08-31,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P108,2026-09-01,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P108,2026-09-02,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P108,2026-09-21,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P108,2026-09-28,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P108,2026-10-05,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P108,2026-10-12,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P108,2026-10-19,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P108,2026-10-26,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P108,2026-11-02,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P109,2026-08-02,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P109,2026-08-11,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P109,2026-08-12,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P109,2026-08-16,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P109,2026-08-17,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P109,2026-08-18,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P109,2026-08-19,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P109,2026-09-07,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P109,2026-09-14,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P109,2026-09-21,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P109,2026-09-28,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P109,2026-10-05,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P109,2026-10-12,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P109,2026-10-19,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P110,2026-07-26,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P110,2026-08-04,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P110,2026-08-05,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P110,2026-08-09,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P110,2026-08-10,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P110,2026-08-11,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P110,2026-08-12,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P110,2026-08-31,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P110,2026-09-07,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P110,2026-09-14,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P110,2026-09-21,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P110,2026-09-28,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P110,2026-10-05,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P110,2026-10-12,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P111,2026-08-02,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P111,2026-08-11,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P111,2026-08-12,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P111,2026-08-16,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P111,2026-08-17,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P111,2026-08-18,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P111,2026-08-19,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P111,2026-09-07,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P111,2026-09-14,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P111,2026-09-21,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P111,2026-09-28,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P111,2026-10-05,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P111,2026-10-12,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P111,2026-10-19,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P112,2026-08-16,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P112,2026-08-25,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P112,2026-08-26,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P112,2026-08-30,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P112,2026-08-31,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P112,2026-09-01,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P112,2026-09-02,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P112,2026-09-21,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P112,2026-09-28,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P112,2026-10-05,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P112,2026-10-12,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P112,2026-10-19,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P112,2026-10-26,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P112,2026-10-30,40,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",discharged after IV fluids,0,True
+P112,2026-11-02,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P113,2026-08-02,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P113,2026-08-11,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P113,2026-08-12,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P113,2026-08-16,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P113,2026-08-17,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P113,2026-08-18,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P113,2026-08-19,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P113,2026-09-07,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P113,2026-09-14,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P113,2026-09-21,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P113,2026-09-28,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P113,2026-10-05,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P113,2026-10-10,34,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",discharged after IV fluids,0,True
+P113,2026-10-12,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P113,2026-10-19,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P114,2026-08-16,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P114,2026-08-25,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P114,2026-08-26,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P114,2026-08-30,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P114,2026-08-31,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P114,2026-09-01,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P114,2026-09-02,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P114,2026-09-21,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P114,2026-09-28,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P114,2026-10-05,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P114,2026-10-12,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P114,2026-10-19,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P114,2026-10-23,33,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",discharged after IV fluids,0,True
+P114,2026-10-26,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P114,2026-11-02,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P115,2026-08-23,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P115,2026-09-01,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P115,2026-09-02,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P115,2026-09-06,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P115,2026-09-07,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P115,2026-09-08,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P115,2026-09-09,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P115,2026-09-28,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P115,2026-10-05,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P115,2026-10-12,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P115,2026-10-19,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P115,2026-10-26,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P115,2026-11-02,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P115,2026-11-03,37,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",discharged after IV fluids,0,True
+P115,2026-11-09,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P116,2026-08-02,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P116,2026-08-11,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P116,2026-08-16,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P116,2026-08-18,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P116,2026-08-19,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P116,2026-09-07,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P116,2026-09-14,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P116,2026-09-21,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P116,2026-09-28,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P116,2026-10-05,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P116,2026-10-12,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P116,2026-10-19,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P117,2026-07-26,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P117,2026-08-04,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P117,2026-08-09,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P117,2026-08-11,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P117,2026-08-12,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P117,2026-08-31,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P117,2026-09-07,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P117,2026-09-14,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P117,2026-09-21,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P117,2026-09-28,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P117,2026-10-05,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P117,2026-10-08,39,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",admitted,3,True
+P117,2026-10-12,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P118,2026-08-23,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P118,2026-09-01,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P118,2026-09-02,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P118,2026-09-06,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P118,2026-09-07,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P118,2026-09-08,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P118,2026-09-09,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P118,2026-09-28,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P118,2026-10-05,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P118,2026-10-12,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P118,2026-10-19,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P118,2026-10-23,26,emergency department,Emergency medicine,"dehydration, acute kidney injury, poor oral intake",discharged after IV fluids,0,True
+P118,2026-10-26,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P118,2026-11-02,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P118,2026-11-09,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P119,2026-08-23,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P119,2026-09-01,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P119,2026-09-02,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P119,2026-09-06,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P119,2026-09-07,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P119,2026-09-08,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P119,2026-09-09,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P119,2026-09-28,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P119,2026-10-05,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P119,2026-10-12,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P119,2026-10-19,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P119,2026-10-26,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P119,2026-11-01,35,emergency department,Emergency medicine,fever with neutropenia,admitted to oncology,4,True
+P119,2026-11-02,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P119,2026-11-09,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P120,2026-08-09,-35,new patient consult,Head and neck surgery / ENT,biopsy-proven diagnosis,,0,False
+P120,2026-08-18,-26,new patient consult,Radiation oncology,treatment planning,,0,False
+P120,2026-08-19,-25,new patient consult,Medical oncology,concurrent cisplatin,,0,False
+P120,2026-08-23,-21,dental evaluation,Dental oncology,pre-radiation clearance,,0,False
+P120,2026-08-24,-20,baseline audiogram,Audiology,pre-cisplatin hearing baseline,,0,False
+P120,2026-08-25,-19,baseline swallow evaluation,Speech-language pathology,prophylactic swallow exercises,,0,False
+P120,2026-08-26,-18,nutrition assessment,Oncology nutrition,baseline PG-SGA,,0,False
+P120,2026-09-14,1,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P120,2026-09-21,8,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P120,2026-09-28,15,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P120,2026-10-05,22,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P120,2026-10-12,29,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P120,2026-10-19,36,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False
+P120,2026-10-26,43,on-treatment visit,Radiation oncology,weekly OTV and labs,home,0,False

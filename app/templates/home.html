@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="landing-hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span></span> Closed-loop cancer support</div>
+    <h1>Catch the drift<br><em>before it becomes a crisis.</em></h1>
+    <p class="lede">Between Visits turns everyday wearable signals and a 60-second check-in into an explained care-team alert, then follows it until care is complete.</p>
+    <div class="hero-actions">
+      <a class="button button-primary button-lg" href="/clinician">Open care command center <span>→</span></a>
+      <a class="button button-quiet button-lg" href="/patient/P001">Try Maria’s phone view</a>
+    </div>
+    <div class="trust-row">
+      <span>Personal baseline</span><i></i><span>Reasons, not black boxes</span><i></i><span>FHIR-ready handoff</span>
+    </div>
+  </div>
+  <div class="hero-visual" aria-label="Example explained alert">
+    <div class="signal-orbit orbit-one"></div><div class="signal-orbit orbit-two"></div>
+    <div class="demo-alert-card">
+      <div class="demo-card-top"><span class="urgent-beacon"></span><span>Early signal detected</span><b>URGENT</b></div>
+      <div class="demo-person">
+        <div class="avatar avatar-coral">MA</div>
+        <div><strong>Maria Alvarez</strong><small>Treatment day 19 · weekly cisplatin</small></div>
+        <div class="risk-ring"><b>86</b><small>risk</small></div>
+      </div>
+      <div class="pattern-title">Dehydration pattern</div>
+      <div class="demo-signal"><span>Resting heart rate</span><strong>+18%</strong><div><i style="width:82%"></i></div></div>
+      <div class="demo-signal"><span>HRV</span><strong>−31%</strong><div><i class="down" style="width:70%"></i></div></div>
+      <div class="demo-signal"><span>Fluid intake</span><strong>−3.6 cups</strong><div><i class="down" style="width:64%"></i></div></div>
+      <p><span>✓</span> Three signals agree across four days</p>
+    </div>
+    <div class="floating-proof proof-one"><b>4 days</b><span>before ED visit</span></div>
+    <div class="floating-proof proof-two"><b>Own baseline</b><span>not population norms</span></div>
+  </div>
+</section>
+
+<section class="impact-strip" aria-label="Demo validation">
+  <div><strong>23</strong><span>synthetic patients</span></div>
+  <div><strong>{{ report.detected }}/{{ report.true_events }}</strong><span>scripted events detected</span></div>
+  <div><strong>{{ report.false_alarms }}</strong><span>false-alarm nights escalated</span></div>
+  <div><strong>100%</strong><span>alerts show their reasons</span></div>
+</section>
+
+<section class="story-section">
+  <div class="section-heading">
+    <div><span class="section-kicker">The demo in three stories</span><h2>See the whole care loop.</h2></div>
+    <p>Start with a deterioration, inspect why the system surfaced it, and close the loop as the nurse.</p>
+  </div>
+  <div class="story-grid">
+    <a class="story-card story-dehydration" href="/patient/P001">
+      <div class="story-number">01</div><div class="story-icon">◒</div>
+      <span class="story-tag">Gradual drift</span>
+      <h3>Maria drinks less as treatment gets harder.</h3>
+      <p>Watch resting HR rise and HRV fall while daily fluid intake drops.</p>
+      <strong>Open patient view <span>→</span></strong>
+    </a>
+    <a class="story-card story-fever" href="/clinician/P002-infection">
+      <div class="story-number">02</div><div class="story-icon">✦</div>
+      <span class="story-tag">Overnight change</span>
+      <h3>James shows a multi-signal fever pattern.</h3>
+      <p>See a risk-ranked alert with baseline deltas, CMS context, and nearby care.</p>
+      <strong>Review explained alert <span>→</span></strong>
+    </a>
+    <a class="story-card story-control" href="/patient/P003">
+      <div class="story-number">03</div><div class="story-icon">≈</div>
+      <span class="story-tag">Safety control</span>
+      <h3>Linda has one bad night. Nothing fires.</h3>
+      <p>The detector waits for persistence or corroboration instead of chasing noise.</p>
+      <strong>See the control patient <span>→</span></strong>
+    </a>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="section-heading"><div><span class="section-kicker">How it works</span><h2>From signal to completed care.</h2></div></div>
+  <div class="care-loop">
+    <div class="loop-step"><b>01</b><span class="loop-icon">⌁</span><h3>Learn normal</h3><p>Two weeks of the patient’s own pre-treatment baseline.</p></div>
+    <div class="loop-arrow">→</div>
+    <div class="loop-step"><b>02</b><span class="loop-icon">↗</span><h3>Explain drift</h3><p>Wearable and check-in patterns must persist or corroborate.</p></div>
+    <div class="loop-arrow">→</div>
+    <div class="loop-step"><b>03</b><span class="loop-icon">◎</span><h3>Equip the nurse</h3><p>Risk rank, reasons, patient chat context, and FHIR export.</p></div>
+    <div class="loop-arrow">→</div>
+    <div class="loop-step"><b>04</b><span class="loop-icon">✓</span><h3>Close the loop</h3><p>Track acknowledgement, action, and resolution.</p></div>
+  </div>
+</section>
+{% endblock %}

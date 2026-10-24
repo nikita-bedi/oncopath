@@ -1,0 +1,54 @@
+version: 1
+reviewed_by: "<clinician name / date — fill at review>"
+red_flags:              # any match -> immediate urgent escalation (notification-only)
+  - id: rf_fever
+    label: "Fever"
+    match: ["fever", "temperature over 100.4", "temp 101", "burning up", "very hot"]
+  - id: rf_chills_rigors
+    label: "Chills or shaking"
+    match: ["chills", "shaking", "shivering", "rigors", "teeth chattering"]
+  - id: rf_no_fluids_24h
+    label: "Unable to keep fluids down for 24 hours"
+    match: ["can't keep fluids", "cannot keep water down", "vomiting everything",
+            "throwing up everything", "nothing stays down", "no fluids for a day"]
+  - id: rf_fainting_confusion
+    label: "Fainting or confusion"
+    match: ["fainted", "passed out", "blacked out", "confused", "disoriented",
+            "not making sense"]
+  - id: rf_trouble_breathing
+    label: "Trouble breathing"
+    match: ["trouble breathing", "can't breathe", "short of breath",
+            "hard to breathe", "gasping"]
+  - id: rf_chest_pain
+    label: "Chest pain"
+    match: ["chest pain", "chest pressure", "chest tightness", "pain in my chest"]
+  - id: rf_bleeding
+    label: "Bleeding"
+    match: ["bleeding", "coughing up blood", "blood in", "vomiting blood",
+            "nose won't stop bleeding"]
+  - id: rf_cant_swallow_saliva
+    label: "Unable to swallow saliva"
+    match: ["can't swallow my spit", "cannot swallow saliva",
+            "drooling can't swallow", "can't swallow at all"]
+
+soft_symptoms:          # context only -> never alerts on its own, may corroborate
+  - id: ss_tired
+    label: "Tired / fatigue"
+    match: ["tired", "fatigue", "worn out", "no energy", "exhausted"]
+  - id: ss_mild_nausea
+    label: "Mild nausea"
+    match: ["a little nauseous", "mild nausea", "queasy", "slightly sick to my stomach"]
+  - id: ss_sore_throat
+    label: "Sore throat"
+    match: ["sore throat", "throat hurts", "scratchy throat", "throat is raw"]
+  - id: ss_mild_dizzy
+    label: "A little dizzy"
+    match: ["a little dizzy", "slightly lightheaded", "bit woozy", "mildly dizzy"]
+  - id: ss_mouth_sores
+    label: "Mouth sores / mucositis discomfort"
+    match: ["mouth sores", "sores in my mouth", "mouth is sore", "ulcers in my mouth"]
+  - id: ss_poor_appetite
+    label: "Poor appetite"
+    match: ["not hungry", "no appetite", "can't eat much", "don't feel like eating"]
+
+negations: ["no ", "not ", "without ", "don't have ", "denies ", "didn't "]

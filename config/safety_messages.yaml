@@ -1,0 +1,9 @@
+version: 1
+reviewed_by: "<clinician name / date — fill at review>"
+safety_messages:
+  - id: sm_red_flag            # shown verbatim on any red-flag detection; no interpretation
+    text: "Contact your care team now. If this is an emergency, call 911."
+  - id: sm_expectations_banner # persistent banner on the chat, not a per-message turn
+    text: "This chat is not monitored 24/7. For anything urgent after hours, call <AFTER_HOURS_NUMBER>. If this is an emergency, call 911."
+  - id: sm_received            # optional neutral acknowledgement; no triage
+    text: "Thanks — your message has been sent to your care team."

@@ -1,0 +1,841 @@
+patient_id,date,tx_day,ctcae_v5_term,grade,source
+P001,2026-09-14,1,Fatigue,1,patient-reported
+P001,2026-09-21,8,Fatigue,1,patient-reported
+P001,2026-09-28,15,Dermatitis radiation,1,exam
+P001,2026-09-28,15,Dry mouth,1,exam
+P001,2026-09-28,15,Dysphagia,1,exam
+P001,2026-09-28,15,Fatigue,1,patient-reported
+P001,2026-09-28,15,Nausea,1,patient-reported
+P001,2026-09-28,15,Oral mucositis,1,exam
+P001,2026-10-05,22,Acute kidney injury,1,ED encounter
+P001,2026-10-05,22,Creatinine increased,2,lab
+P001,2026-10-05,22,Dehydration,2,ED encounter
+P001,2026-10-05,22,Dermatitis radiation,2,exam
+P001,2026-10-05,22,Dry mouth,1,exam
+P001,2026-10-05,22,Dysphagia,1,exam
+P001,2026-10-05,22,Fatigue,2,patient-reported
+P001,2026-10-05,22,Hyponatremia,1,lab
+P001,2026-10-05,22,Nausea,1,patient-reported
+P001,2026-10-05,22,Oral mucositis,2,exam
+P001,2026-10-12,29,Dermatitis radiation,2,exam
+P001,2026-10-12,29,Dry mouth,2,exam
+P001,2026-10-12,29,Dysphagia,2,exam
+P001,2026-10-12,29,Fatigue,1,patient-reported
+P001,2026-10-12,29,Nausea,1,patient-reported
+P001,2026-10-12,29,Oral mucositis,3,exam
+P001,2026-10-12,29,Tinnitus,1,patient-reported
+P001,2026-10-12,29,Weight loss,1,vitals
+P001,2026-10-19,36,Dermatitis radiation,2,exam
+P001,2026-10-19,36,Dry mouth,2,exam
+P001,2026-10-19,36,Dysphagia,2,exam
+P001,2026-10-19,36,Fatigue,2,patient-reported
+P001,2026-10-19,36,Hypomagnesemia,1,lab
+P001,2026-10-19,36,Oral mucositis,3,exam
+P001,2026-10-19,36,Tinnitus,1,patient-reported
+P001,2026-10-19,36,Weight loss,1,vitals
+P001,2026-10-26,43,Anemia,1,lab
+P001,2026-10-26,43,Dermatitis radiation,3,exam
+P001,2026-10-26,43,Dry mouth,2,exam
+P001,2026-10-26,43,Dysphagia,2,exam
+P001,2026-10-26,43,Fatigue,2,patient-reported
+P001,2026-10-26,43,Hypomagnesemia,1,lab
+P001,2026-10-26,43,Nausea,1,patient-reported
+P001,2026-10-26,43,Oral mucositis,3,exam
+P001,2026-10-26,43,Peripheral sensory neuropathy,1,exam
+P001,2026-10-26,43,Weight loss,1,vitals
+P002,2026-09-14,1,Fatigue,1,patient-reported
+P002,2026-09-21,8,Nausea,1,patient-reported
+P002,2026-09-28,15,Dermatitis radiation,1,exam
+P002,2026-09-28,15,Dry mouth,1,exam
+P002,2026-09-28,15,Fatigue,1,patient-reported
+P002,2026-09-28,15,Oral mucositis,1,exam
+P002,2026-10-05,22,Dermatitis radiation,2,exam
+P002,2026-10-05,22,Dry mouth,1,exam
+P002,2026-10-05,22,Dysphagia,1,exam
+P002,2026-10-05,22,Fatigue,1,patient-reported
+P002,2026-10-05,22,Oral mucositis,2,exam
+P002,2026-10-05,22,Peripheral sensory neuropathy,1,exam
+P002,2026-10-12,29,Dermatitis radiation,2,exam
+P002,2026-10-12,29,Dry mouth,2,exam
+P002,2026-10-12,29,Dysphagia,2,exam
+P002,2026-10-12,29,Fatigue,1,patient-reported
+P002,2026-10-12,29,Nausea,1,patient-reported
+P002,2026-10-12,29,Oral mucositis,3,exam
+P002,2026-10-17,34,Febrile neutropenia,3,ED encounter
+P002,2026-10-19,36,Dermatitis radiation,2,exam
+P002,2026-10-19,36,Dry mouth,2,exam
+P002,2026-10-19,36,Dysphagia,2,exam
+P002,2026-10-19,36,Fatigue,2,patient-reported
+P002,2026-10-19,36,Neutrophil count decreased,3,lab
+P002,2026-10-19,36,Oral mucositis,3,exam
+P002,2026-10-19,36,Peripheral sensory neuropathy,1,exam
+P002,2026-10-19,36,Tinnitus,1,patient-reported
+P002,2026-10-26,43,Anemia,1,lab
+P002,2026-10-26,43,Creatinine increased,1,lab
+P002,2026-10-26,43,Dermatitis radiation,2,exam
+P002,2026-10-26,43,Dry mouth,2,exam
+P002,2026-10-26,43,Dysphagia,3,exam
+P002,2026-10-26,43,Fatigue,2,patient-reported
+P002,2026-10-26,43,Hypomagnesemia,1,lab
+P002,2026-10-26,43,Oral mucositis,3,exam
+P002,2026-10-26,43,Tinnitus,1,patient-reported
+P003,2026-09-14,1,Fatigue,1,patient-reported
+P003,2026-09-14,1,Oral mucositis,1,exam
+P003,2026-09-21,8,Fatigue,1,patient-reported
+P003,2026-09-28,15,Dermatitis radiation,1,exam
+P003,2026-09-28,15,Dry mouth,1,exam
+P003,2026-09-28,15,Fatigue,1,patient-reported
+P003,2026-09-28,15,Oral cavity fungal infection,2,exam
+P003,2026-09-28,15,Oral mucositis,1,exam
+P003,2026-10-05,22,Dermatitis radiation,2,exam
+P003,2026-10-05,22,Dry mouth,1,exam
+P003,2026-10-05,22,Dysphagia,1,exam
+P003,2026-10-05,22,Fatigue,1,patient-reported
+P003,2026-10-05,22,Oral cavity fungal infection,2,exam
+P003,2026-10-05,22,Oral mucositis,1,exam
+P003,2026-10-12,29,Dermatitis radiation,2,exam
+P003,2026-10-12,29,Dry mouth,2,exam
+P003,2026-10-12,29,Dysphagia,2,exam
+P003,2026-10-12,29,Fatigue,1,patient-reported
+P003,2026-10-12,29,Oral mucositis,2,exam
+P003,2026-10-19,36,Dermatitis radiation,2,exam
+P003,2026-10-19,36,Dry mouth,2,exam
+P003,2026-10-19,36,Dysphagia,2,exam
+P003,2026-10-19,36,Fatigue,2,patient-reported
+P003,2026-10-19,36,Oral mucositis,2,exam
+P003,2026-10-26,43,Dermatitis radiation,3,exam
+P003,2026-10-26,43,Dry mouth,2,exam
+P003,2026-10-26,43,Dysphagia,2,exam
+P003,2026-10-26,43,Fatigue,2,patient-reported
+P003,2026-10-26,43,Oral mucositis,2,exam
+P101,2026-09-21,1,Fatigue,1,patient-reported
+P101,2026-10-05,15,Dermatitis radiation,1,exam
+P101,2026-10-05,15,Dry mouth,1,exam
+P101,2026-10-05,15,Fatigue,1,patient-reported
+P101,2026-10-05,15,Oral mucositis,1,exam
+P101,2026-10-12,22,Dermatitis radiation,2,exam
+P101,2026-10-12,22,Dry mouth,1,exam
+P101,2026-10-12,22,Dysphagia,1,exam
+P101,2026-10-12,22,Fatigue,1,patient-reported
+P101,2026-10-12,22,Oral mucositis,2,exam
+P101,2026-10-19,29,Dermatitis radiation,2,exam
+P101,2026-10-19,29,Dry mouth,2,exam
+P101,2026-10-19,29,Dysphagia,2,exam
+P101,2026-10-19,29,Fatigue,1,patient-reported
+P101,2026-10-19,29,Hypomagnesemia,1,lab
+P101,2026-10-19,29,Oral mucositis,3,exam
+P101,2026-10-19,29,Peripheral sensory neuropathy,1,exam
+P101,2026-10-24,34,Febrile neutropenia,3,ED encounter
+P101,2026-10-26,36,Anemia,1,lab
+P101,2026-10-26,36,Dermatitis radiation,2,exam
+P101,2026-10-26,36,Dry mouth,2,exam
+P101,2026-10-26,36,Dysphagia,2,exam
+P101,2026-10-26,36,Fatigue,2,patient-reported
+P101,2026-10-26,36,Hypomagnesemia,1,lab
+P101,2026-10-26,36,Nausea,1,patient-reported
+P101,2026-10-26,36,Oral mucositis,3,exam
+P101,2026-11-02,43,Anemia,1,lab
+P101,2026-11-02,43,Dermatitis radiation,3,exam
+P101,2026-11-02,43,Dry mouth,2,exam
+P101,2026-11-02,43,Dysphagia,3,exam
+P101,2026-11-02,43,Fatigue,2,patient-reported
+P101,2026-11-02,43,Hypomagnesemia,1,lab
+P101,2026-11-02,43,Nausea,1,patient-reported
+P101,2026-11-02,43,Oral cavity fungal infection,2,exam
+P101,2026-11-02,43,Oral mucositis,3,exam
+P101,2026-11-02,43,Peripheral sensory neuropathy,1,exam
+P101,2026-11-02,43,Tinnitus,1,patient-reported
+P101,2026-11-02,43,Weight loss,1,vitals
+P102,2026-10-05,15,Dermatitis radiation,1,exam
+P102,2026-10-05,15,Dry mouth,1,exam
+P102,2026-10-05,15,Fatigue,1,patient-reported
+P102,2026-10-12,22,Dermatitis radiation,2,exam
+P102,2026-10-12,22,Dry mouth,1,exam
+P102,2026-10-12,22,Dysphagia,1,exam
+P102,2026-10-12,22,Fatigue,1,patient-reported
+P102,2026-10-12,22,Oral cavity fungal infection,2,exam
+P102,2026-10-12,22,Oral mucositis,1,exam
+P102,2026-10-19,29,Dermatitis radiation,2,exam
+P102,2026-10-19,29,Dry mouth,2,exam
+P102,2026-10-19,29,Dysphagia,2,exam
+P102,2026-10-19,29,Fatigue,1,patient-reported
+P102,2026-10-19,29,Oral mucositis,2,exam
+P102,2026-10-26,36,Dermatitis radiation,2,exam
+P102,2026-10-26,36,Dry mouth,2,exam
+P102,2026-10-26,36,Dysphagia,2,exam
+P102,2026-10-26,36,Fatigue,1,patient-reported
+P102,2026-10-26,36,Oral mucositis,2,exam
+P102,2026-11-02,43,Dermatitis radiation,2,exam
+P102,2026-11-02,43,Dry mouth,2,exam
+P102,2026-11-02,43,Dysphagia,2,exam
+P102,2026-11-02,43,Fatigue,2,patient-reported
+P102,2026-11-02,43,Oral mucositis,2,exam
+P103,2026-09-07,1,Fatigue,1,patient-reported
+P103,2026-09-14,8,Fatigue,1,patient-reported
+P103,2026-09-21,15,Dermatitis radiation,1,exam
+P103,2026-09-21,15,Dry mouth,1,exam
+P103,2026-09-21,15,Fatigue,1,patient-reported
+P103,2026-09-21,15,Oral mucositis,1,exam
+P103,2026-09-28,22,Dermatitis radiation,2,exam
+P103,2026-09-28,22,Dry mouth,1,exam
+P103,2026-09-28,22,Dysphagia,1,exam
+P103,2026-09-28,22,Fatigue,1,patient-reported
+P103,2026-09-28,22,Oral mucositis,1,exam
+P103,2026-09-28,22,Tinnitus,1,patient-reported
+P103,2026-10-05,29,Dermatitis radiation,2,exam
+P103,2026-10-05,29,Dry mouth,2,exam
+P103,2026-10-05,29,Dysphagia,2,exam
+P103,2026-10-05,29,Fatigue,1,patient-reported
+P103,2026-10-05,29,Nausea,1,patient-reported
+P103,2026-10-05,29,Oral mucositis,2,exam
+P103,2026-10-05,29,Peripheral sensory neuropathy,1,exam
+P103,2026-10-12,36,Anemia,1,lab
+P103,2026-10-12,36,Dermatitis radiation,2,exam
+P103,2026-10-12,36,Dry mouth,2,exam
+P103,2026-10-12,36,Dysphagia,3,exam
+P103,2026-10-12,36,Fatigue,2,patient-reported
+P103,2026-10-12,36,Neutrophil count decreased,3,lab
+P103,2026-10-12,36,Oral mucositis,3,exam
+P103,2026-10-12,36,Peripheral sensory neuropathy,1,exam
+P103,2026-10-14,38,Febrile neutropenia,3,ED encounter
+P103,2026-10-19,43,Dermatitis radiation,2,exam
+P103,2026-10-19,43,Dry mouth,2,exam
+P103,2026-10-19,43,Dysphagia,3,exam
+P103,2026-10-19,43,Fatigue,2,patient-reported
+P103,2026-10-19,43,Hypomagnesemia,1,lab
+P103,2026-10-19,43,Nausea,1,patient-reported
+P103,2026-10-19,43,Oral mucositis,3,exam
+P104,2026-09-07,1,Fatigue,1,patient-reported
+P104,2026-09-21,15,Dermatitis radiation,1,exam
+P104,2026-09-21,15,Dry mouth,1,exam
+P104,2026-09-21,15,Fatigue,1,patient-reported
+P104,2026-09-21,15,Oral mucositis,1,exam
+P104,2026-09-28,22,Creatinine increased,2,lab
+P104,2026-09-28,22,Dermatitis radiation,2,exam
+P104,2026-09-28,22,Dry mouth,1,exam
+P104,2026-09-28,22,Dysphagia,1,exam
+P104,2026-09-28,22,Fatigue,2,patient-reported
+P104,2026-09-28,22,Hyponatremia,1,lab
+P104,2026-09-28,22,Nausea,1,patient-reported
+P104,2026-09-28,22,Oral mucositis,2,exam
+P104,2026-09-29,23,Acute kidney injury,1,ED encounter
+P104,2026-09-29,23,Dehydration,2,ED encounter
+P104,2026-10-05,29,Dermatitis radiation,2,exam
+P104,2026-10-05,29,Dry mouth,2,exam
+P104,2026-10-05,29,Dysphagia,2,exam
+P104,2026-10-05,29,Fatigue,1,patient-reported
+P104,2026-10-05,29,Oral cavity fungal infection,2,exam
+P104,2026-10-05,29,Oral mucositis,2,exam
+P104,2026-10-12,36,Dermatitis radiation,2,exam
+P104,2026-10-12,36,Dry mouth,2,exam
+P104,2026-10-12,36,Dysphagia,2,exam
+P104,2026-10-12,36,Fatigue,1,patient-reported
+P104,2026-10-12,36,Oral mucositis,2,exam
+P104,2026-10-12,36,Weight loss,1,vitals
+P104,2026-10-19,43,Dermatitis radiation,2,exam
+P104,2026-10-19,43,Dry mouth,2,exam
+P104,2026-10-19,43,Dysphagia,2,exam
+P104,2026-10-19,43,Fatigue,2,patient-reported
+P104,2026-10-19,43,Oral mucositis,2,exam
+P104,2026-10-19,43,Weight loss,1,vitals
+P105,2026-09-21,1,Fatigue,1,patient-reported
+P105,2026-09-28,8,Fatigue,1,patient-reported
+P105,2026-09-28,8,Nausea,1,patient-reported
+P105,2026-10-05,15,Dermatitis radiation,1,exam
+P105,2026-10-05,15,Dry mouth,1,exam
+P105,2026-10-05,15,Fatigue,1,patient-reported
+P105,2026-10-05,15,Oral mucositis,1,exam
+P105,2026-10-12,22,Dermatitis radiation,2,exam
+P105,2026-10-12,22,Dry mouth,1,exam
+P105,2026-10-12,22,Dysphagia,1,exam
+P105,2026-10-12,22,Fatigue,1,patient-reported
+P105,2026-10-12,22,Oral mucositis,2,exam
+P105,2026-10-19,29,Dermatitis radiation,2,exam
+P105,2026-10-19,29,Dry mouth,2,exam
+P105,2026-10-19,29,Dysphagia,2,exam
+P105,2026-10-19,29,Fatigue,1,patient-reported
+P105,2026-10-19,29,Nausea,1,patient-reported
+P105,2026-10-19,29,Oral mucositis,2,exam
+P105,2026-10-26,36,Anemia,1,lab
+P105,2026-10-26,36,Dermatitis radiation,2,exam
+P105,2026-10-26,36,Dry mouth,2,exam
+P105,2026-10-26,36,Dysphagia,2,exam
+P105,2026-10-26,36,Fatigue,2,patient-reported
+P105,2026-10-26,36,Oral mucositis,3,exam
+P105,2026-11-02,43,Anemia,1,lab
+P105,2026-11-02,43,Creatinine increased,1,lab
+P105,2026-11-02,43,Dermatitis radiation,3,exam
+P105,2026-11-02,43,Dry mouth,2,exam
+P105,2026-11-02,43,Dysphagia,2,exam
+P105,2026-11-02,43,Fatigue,2,patient-reported
+P105,2026-11-02,43,Hypomagnesemia,1,lab
+P105,2026-11-02,43,Oral mucositis,3,exam
+P106,2026-09-28,1,Oral mucositis,1,exam
+P106,2026-10-05,8,Fatigue,1,patient-reported
+P106,2026-10-12,15,Dermatitis radiation,1,exam
+P106,2026-10-12,15,Dry mouth,1,exam
+P106,2026-10-12,15,Fatigue,1,patient-reported
+P106,2026-10-12,15,Oral mucositis,1,exam
+P106,2026-10-19,22,Dermatitis radiation,2,exam
+P106,2026-10-19,22,Dry mouth,1,exam
+P106,2026-10-19,22,Dysphagia,1,exam
+P106,2026-10-19,22,Fatigue,1,patient-reported
+P106,2026-10-19,22,Oral mucositis,1,exam
+P106,2026-10-19,22,Peripheral sensory neuropathy,1,exam
+P106,2026-10-19,22,Tinnitus,1,patient-reported
+P106,2026-10-26,29,Dermatitis radiation,2,exam
+P106,2026-10-26,29,Dry mouth,2,exam
+P106,2026-10-26,29,Dysphagia,2,exam
+P106,2026-10-26,29,Fatigue,2,patient-reported
+P106,2026-10-26,29,Nausea,1,patient-reported
+P106,2026-10-26,29,Oral mucositis,2,exam
+P106,2026-10-26,29,Peripheral sensory neuropathy,1,exam
+P106,2026-11-02,36,Dermatitis radiation,2,exam
+P106,2026-11-02,36,Dry mouth,2,exam
+P106,2026-11-02,36,Dysphagia,3,exam
+P106,2026-11-02,36,Fatigue,2,patient-reported
+P106,2026-11-02,36,Neutrophil count decreased,2,lab
+P106,2026-11-02,36,Oral mucositis,3,exam
+P106,2026-11-02,36,Peripheral sensory neuropathy,1,exam
+P106,2026-11-09,43,Anemia,1,lab
+P106,2026-11-09,43,Dermatitis radiation,2,exam
+P106,2026-11-09,43,Dry mouth,2,exam
+P106,2026-11-09,43,Dysphagia,2,exam
+P106,2026-11-09,43,Fatigue,2,patient-reported
+P106,2026-11-09,43,Hypomagnesemia,1,lab
+P106,2026-11-09,43,Oral mucositis,3,exam
+P107,2026-09-07,8,Fatigue,1,patient-reported
+P107,2026-09-07,8,Nausea,1,patient-reported
+P107,2026-09-14,15,Creatinine increased,1,lab
+P107,2026-09-14,15,Dermatitis radiation,1,exam
+P107,2026-09-14,15,Dry mouth,1,exam
+P107,2026-09-14,15,Fatigue,1,patient-reported
+P107,2026-09-14,15,Nausea,1,patient-reported
+P107,2026-09-14,15,Oral mucositis,1,exam
+P107,2026-09-17,18,Acute kidney injury,1,ED encounter
+P107,2026-09-17,18,Dehydration,2,ED encounter
+P107,2026-09-21,22,Creatinine increased,1,lab
+P107,2026-09-21,22,Dermatitis radiation,2,exam
+P107,2026-09-21,22,Dry mouth,1,exam
+P107,2026-09-21,22,Dysphagia,1,exam
+P107,2026-09-21,22,Fatigue,2,patient-reported
+P107,2026-09-21,22,Nausea,1,patient-reported
+P107,2026-09-21,22,Oral mucositis,2,exam
+P107,2026-09-28,29,Dermatitis radiation,2,exam
+P107,2026-09-28,29,Dry mouth,2,exam
+P107,2026-09-28,29,Dysphagia,2,exam
+P107,2026-09-28,29,Fatigue,1,patient-reported
+P107,2026-09-28,29,Oral mucositis,3,exam
+P107,2026-10-05,36,Anemia,1,lab
+P107,2026-10-05,36,Dermatitis radiation,2,exam
+P107,2026-10-05,36,Dry mouth,2,exam
+P107,2026-10-05,36,Dysphagia,3,exam
+P107,2026-10-05,36,Fatigue,2,patient-reported
+P107,2026-10-05,36,Hypomagnesemia,1,lab
+P107,2026-10-05,36,Oral mucositis,3,exam
+P107,2026-10-05,36,Tinnitus,1,patient-reported
+P107,2026-10-05,36,Weight loss,1,vitals
+P107,2026-10-12,43,Anemia,1,lab
+P107,2026-10-12,43,Creatinine increased,1,lab
+P107,2026-10-12,43,Dermatitis radiation,3,exam
+P107,2026-10-12,43,Dry mouth,2,exam
+P107,2026-10-12,43,Dysphagia,3,exam
+P107,2026-10-12,43,Fatigue,2,patient-reported
+P107,2026-10-12,43,Hypomagnesemia,1,lab
+P107,2026-10-12,43,Hyponatremia,1,lab
+P107,2026-10-12,43,Oral mucositis,3,exam
+P107,2026-10-12,43,Peripheral sensory neuropathy,1,exam
+P107,2026-10-12,43,Weight loss,1,vitals
+P108,2026-09-28,8,Fatigue,1,patient-reported
+P108,2026-09-28,8,Oral mucositis,1,exam
+P108,2026-10-05,15,Dermatitis radiation,1,exam
+P108,2026-10-05,15,Dry mouth,1,exam
+P108,2026-10-05,15,Dysphagia,1,exam
+P108,2026-10-05,15,Fatigue,1,patient-reported
+P108,2026-10-05,15,Oral mucositis,1,exam
+P108,2026-10-12,22,Dermatitis radiation,2,exam
+P108,2026-10-12,22,Dry mouth,1,exam
+P108,2026-10-12,22,Dysphagia,1,exam
+P108,2026-10-12,22,Fatigue,1,patient-reported
+P108,2026-10-12,22,Nausea,1,patient-reported
+P108,2026-10-12,22,Oral mucositis,2,exam
+P108,2026-10-19,29,Dermatitis radiation,2,exam
+P108,2026-10-19,29,Dry mouth,2,exam
+P108,2026-10-19,29,Dysphagia,2,exam
+P108,2026-10-19,29,Fatigue,1,patient-reported
+P108,2026-10-19,29,Nausea,1,patient-reported
+P108,2026-10-19,29,Oral cavity fungal infection,2,exam
+P108,2026-10-19,29,Oral mucositis,2,exam
+P108,2026-10-19,29,Tinnitus,1,patient-reported
+P108,2026-10-26,36,Dermatitis radiation,2,exam
+P108,2026-10-26,36,Dry mouth,2,exam
+P108,2026-10-26,36,Dysphagia,3,exam
+P108,2026-10-26,36,Fatigue,2,patient-reported
+P108,2026-10-26,36,Nausea,1,patient-reported
+P108,2026-10-26,36,Oral mucositis,3,exam
+P108,2026-10-26,36,Peripheral sensory neuropathy,1,exam
+P108,2026-11-02,43,Dermatitis radiation,3,exam
+P108,2026-11-02,43,Dry mouth,2,exam
+P108,2026-11-02,43,Dysphagia,3,exam
+P108,2026-11-02,43,Fatigue,2,patient-reported
+P108,2026-11-02,43,Hypomagnesemia,1,lab
+P108,2026-11-02,43,Oral mucositis,3,exam
+P108,2026-11-02,43,Peripheral sensory neuropathy,1,exam
+P108,2026-11-02,43,Tinnitus,1,patient-reported
+P109,2026-09-14,8,Fatigue,1,patient-reported
+P109,2026-09-14,8,Nausea,1,patient-reported
+P109,2026-09-21,15,Dermatitis radiation,1,exam
+P109,2026-09-21,15,Dry mouth,1,exam
+P109,2026-09-21,15,Dysphagia,1,exam
+P109,2026-09-21,15,Fatigue,1,patient-reported
+P109,2026-09-21,15,Nausea,1,patient-reported
+P109,2026-09-21,15,Oral mucositis,1,exam
+P109,2026-09-28,22,Dermatitis radiation,2,exam
+P109,2026-09-28,22,Dry mouth,1,exam
+P109,2026-09-28,22,Dysphagia,1,exam
+P109,2026-09-28,22,Fatigue,1,patient-reported
+P109,2026-09-28,22,Nausea,1,patient-reported
+P109,2026-09-28,22,Oral mucositis,2,exam
+P109,2026-10-05,29,Dermatitis radiation,2,exam
+P109,2026-10-05,29,Dry mouth,2,exam
+P109,2026-10-05,29,Dysphagia,2,exam
+P109,2026-10-05,29,Fatigue,1,patient-reported
+P109,2026-10-05,29,Nausea,1,patient-reported
+P109,2026-10-05,29,Oral cavity fungal infection,2,exam
+P109,2026-10-05,29,Oral mucositis,2,exam
+P109,2026-10-05,29,Peripheral sensory neuropathy,1,exam
+P109,2026-10-12,36,Dermatitis radiation,2,exam
+P109,2026-10-12,36,Dry mouth,2,exam
+P109,2026-10-12,36,Dysphagia,2,exam
+P109,2026-10-12,36,Fatigue,2,patient-reported
+P109,2026-10-12,36,Nausea,1,patient-reported
+P109,2026-10-12,36,Oral mucositis,3,exam
+P109,2026-10-12,36,Peripheral sensory neuropathy,1,exam
+P109,2026-10-19,43,Anemia,1,lab
+P109,2026-10-19,43,Dermatitis radiation,2,exam
+P109,2026-10-19,43,Dry mouth,2,exam
+P109,2026-10-19,43,Dysphagia,2,exam
+P109,2026-10-19,43,Fatigue,2,patient-reported
+P109,2026-10-19,43,Hypomagnesemia,1,lab
+P109,2026-10-19,43,Nausea,1,patient-reported
+P109,2026-10-19,43,Oral mucositis,3,exam
+P110,2026-08-31,1,Fatigue,1,patient-reported
+P110,2026-09-07,8,Fatigue,1,patient-reported
+P110,2026-09-07,8,Nausea,1,patient-reported
+P110,2026-09-14,15,Dermatitis radiation,1,exam
+P110,2026-09-14,15,Dry mouth,1,exam
+P110,2026-09-14,15,Dysphagia,1,exam
+P110,2026-09-14,15,Fatigue,1,patient-reported
+P110,2026-09-14,15,Oral cavity fungal infection,2,exam
+P110,2026-09-14,15,Oral mucositis,1,exam
+P110,2026-09-21,22,Dermatitis radiation,2,exam
+P110,2026-09-21,22,Dry mouth,1,exam
+P110,2026-09-21,22,Dysphagia,1,exam
+P110,2026-09-21,22,Fatigue,1,patient-reported
+P110,2026-09-21,22,Oral mucositis,2,exam
+P110,2026-09-21,22,Peripheral sensory neuropathy,1,exam
+P110,2026-09-28,29,Dermatitis radiation,2,exam
+P110,2026-09-28,29,Dry mouth,2,exam
+P110,2026-09-28,29,Dysphagia,2,exam
+P110,2026-09-28,29,Fatigue,1,patient-reported
+P110,2026-09-28,29,Nausea,1,patient-reported
+P110,2026-09-28,29,Oral mucositis,3,exam
+P110,2026-10-05,36,Anemia,1,lab
+P110,2026-10-05,36,Dermatitis radiation,2,exam
+P110,2026-10-05,36,Dry mouth,2,exam
+P110,2026-10-05,36,Dysphagia,3,exam
+P110,2026-10-05,36,Fatigue,1,patient-reported
+P110,2026-10-05,36,Neutrophil count decreased,3,lab
+P110,2026-10-05,36,Oral mucositis,3,exam
+P110,2026-10-05,36,Weight loss,1,vitals
+P110,2026-10-12,43,Anemia,1,lab
+P110,2026-10-12,43,Dermatitis radiation,2,exam
+P110,2026-10-12,43,Dry mouth,2,exam
+P110,2026-10-12,43,Dysphagia,2,exam
+P110,2026-10-12,43,Fatigue,2,patient-reported
+P110,2026-10-12,43,Oral mucositis,3,exam
+P110,2026-10-12,43,Weight loss,1,vitals
+P111,2026-09-07,1,Fatigue,1,patient-reported
+P111,2026-09-14,8,Fatigue,1,patient-reported
+P111,2026-09-21,15,Dermatitis radiation,1,exam
+P111,2026-09-21,15,Dry mouth,1,exam
+P111,2026-09-21,15,Fatigue,1,patient-reported
+P111,2026-09-21,15,Oral mucositis,1,exam
+P111,2026-09-28,22,Dermatitis radiation,2,exam
+P111,2026-09-28,22,Dry mouth,1,exam
+P111,2026-09-28,22,Dysphagia,1,exam
+P111,2026-09-28,22,Fatigue,1,patient-reported
+P111,2026-09-28,22,Oral mucositis,2,exam
+P111,2026-10-05,29,Dermatitis radiation,2,exam
+P111,2026-10-05,29,Dry mouth,2,exam
+P111,2026-10-05,29,Dysphagia,2,exam
+P111,2026-10-05,29,Fatigue,2,patient-reported
+P111,2026-10-05,29,Oral mucositis,2,exam
+P111,2026-10-12,36,Dermatitis radiation,2,exam
+P111,2026-10-12,36,Dry mouth,2,exam
+P111,2026-10-12,36,Dysphagia,2,exam
+P111,2026-10-12,36,Fatigue,2,patient-reported
+P111,2026-10-12,36,Hypomagnesemia,1,lab
+P111,2026-10-12,36,Nausea,1,patient-reported
+P111,2026-10-12,36,Oral mucositis,3,exam
+P111,2026-10-12,36,Peripheral sensory neuropathy,1,exam
+P111,2026-10-19,43,Anemia,1,lab
+P111,2026-10-19,43,Creatinine increased,1,lab
+P111,2026-10-19,43,Dermatitis radiation,2,exam
+P111,2026-10-19,43,Dry mouth,2,exam
+P111,2026-10-19,43,Dysphagia,3,exam
+P111,2026-10-19,43,Fatigue,2,patient-reported
+P111,2026-10-19,43,Hypomagnesemia,1,lab
+P111,2026-10-19,43,Nausea,1,patient-reported
+P111,2026-10-19,43,Oral mucositis,3,exam
+P112,2026-09-21,1,Fatigue,1,patient-reported
+P112,2026-09-28,8,Fatigue,1,patient-reported
+P112,2026-09-28,8,Nausea,1,patient-reported
+P112,2026-10-05,15,Dermatitis radiation,1,exam
+P112,2026-10-05,15,Dry mouth,1,exam
+P112,2026-10-05,15,Fatigue,1,patient-reported
+P112,2026-10-05,15,Oral mucositis,1,exam
+P112,2026-10-12,22,Dermatitis radiation,2,exam
+P112,2026-10-12,22,Dry mouth,1,exam
+P112,2026-10-12,22,Dysphagia,1,exam
+P112,2026-10-12,22,Fatigue,1,patient-reported
+P112,2026-10-12,22,Oral mucositis,2,exam
+P112,2026-10-19,29,Dermatitis radiation,2,exam
+P112,2026-10-19,29,Dry mouth,2,exam
+P112,2026-10-19,29,Dysphagia,2,exam
+P112,2026-10-19,29,Fatigue,1,patient-reported
+P112,2026-10-19,29,Nausea,1,patient-reported
+P112,2026-10-19,29,Oral mucositis,2,exam
+P112,2026-10-19,29,Peripheral sensory neuropathy,1,exam
+P112,2026-10-19,29,Tinnitus,1,patient-reported
+P112,2026-10-26,36,Creatinine increased,1,lab
+P112,2026-10-26,36,Dermatitis radiation,2,exam
+P112,2026-10-26,36,Dry mouth,2,exam
+P112,2026-10-26,36,Dysphagia,3,exam
+P112,2026-10-26,36,Fatigue,2,patient-reported
+P112,2026-10-26,36,Hypomagnesemia,1,lab
+P112,2026-10-26,36,Hyponatremia,1,lab
+P112,2026-10-26,36,Oral mucositis,3,exam
+P112,2026-10-30,40,Acute kidney injury,1,ED encounter
+P112,2026-10-30,40,Dehydration,2,ED encounter
+P112,2026-11-02,43,Anemia,1,lab
+P112,2026-11-02,43,Creatinine increased,1,lab
+P112,2026-11-02,43,Dermatitis radiation,2,exam
+P112,2026-11-02,43,Dry mouth,2,exam
+P112,2026-11-02,43,Dysphagia,3,exam
+P112,2026-11-02,43,Fatigue,2,patient-reported
+P112,2026-11-02,43,Hypomagnesemia,1,lab
+P112,2026-11-02,43,Hyponatremia,1,lab
+P112,2026-11-02,43,Nausea,1,patient-reported
+P112,2026-11-02,43,Oral mucositis,3,exam
+P112,2026-11-02,43,Tinnitus,1,patient-reported
+P112,2026-11-02,43,Weight loss,1,vitals
+P113,2026-09-07,1,Fatigue,1,patient-reported
+P113,2026-09-14,8,Fatigue,1,patient-reported
+P113,2026-09-14,8,Nausea,1,patient-reported
+P113,2026-09-21,15,Dermatitis radiation,1,exam
+P113,2026-09-21,15,Dry mouth,1,exam
+P113,2026-09-21,15,Dysphagia,1,exam
+P113,2026-09-21,15,Fatigue,1,patient-reported
+P113,2026-09-21,15,Oral mucositis,1,exam
+P113,2026-09-28,22,Dermatitis radiation,2,exam
+P113,2026-09-28,22,Dry mouth,1,exam
+P113,2026-09-28,22,Dysphagia,1,exam
+P113,2026-09-28,22,Fatigue,1,patient-reported
+P113,2026-09-28,22,Oral mucositis,2,exam
+P113,2026-09-28,22,Tinnitus,1,patient-reported
+P113,2026-10-05,29,Creatinine increased,2,lab
+P113,2026-10-05,29,Dermatitis radiation,2,exam
+P113,2026-10-05,29,Dry mouth,2,exam
+P113,2026-10-05,29,Dysphagia,2,exam
+P113,2026-10-05,29,Fatigue,2,patient-reported
+P113,2026-10-05,29,Hypomagnesemia,1,lab
+P113,2026-10-05,29,Nausea,1,patient-reported
+P113,2026-10-05,29,Oral mucositis,3,exam
+P113,2026-10-10,34,Acute kidney injury,1,ED encounter
+P113,2026-10-10,34,Dehydration,2,ED encounter
+P113,2026-10-12,36,Anemia,1,lab
+P113,2026-10-12,36,Creatinine increased,2,lab
+P113,2026-10-12,36,Dermatitis radiation,2,exam
+P113,2026-10-12,36,Dry mouth,2,exam
+P113,2026-10-12,36,Dysphagia,3,exam
+P113,2026-10-12,36,Fatigue,2,patient-reported
+P113,2026-10-12,36,Hypomagnesemia,1,lab
+P113,2026-10-12,36,Hyponatremia,1,lab
+P113,2026-10-12,36,Nausea,1,patient-reported
+P113,2026-10-12,36,Neutrophil count decreased,2,lab
+P113,2026-10-12,36,Oral mucositis,3,exam
+P113,2026-10-19,43,Anemia,1,lab
+P113,2026-10-19,43,Dermatitis radiation,2,exam
+P113,2026-10-19,43,Dry mouth,2,exam
+P113,2026-10-19,43,Dysphagia,3,exam
+P113,2026-10-19,43,Fatigue,2,patient-reported
+P113,2026-10-19,43,Oral cavity fungal infection,2,exam
+P113,2026-10-19,43,Oral mucositis,3,exam
+P113,2026-10-19,43,Tinnitus,1,patient-reported
+P113,2026-10-19,43,Weight loss,1,vitals
+P114,2026-09-21,1,Fatigue,1,patient-reported
+P114,2026-09-28,8,Fatigue,1,patient-reported
+P114,2026-09-28,8,Nausea,1,patient-reported
+P114,2026-10-05,15,Dermatitis radiation,1,exam
+P114,2026-10-05,15,Dry mouth,1,exam
+P114,2026-10-05,15,Fatigue,1,patient-reported
+P114,2026-10-05,15,Oral mucositis,1,exam
+P114,2026-10-12,22,Dermatitis radiation,2,exam
+P114,2026-10-12,22,Dry mouth,1,exam
+P114,2026-10-12,22,Dysphagia,1,exam
+P114,2026-10-12,22,Fatigue,1,patient-reported
+P114,2026-10-12,22,Oral mucositis,2,exam
+P114,2026-10-19,29,Creatinine increased,1,lab
+P114,2026-10-19,29,Dermatitis radiation,2,exam
+P114,2026-10-19,29,Dry mouth,2,exam
+P114,2026-10-19,29,Dysphagia,2,exam
+P114,2026-10-19,29,Fatigue,1,patient-reported
+P114,2026-10-19,29,Hyponatremia,1,lab
+P114,2026-10-19,29,Nausea,1,patient-reported
+P114,2026-10-19,29,Oral mucositis,3,exam
+P114,2026-10-23,33,Acute kidney injury,1,ED encounter
+P114,2026-10-23,33,Dehydration,2,ED encounter
+P114,2026-10-26,36,Anemia,1,lab
+P114,2026-10-26,36,Creatinine increased,2,lab
+P114,2026-10-26,36,Dermatitis radiation,2,exam
+P114,2026-10-26,36,Dry mouth,2,exam
+P114,2026-10-26,36,Dysphagia,3,exam
+P114,2026-10-26,36,Fatigue,2,patient-reported
+P114,2026-10-26,36,Hyponatremia,1,lab
+P114,2026-10-26,36,Nausea,1,patient-reported
+P114,2026-10-26,36,Neutrophil count decreased,2,lab
+P114,2026-10-26,36,Oral mucositis,3,exam
+P114,2026-10-26,36,Tinnitus,1,patient-reported
+P114,2026-11-02,43,Anemia,1,lab
+P114,2026-11-02,43,Creatinine increased,1,lab
+P114,2026-11-02,43,Dermatitis radiation,2,exam
+P114,2026-11-02,43,Dry mouth,2,exam
+P114,2026-11-02,43,Dysphagia,2,exam
+P114,2026-11-02,43,Fatigue,2,patient-reported
+P114,2026-11-02,43,Hypomagnesemia,1,lab
+P114,2026-11-02,43,Oral mucositis,3,exam
+P115,2026-09-28,1,Fatigue,1,patient-reported
+P115,2026-09-28,1,Oral mucositis,1,exam
+P115,2026-10-05,8,Fatigue,1,patient-reported
+P115,2026-10-05,8,Nausea,1,patient-reported
+P115,2026-10-12,15,Dermatitis radiation,1,exam
+P115,2026-10-12,15,Dry mouth,1,exam
+P115,2026-10-12,15,Dysphagia,1,exam
+P115,2026-10-12,15,Fatigue,1,patient-reported
+P115,2026-10-12,15,Nausea,1,patient-reported
+P115,2026-10-19,22,Dermatitis radiation,2,exam
+P115,2026-10-19,22,Dry mouth,1,exam
+P115,2026-10-19,22,Dysphagia,1,exam
+P115,2026-10-19,22,Fatigue,1,patient-reported
+P115,2026-10-19,22,Oral mucositis,2,exam
+P115,2026-10-26,29,Dermatitis radiation,2,exam
+P115,2026-10-26,29,Dry mouth,2,exam
+P115,2026-10-26,29,Dysphagia,2,exam
+P115,2026-10-26,29,Fatigue,2,patient-reported
+P115,2026-10-26,29,Nausea,1,patient-reported
+P115,2026-10-26,29,Oral mucositis,2,exam
+P115,2026-11-02,36,Creatinine increased,2,lab
+P115,2026-11-02,36,Dermatitis radiation,2,exam
+P115,2026-11-02,36,Dry mouth,2,exam
+P115,2026-11-02,36,Dysphagia,3,exam
+P115,2026-11-02,36,Fatigue,2,patient-reported
+P115,2026-11-02,36,Hyponatremia,1,lab
+P115,2026-11-02,36,Nausea,1,patient-reported
+P115,2026-11-02,36,Oral mucositis,3,exam
+P115,2026-11-03,37,Acute kidney injury,1,ED encounter
+P115,2026-11-03,37,Dehydration,2,ED encounter
+P115,2026-11-09,43,Anemia,1,lab
+P115,2026-11-09,43,Dermatitis radiation,2,exam
+P115,2026-11-09,43,Dry mouth,2,exam
+P115,2026-11-09,43,Dysphagia,3,exam
+P115,2026-11-09,43,Fatigue,2,patient-reported
+P115,2026-11-09,43,Hypomagnesemia,1,lab
+P115,2026-11-09,43,Nausea,1,patient-reported
+P115,2026-11-09,43,Oral mucositis,3,exam
+P115,2026-11-09,43,Peripheral sensory neuropathy,1,exam
+P115,2026-11-09,43,Weight loss,1,vitals
+P116,2026-09-14,8,Fatigue,1,patient-reported
+P116,2026-09-21,15,Dermatitis radiation,1,exam
+P116,2026-09-21,15,Dry mouth,1,exam
+P116,2026-09-21,15,Fatigue,1,patient-reported
+P116,2026-09-21,15,Oral cavity fungal infection,2,exam
+P116,2026-09-21,15,Oral mucositis,1,exam
+P116,2026-09-28,22,Dermatitis radiation,2,exam
+P116,2026-09-28,22,Dry mouth,1,exam
+P116,2026-09-28,22,Dysphagia,1,exam
+P116,2026-09-28,22,Fatigue,1,patient-reported
+P116,2026-09-28,22,Oral mucositis,1,exam
+P116,2026-10-05,29,Dermatitis radiation,2,exam
+P116,2026-10-05,29,Dry mouth,2,exam
+P116,2026-10-05,29,Dysphagia,2,exam
+P116,2026-10-05,29,Fatigue,1,patient-reported
+P116,2026-10-05,29,Oral cavity fungal infection,2,exam
+P116,2026-10-05,29,Oral mucositis,2,exam
+P116,2026-10-12,36,Dermatitis radiation,2,exam
+P116,2026-10-12,36,Dry mouth,2,exam
+P116,2026-10-12,36,Dysphagia,2,exam
+P116,2026-10-12,36,Fatigue,2,patient-reported
+P116,2026-10-12,36,Oral mucositis,2,exam
+P116,2026-10-19,43,Dermatitis radiation,3,exam
+P116,2026-10-19,43,Dry mouth,2,exam
+P116,2026-10-19,43,Dysphagia,2,exam
+P116,2026-10-19,43,Fatigue,1,patient-reported
+P116,2026-10-19,43,Oral cavity fungal infection,2,exam
+P116,2026-10-19,43,Oral mucositis,2,exam
+P117,2026-08-31,1,Fatigue,1,patient-reported
+P117,2026-09-07,8,Fatigue,1,patient-reported
+P117,2026-09-14,15,Dermatitis radiation,1,exam
+P117,2026-09-14,15,Dry mouth,1,exam
+P117,2026-09-14,15,Fatigue,1,patient-reported
+P117,2026-09-14,15,Oral cavity fungal infection,2,exam
+P117,2026-09-14,15,Oral mucositis,1,exam
+P117,2026-09-21,22,Dermatitis radiation,2,exam
+P117,2026-09-21,22,Dry mouth,1,exam
+P117,2026-09-21,22,Dysphagia,1,exam
+P117,2026-09-21,22,Fatigue,1,patient-reported
+P117,2026-09-21,22,Oral mucositis,1,exam
+P117,2026-09-28,29,Dermatitis radiation,2,exam
+P117,2026-09-28,29,Dry mouth,2,exam
+P117,2026-09-28,29,Dysphagia,2,exam
+P117,2026-09-28,29,Fatigue,1,patient-reported
+P117,2026-09-28,29,Oral mucositis,2,exam
+P117,2026-10-05,36,Creatinine increased,2,lab
+P117,2026-10-05,36,Dermatitis radiation,2,exam
+P117,2026-10-05,36,Dry mouth,2,exam
+P117,2026-10-05,36,Dysphagia,2,exam
+P117,2026-10-05,36,Fatigue,2,patient-reported
+P117,2026-10-05,36,Hyponatremia,1,lab
+P117,2026-10-05,36,Nausea,1,patient-reported
+P117,2026-10-05,36,Oral mucositis,3,exam
+P117,2026-10-08,39,Acute kidney injury,1,ED encounter
+P117,2026-10-08,39,Dehydration,2,ED encounter
+P117,2026-10-12,43,Dermatitis radiation,2,exam
+P117,2026-10-12,43,Dry mouth,2,exam
+P117,2026-10-12,43,Dysphagia,2,exam
+P117,2026-10-12,43,Fatigue,2,patient-reported
+P117,2026-10-12,43,Nausea,1,patient-reported
+P117,2026-10-12,43,Oral mucositis,3,exam
+P118,2026-09-28,1,Fatigue,1,patient-reported
+P118,2026-10-05,8,Fatigue,1,patient-reported
+P118,2026-10-12,15,Dermatitis radiation,1,exam
+P118,2026-10-12,15,Dry mouth,1,exam
+P118,2026-10-12,15,Dysphagia,1,exam
+P118,2026-10-12,15,Fatigue,1,patient-reported
+P118,2026-10-12,15,Nausea,1,patient-reported
+P118,2026-10-12,15,Oral mucositis,1,exam
+P118,2026-10-19,22,Creatinine increased,1,lab
+P118,2026-10-19,22,Dermatitis radiation,2,exam
+P118,2026-10-19,22,Dry mouth,1,exam
+P118,2026-10-19,22,Dysphagia,1,exam
+P118,2026-10-19,22,Fatigue,1,patient-reported
+P118,2026-10-19,22,Hyponatremia,1,lab
+P118,2026-10-19,22,Nausea,1,patient-reported
+P118,2026-10-19,22,Oral mucositis,2,exam
+P118,2026-10-23,26,Acute kidney injury,1,ED encounter
+P118,2026-10-23,26,Dehydration,2,ED encounter
+P118,2026-10-26,29,Creatinine increased,1,lab
+P118,2026-10-26,29,Dermatitis radiation,2,exam
+P118,2026-10-26,29,Dry mouth,2,exam
+P118,2026-10-26,29,Dysphagia,3,exam
+P118,2026-10-26,29,Fatigue,2,patient-reported
+P118,2026-10-26,29,Hyponatremia,1,lab
+P118,2026-10-26,29,Nausea,1,patient-reported
+P118,2026-10-26,29,Oral mucositis,2,exam
+P118,2026-10-26,29,Peripheral sensory neuropathy,1,exam
+P118,2026-11-02,36,Anemia,1,lab
+P118,2026-11-02,36,Dermatitis radiation,2,exam
+P118,2026-11-02,36,Dry mouth,2,exam
+P118,2026-11-02,36,Dysphagia,2,exam
+P118,2026-11-02,36,Fatigue,2,patient-reported
+P118,2026-11-02,36,Hypomagnesemia,1,lab
+P118,2026-11-02,36,Oral mucositis,3,exam
+P118,2026-11-02,36,Tinnitus,1,patient-reported
+P118,2026-11-02,36,Weight loss,1,vitals
+P118,2026-11-09,43,Anemia,1,lab
+P118,2026-11-09,43,Creatinine increased,1,lab
+P118,2026-11-09,43,Dermatitis radiation,3,exam
+P118,2026-11-09,43,Dry mouth,2,exam
+P118,2026-11-09,43,Dysphagia,2,exam
+P118,2026-11-09,43,Fatigue,2,patient-reported
+P118,2026-11-09,43,Hypomagnesemia,1,lab
+P118,2026-11-09,43,Nausea,1,patient-reported
+P118,2026-11-09,43,Oral mucositis,3,exam
+P118,2026-11-09,43,Peripheral sensory neuropathy,1,exam
+P118,2026-11-09,43,Weight loss,1,vitals
+P119,2026-09-28,1,Oral mucositis,1,exam
+P119,2026-10-05,8,Fatigue,1,patient-reported
+P119,2026-10-05,8,Nausea,1,patient-reported
+P119,2026-10-12,15,Dermatitis radiation,1,exam
+P119,2026-10-12,15,Dry mouth,1,exam
+P119,2026-10-12,15,Dysphagia,1,exam
+P119,2026-10-12,15,Fatigue,1,patient-reported
+P119,2026-10-12,15,Oral mucositis,1,exam
+P119,2026-10-19,22,Dermatitis radiation,2,exam
+P119,2026-10-19,22,Dry mouth,1,exam
+P119,2026-10-19,22,Dysphagia,1,exam
+P119,2026-10-19,22,Fatigue,1,patient-reported
+P119,2026-10-19,22,Oral mucositis,2,exam
+P119,2026-10-26,29,Dermatitis radiation,2,exam
+P119,2026-10-26,29,Dry mouth,2,exam
+P119,2026-10-26,29,Dysphagia,2,exam
+P119,2026-10-26,29,Fatigue,1,patient-reported
+P119,2026-10-26,29,Nausea,1,patient-reported
+P119,2026-10-26,29,Oral cavity fungal infection,2,exam
+P119,2026-10-26,29,Oral mucositis,2,exam
+P119,2026-10-26,29,Peripheral sensory neuropathy,1,exam
+P119,2026-11-01,35,Febrile neutropenia,3,ED encounter
+P119,2026-11-02,36,Dermatitis radiation,2,exam
+P119,2026-11-02,36,Dry mouth,2,exam
+P119,2026-11-02,36,Dysphagia,2,exam
+P119,2026-11-02,36,Fatigue,2,patient-reported
+P119,2026-11-02,36,Hypomagnesemia,1,lab
+P119,2026-11-02,36,Nausea,1,patient-reported
+P119,2026-11-02,36,Oral mucositis,3,exam
+P119,2026-11-02,36,Peripheral sensory neuropathy,1,exam
+P119,2026-11-02,36,Tinnitus,1,patient-reported
+P119,2026-11-09,43,Anemia,1,lab
+P119,2026-11-09,43,Dermatitis radiation,2,exam
+P119,2026-11-09,43,Dry mouth,2,exam
+P119,2026-11-09,43,Dysphagia,3,exam
+P119,2026-11-09,43,Fatigue,2,patient-reported
+P119,2026-11-09,43,Hypomagnesemia,1,lab
+P119,2026-11-09,43,Nausea,1,patient-reported
+P119,2026-11-09,43,Neutrophil count decreased,2,lab
+P119,2026-11-09,43,Oral mucositis,3,exam
+P120,2026-09-14,1,Fatigue,1,patient-reported
+P120,2026-09-21,8,Fatigue,1,patient-reported
+P120,2026-09-21,8,Nausea,1,patient-reported
+P120,2026-09-28,15,Dermatitis radiation,1,exam
+P120,2026-09-28,15,Dry mouth,1,exam
+P120,2026-09-28,15,Dysphagia,1,exam
+P120,2026-09-28,15,Fatigue,1,patient-reported
+P120,2026-09-28,15,Oral mucositis,1,exam
+P120,2026-10-05,22,Dermatitis radiation,2,exam
+P120,2026-10-05,22,Dry mouth,1,exam
+P120,2026-10-05,22,Dysphagia,1,exam
+P120,2026-10-05,22,Fatigue,1,patient-reported
+P120,2026-10-05,22,Oral mucositis,2,exam
+P120,2026-10-05,22,Peripheral sensory neuropathy,1,exam
+P120,2026-10-12,29,Dermatitis radiation,2,exam
+P120,2026-10-12,29,Dry mouth,2,exam
+P120,2026-10-12,29,Dysphagia,2,exam
+P120,2026-10-12,29,Fatigue,1,patient-reported
+P120,2026-10-12,29,Nausea,1,patient-reported
+P120,2026-10-12,29,Oral mucositis,2,exam
+P120,2026-10-12,29,Tinnitus,1,patient-reported
+P120,2026-10-19,36,Dermatitis radiation,2,exam
+P120,2026-10-19,36,Dry mouth,2,exam
+P120,2026-10-19,36,Dysphagia,2,exam
+P120,2026-10-19,36,Fatigue,2,patient-reported
+P120,2026-10-19,36,Hypomagnesemia,1,lab
+P120,2026-10-19,36,Oral mucositis,3,exam
+P120,2026-10-19,36,Peripheral sensory neuropathy,1,exam
+P120,2026-10-26,43,Dermatitis radiation,2,exam
+P120,2026-10-26,43,Dry mouth,2,exam
+P120,2026-10-26,43,Dysphagia,2,exam
+P120,2026-10-26,43,Fatigue,2,patient-reported
+P120,2026-10-26,43,Hypomagnesemia,1,lab
+P120,2026-10-26,43,Oral mucositis,3,exam
+P120,2026-10-26,43,Tinnitus,1,patient-reported
+P120,2026-10-26,43,Weight loss,1,vitals
