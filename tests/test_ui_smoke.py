@@ -118,6 +118,7 @@ def test_render_blueprint_uses_free_plan_and_no_paid_model():
     assert service["type"] == "web"
     assert service["runtime"] == "python"
     assert service["plan"] == "free"
+    assert service["autoDeployTrigger"] == "commit"
     env = {item["key"]: item["value"] for item in service["envVars"]}
     assert env["BETWEEN_VISITS_LLM_PROVIDER"] == "rules"
     assert "$PORT" in service["startCommand"]
