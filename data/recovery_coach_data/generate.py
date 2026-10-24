@@ -1,5 +1,5 @@
 """
-Synthetic data generator: head & neck cancer chemoradiation recovery coach.
+OncoPath synthetic data generator for head & neck cancer chemoradiation.
 
 ALL DATA IS SYNTHETIC. No real patients. For hackathon / demo use only.
 
@@ -31,7 +31,7 @@ DEMO_PATIENTS = [
         patient_id="P001", name="Maria Alvarez", age=58, sex="F",
         diagnosis="HPV+ oropharyngeal SCC (right tonsil)", stage="T2N1M0 (AJCC8 stage I)",
         treatment="RT 70 Gy/35 fx + weekly cisplatin 40 mg/m2", chemo="weekly",
-        tx_start=date(2026, 9, 14), weight_kg=68.0,
+        tx_start=date(2026, 9, 30), weight_kg=68.0,
         rhr=62, hrv=42, skin_temp=33.6, resp=14.8,
         events=[dict(type="dehydration", onset_tx_day=15, ed_tx_day=22)],
         story="Mucositis + post-chemo nausea -> drinks less -> dehydration. "

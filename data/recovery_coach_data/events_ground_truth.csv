@@ -1,5 +1,5 @@
 patient_id,event_type,onset_tx_day,onset_date,earliest_reasonable_alert_tx_day,counterfactual_ed_tx_day,counterfactual_ed_date,should_alert
-P001,dehydration,15,2026-09-28,18.0,22.0,2026-10-05,True
+P001,dehydration,15,2026-10-14,18.0,22.0,2026-10-21,True
 P002,neutropenic_fever,33,2026-10-16,34.0,34.0,2026-10-17,True
 P003,false_alarm_confounder,10,2026-09-23,,,,False
 P101,neutropenic_fever,33,2026-10-23,34.0,34.0,2026-10-24,True

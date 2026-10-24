@@ -1,4 +1,4 @@
-"""Extended synthetic clinical data for the Recovery Coach / OncoPath cohort.
+"""Extended synthetic clinical data for the OncoPath cohort.
 
 Reads the existing CSVs in this folder (patients, labs, clinic_vitals, checkins,
 treatment_schedule, events_ground_truth) and writes NEW files alongside them.

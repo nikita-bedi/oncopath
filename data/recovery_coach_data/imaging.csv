@@ -1,9 +1,9 @@
 patient_id,date,tx_day,modality,body_region,contrast,indication,findings,impression,status
-P001,2026-08-14,-30,FDG PET/CT,skull base to mid-thigh,,Initial staging,"Hypermetabolic mass of the right palatine tonsil (SUVmax 8.9). Hypermetabolic right level II lymph node, 1.9 cm (SUVmax 6.2). No hypermetabolic lung, liver, or osseous lesions.",Primary right palatine tonsil malignancy with right cervical nodal metastasis. No distant metastatic disease.,final
-P001,2026-08-17,-27,MRI,neck and oral cavity,gadolinium,Local extent for RT planning,Enhancing mass at the right palatine tonsil; no perineural spread identified.,"Findings as above, used for target delineation.",final
-P001,2026-08-23,-21,Panoramic dental X-ray,mandible and maxilla,,Pre-radiation dental evaluation,"Non-restorable left lower molar, extracted pre-RT.",Dental clearance for radiation.,final
-P001,2026-09-01,-12,CT simulation,head and neck,IV iodinated,Radiation treatment planning,Thermoplastic mask immobilization. Planning CT acquired at 2 mm slices.,Simulation completed.,final
-P001,2027-01-24,133,FDG PET/CT,skull base to mid-thigh,,12-week post-treatment response assessment,,,scheduled
+P001,2026-08-30,-30,FDG PET/CT,skull base to mid-thigh,,Initial staging,"Hypermetabolic mass of the right palatine tonsil (SUVmax 8.9). Hypermetabolic right level II lymph node, 1.9 cm (SUVmax 6.2). No hypermetabolic lung, liver, or osseous lesions.",Primary right palatine tonsil malignancy with right cervical nodal metastasis. No distant metastatic disease.,final
+P001,2026-09-02,-27,MRI,neck and oral cavity,gadolinium,Local extent for RT planning,Enhancing mass at the right palatine tonsil; no perineural spread identified.,"Findings as above, used for target delineation.",final
+P001,2026-09-08,-21,Panoramic dental X-ray,mandible and maxilla,,Pre-radiation dental evaluation,"Non-restorable left lower molar, extracted pre-RT.",Dental clearance for radiation.,final
+P001,2026-09-17,-12,CT simulation,head and neck,IV iodinated,Radiation treatment planning,Thermoplastic mask immobilization. Planning CT acquired at 2 mm slices.,Simulation completed.,final
+P001,2027-02-09,133,FDG PET/CT,skull base to mid-thigh,,12-week post-treatment response assessment,,,scheduled
 P002,2026-08-14,-30,FDG PET/CT,skull base to mid-thigh,,Initial staging,"Hypermetabolic mass of the supraglottic larynx (SUVmax 8.4). Hypermetabolic left level II lymph node, 2.0 cm (SUVmax 5.9). No hypermetabolic lung, liver, or osseous lesions.",Primary supraglottic larynx malignancy with left cervical nodal metastasis. No distant metastatic disease.,final
 P002,2026-08-15,-29,CT,chest,IV iodinated,Staging (smoking history),No pulmonary nodules.,No evidence of pulmonary metastasis.,final
 P002,2026-08-17,-27,MRI,neck and oral cavity,gadolinium,Local extent for RT planning,Enhancing mass at the supraglottic larynx; no perineural spread identified.,"Findings as above, used for target delineation.",final

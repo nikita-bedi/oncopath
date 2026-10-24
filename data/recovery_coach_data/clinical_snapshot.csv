@@ -1,5 +1,5 @@
 patient_id,last_exam_date,last_exam_tx_day,ecog,last_exam_summary,last_weight_kg,weight_change_pct,pg_sga_category,last_lab_date,last_anc,last_hgb,last_platelets,last_sodium,last_creatinine,last_albumin
-P001,2026-10-26,43,1,Grade 3 oral mucositis with ulceration of the oropharyngeal mucosa; grade 3 radiation dermatitis of the neck.,62.7,-7.8,C (severely malnourished),2026-10-26,1.92,11.5,192.2,138.1,0.96,3.7
+P001,2026-11-11,43,1,Grade 3 oral mucositis with ulceration of the oropharyngeal mucosa; grade 3 radiation dermatitis of the neck.,62.7,-7.8,C (severely malnourished),2026-11-11,1.92,11.5,192.2,138.1,0.96,3.7
 P002,2026-10-26,43,1,Grade 3 oral mucositis with ulceration of the oropharyngeal mucosa; grade 2 radiation dermatitis of the neck.,78.4,-4.4,B (moderate/suspected malnutrition),2026-10-26,2.1,11.6,185.0,138.6,1.21,3.4
 P003,2026-10-26,43,0,Grade 2 oral mucositis with ulceration of the oral mucosa; grade 3 radiation dermatitis of the neck.,58.6,-3.9,B (moderate/suspected malnutrition),2026-10-26,4.13,12.2,263.0,137.9,0.72,3.6
 P101,2026-11-02,43,2,Grade 3 oral mucositis with ulceration of the oropharyngeal mucosa; grade 3 radiation dermatitis of the neck; white plaques on tongue consistent with oral candidiasis.,59.1,-5.2,C (severely malnourished),2026-11-02,1.77,11.9,226.8,135.4,1.17,3.4

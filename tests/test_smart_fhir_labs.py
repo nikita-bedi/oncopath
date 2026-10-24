@@ -132,7 +132,7 @@ def test_panel_older_than_five_days_has_freshness_warning():
 
 def test_bundled_fhir_fallback_uses_latest_result_per_loinc_as_of_alert():
     cohort = load_cohort()
-    result = bundled_fhir_labs(cohort, "P001", date(2026, 10, 2), as_of_tx_day=19)
+    result = bundled_fhir_labs(cohort, "P001", date(2026, 10, 18), as_of_tx_day=19)
     for shown in result["labs"]:
         source = [lab for lab in cohort.labs["P001"]
                   if lab.test == shown["name"] and lab.tx_day <= 19

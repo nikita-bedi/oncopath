@@ -1,63 +1,63 @@
 patient_id,date,tx_day,pain_0_10,swallow_difficulty_0_10,nausea_0_10,fatigue_0_10,fluid_cups,meals_eaten_pct,transcript
-P001,2026-09-11,-2,0,1,0,1,8.6,96,Throat feels okay today. I think I had about 9 cups of fluid.
-P001,2026-09-12,-1,2,1,0,3,7.5,100,Not much pain to speak of. I think I had about 8 cups of fluid.
-P001,2026-09-13,0,1,1,0,2,9.6,100,Not much pain to speak of. I think I had about 10 cups of fluid.
-P001,2026-09-14,1,0,0,1,3,7.1,83,Not much pain to speak of. I think I had about 7 cups of fluid.
-P001,2026-09-15,2,0,0,3,2,7.7,75,Not much pain to speak of. I think I had about 8 cups of fluid. A little queasy after the chemo.
-P001,2026-09-16,3,1,0,2,2,6.3,82,Throat feels okay today. I think I had about 6 cups of fluid. A little queasy after the chemo.
-P001,2026-09-17,4,2,1,0,3,7.7,82,Not much pain to speak of. I think I had about 8 cups of fluid.
-P001,2026-09-18,5,1,2,0,2,9.0,88,Not much pain to speak of. I think I had about 9 cups of fluid.
-P001,2026-09-19,6,0,1,0,3,7.5,91,Throat feels okay today. I think I had about 8 cups of fluid.
-P001,2026-09-20,7,0,1,0,2,7.2,100,Not much pain to speak of. I think I had about 7 cups of fluid.
-P001,2026-09-21,8,2,0,1,3,7.3,80,Throat feels okay today. I think I had about 7 cups of fluid.
-P001,2026-09-22,9,2,1,3,3,7.5,72,Throat feels okay today. I think I had about 8 cups of fluid. A little queasy after the chemo.
-P001,2026-09-23,10,2,1,2,3,7.4,69,Throat feels okay today. I think I had about 7 cups of fluid. A little queasy after the chemo.
-P001,2026-09-24,11,1,1,2,3,7.8,81,Throat feels okay today. I think I had about 8 cups of fluid. A little queasy after the chemo.
-P001,2026-09-25,12,2,3,0,2,7.1,94,Throat feels okay today. I think I had about 7 cups of fluid.
-P001,2026-09-26,13,1,3,1,4,7.8,100,Throat feels okay today. I think I had about 8 cups of fluid. Pretty tired but managed a short walk.
-P001,2026-09-27,14,2,1,0,3,6.5,92,Not much pain to speak of. I think I had about 6 cups of fluid.
-P001,2026-09-28,15,2,2,1,3,6.7,80,Not much pain to speak of. I think I had about 7 cups of fluid.
-P001,2026-09-29,16,3,3,4,6,4.9,70,"Some mouth pain, the rinses help a little. I think I had about 5 cups of fluid. Pretty nauseous, threw up once. Pretty tired but managed a short walk."
-P001,2026-09-30,17,3,4,3,3,4.4,53,"Some mouth pain, the rinses help a little. I think I had about 4 cups of fluid. A little queasy after the chemo."
-P001,2026-10-01,18,4,4,3,4,3.7,53,"Throat is getting sore, especially when I swallow. I think I had about 4 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
-P001,2026-10-02,19,4,5,3,6,4.9,56,"Some mouth pain, the rinses help a little. I think I had about 5 cups of fluid. A little queasy after the chemo. Got dizzy when I stood up this morning. Pretty tired but managed a short walk."
-P001,2026-10-03,20,6,5,3,6,3.2,66,"My mouth and throat are very painful, even with the pain meds. I think I had about 3 cups of fluid. A little queasy after the chemo. Got dizzy when I stood up this morning. Pretty tired but managed a short walk."
-P001,2026-10-04,21,7,6,4,7,2.3,50,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 2 cups of fluid. Pretty nauseous, threw up once. Got dizzy when I stood up this morning. Very tired today."
-P001,2026-10-05,22,6,5,3,6,3.6,45,"The pain is bad, it really hurts to swallow. I think I had about 4 cups of fluid. A little queasy after the chemo. Got dizzy when I stood up this morning. Pretty tired but managed a short walk."
-P001,2026-10-06,23,7,5,4,5,3.0,41,"The pain is bad, it really hurts to swallow. I think I had about 3 cups of fluid. Feeling queasy most of the day. Pretty tired but managed a short walk."
-P001,2026-10-07,24,7,6,3,5,3.5,50,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 4 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
-P001,2026-10-08,25,7,7,1,4,6.2,58,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-09,26,7,8,0,6,6.2,69,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-10,27,7,8,1,4,7.0,67,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-11,28,8,8,1,5,6.4,68,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-12,29,7,7,1,5,5.4,66,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-13,30,7,8,2,5,5.5,47,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
-P001,2026-10-14,31,9,7,2,4,3.7,40,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 4 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
-P001,2026-10-15,32,9,8,1,6,6.7,66,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-16,33,7,6,0,4,4.5,53,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 4 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-17,34,8,8,0,6,6.6,55,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-18,35,7,9,0,6,5.6,61,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-19,36,6,8,1,6,4.6,53,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-20,37,6,7,3,3,4.5,32,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 4 cups of fluid. A little queasy after the chemo."
-P001,2026-10-21,38,8,8,1,5,5.3,40,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-22,39,8,7,1,7,5.7,50,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Exhausted, stayed in bed most of the day."
-P001,2026-10-23,40,8,8,0,6,5.9,68,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-24,41,8,8,0,7,5.6,59,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Very tired today."
-P001,2026-10-25,42,8,8,1,6,5.3,65,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-26,43,8,8,1,7,5.6,57,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Exhausted, stayed in bed most of the day."
-P001,2026-10-27,44,7,7,0,6,6.5,60,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-28,45,7,8,0,5,5.6,54,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-29,46,6,7,0,5,6.6,59,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-10-30,47,8,7,0,7,5.7,66,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Very tired today."
-P001,2026-10-31,48,8,8,0,5,5.3,57,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-11-01,49,7,8,0,4,6.5,56,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-11-02,50,8,8,0,6,6.1,60,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-11-03,51,8,7,0,6,5.9,64,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-11-04,52,8,7,0,5,6.2,52,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-11-05,53,6,8,0,5,5.8,55,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-11-06,54,6,7,0,5,6.1,51,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
-P001,2026-11-07,55,6,7,1,7,6.2,60,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Very tired today."
-P001,2026-11-08,56,7,6,0,6,5.9,72,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-09-27,-2,0,1,0,1,8.6,96,Throat feels okay today. I think I had about 9 cups of fluid.
+P001,2026-09-28,-1,2,1,0,3,7.5,100,Not much pain to speak of. I think I had about 8 cups of fluid.
+P001,2026-09-29,0,1,1,0,2,9.6,100,Not much pain to speak of. I think I had about 10 cups of fluid.
+P001,2026-09-30,1,0,0,1,3,7.1,83,Not much pain to speak of. I think I had about 7 cups of fluid.
+P001,2026-10-01,2,0,0,3,2,7.7,75,Not much pain to speak of. I think I had about 8 cups of fluid. A little queasy after the chemo.
+P001,2026-10-02,3,1,0,2,2,6.3,82,Throat feels okay today. I think I had about 6 cups of fluid. A little queasy after the chemo.
+P001,2026-10-03,4,2,1,0,3,7.7,82,Not much pain to speak of. I think I had about 8 cups of fluid.
+P001,2026-10-04,5,1,2,0,2,9.0,88,Not much pain to speak of. I think I had about 9 cups of fluid.
+P001,2026-10-05,6,0,1,0,3,7.5,91,Throat feels okay today. I think I had about 8 cups of fluid.
+P001,2026-10-06,7,0,1,0,2,7.2,100,Not much pain to speak of. I think I had about 7 cups of fluid.
+P001,2026-10-07,8,2,0,1,3,7.3,80,Throat feels okay today. I think I had about 7 cups of fluid.
+P001,2026-10-08,9,2,1,3,3,7.5,72,Throat feels okay today. I think I had about 8 cups of fluid. A little queasy after the chemo.
+P001,2026-10-09,10,2,1,2,3,7.4,69,Throat feels okay today. I think I had about 7 cups of fluid. A little queasy after the chemo.
+P001,2026-10-10,11,1,1,2,3,7.8,81,Throat feels okay today. I think I had about 8 cups of fluid. A little queasy after the chemo.
+P001,2026-10-11,12,2,3,0,2,7.1,94,Throat feels okay today. I think I had about 7 cups of fluid.
+P001,2026-10-12,13,1,3,1,4,7.8,100,Throat feels okay today. I think I had about 8 cups of fluid. Pretty tired but managed a short walk.
+P001,2026-10-13,14,2,1,0,3,6.5,92,Not much pain to speak of. I think I had about 6 cups of fluid.
+P001,2026-10-14,15,2,2,1,3,6.7,80,Not much pain to speak of. I think I had about 7 cups of fluid.
+P001,2026-10-15,16,3,3,4,6,4.9,70,"Some mouth pain, the rinses help a little. I think I had about 5 cups of fluid. Pretty nauseous, threw up once. Pretty tired but managed a short walk."
+P001,2026-10-16,17,3,4,3,3,4.4,53,"Some mouth pain, the rinses help a little. I think I had about 4 cups of fluid. A little queasy after the chemo."
+P001,2026-10-17,18,4,4,3,4,3.7,53,"Throat is getting sore, especially when I swallow. I think I had about 4 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
+P001,2026-10-18,19,4,5,3,6,4.9,56,"Some mouth pain, the rinses help a little. I think I had about 5 cups of fluid. A little queasy after the chemo. Got dizzy when I stood up this morning. Pretty tired but managed a short walk."
+P001,2026-10-19,20,6,5,3,6,3.2,66,"My mouth and throat are very painful, even with the pain meds. I think I had about 3 cups of fluid. A little queasy after the chemo. Got dizzy when I stood up this morning. Pretty tired but managed a short walk."
+P001,2026-10-20,21,7,6,4,7,2.3,50,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 2 cups of fluid. Pretty nauseous, threw up once. Got dizzy when I stood up this morning. Very tired today."
+P001,2026-10-21,22,6,5,3,6,3.6,45,"The pain is bad, it really hurts to swallow. I think I had about 4 cups of fluid. A little queasy after the chemo. Got dizzy when I stood up this morning. Pretty tired but managed a short walk."
+P001,2026-10-22,23,7,5,4,5,3.0,41,"The pain is bad, it really hurts to swallow. I think I had about 3 cups of fluid. Feeling queasy most of the day. Pretty tired but managed a short walk."
+P001,2026-10-23,24,7,6,3,5,3.5,50,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 4 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
+P001,2026-10-24,25,7,7,1,4,6.2,58,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-10-25,26,7,8,0,6,6.2,69,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-10-26,27,7,8,1,4,7.0,67,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-10-27,28,8,8,1,5,6.4,68,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-10-28,29,7,7,1,5,5.4,66,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-10-29,30,7,8,2,5,5.5,47,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
+P001,2026-10-30,31,9,7,2,4,3.7,40,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 4 cups of fluid. A little queasy after the chemo. Pretty tired but managed a short walk."
+P001,2026-10-31,32,9,8,1,6,6.7,66,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-01,33,7,6,0,4,4.5,53,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 4 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-02,34,8,8,0,6,6.6,55,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-03,35,7,9,0,6,5.6,61,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-04,36,6,8,1,6,4.6,53,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-05,37,6,7,3,3,4.5,32,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 4 cups of fluid. A little queasy after the chemo."
+P001,2026-11-06,38,8,8,1,5,5.3,40,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-07,39,8,7,1,7,5.7,50,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Exhausted, stayed in bed most of the day."
+P001,2026-11-08,40,8,8,0,6,5.9,68,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-09,41,8,8,0,7,5.6,59,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Very tired today."
+P001,2026-11-10,42,8,8,1,6,5.3,65,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-11,43,8,8,1,7,5.6,57,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Exhausted, stayed in bed most of the day."
+P001,2026-11-12,44,7,7,0,6,6.5,60,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-13,45,7,8,0,5,5.6,54,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-14,46,6,7,0,5,6.6,59,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 7 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-15,47,8,7,0,7,5.7,66,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Very tired today."
+P001,2026-11-16,48,8,8,0,5,5.3,57,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 5 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-17,49,7,8,0,4,6.5,56,"The pain is bad, it really hurts to swallow. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-18,50,8,8,0,6,6.1,60,"My mouth and throat are very painful, even with the pain meds. Swallowing is tough, I skipped dinner. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-19,51,8,7,0,6,5.9,64,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-20,52,8,7,0,5,6.2,52,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-21,53,6,8,0,5,5.8,55,"My mouth and throat are very painful, even with the pain meds. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-22,54,6,7,0,5,6.1,51,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
+P001,2026-11-23,55,6,7,1,7,6.2,60,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Very tired today."
+P001,2026-11-24,56,7,6,0,6,5.9,72,"The pain is bad, it really hurts to swallow. Hard to get anything down, mostly sipping shakes. I think I had about 6 cups of fluid. Pretty tired but managed a short walk."
 P002,2026-09-11,-2,1,0,0,2,8.1,100,Not much pain to speak of. I think I had about 8 cups of fluid.
 P002,2026-09-12,-1,0,0,0,3,7.8,100,Not much pain to speak of. I think I had about 8 cups of fluid.
 P002,2026-09-13,0,3,0,0,2,7.5,94,"Throat is getting sore, especially when I swallow. I think I had about 8 cups of fluid."

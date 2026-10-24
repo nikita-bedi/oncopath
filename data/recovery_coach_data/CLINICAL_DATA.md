@@ -2,7 +2,7 @@
 
 **All data is synthetic. No real patients. Not a validated clinical simulation.**
 
-These files extend the original Recovery Coach dataset with the clinical record a cancer care team would have. They are keyed on `patient_id` and `tx_day` (tx day 1 = first radiation fraction), exactly like the original files. The original files are unchanged.
+These files extend the original OncoPath dataset with the clinical record a cancer care team would have. They are keyed on `patient_id` and `tx_day` (tx day 1 = first radiation fraction), exactly like the original files. The original files are unchanged.
 
 To regenerate: `python generate_clinical.py` (seed 7). It reads the original CSVs, so run `generate.py` first if you change the stories.
 
