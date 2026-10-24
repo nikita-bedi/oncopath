@@ -119,8 +119,40 @@
 
 {% block scripts %}
 <script>
-const ALERT_ID=document.getElementById('care-actions').dataset.alertId;
-function showToast(text){const t=document.getElementById('toast');t.textContent=text;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
-document.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click',async()=>{btn.disabled=true;const action=btn.dataset.action;const note=document.getElementById('note').value;const res=await fetch(`/api/alerts/${ALERT_ID}/actions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({actor:'nurse',action,note})});const msg=document.getElementById('actmsg');if(res.ok){const out=await res.json();document.getElementById('status').textContent=out.status.replace('_',' ');msg.textContent='✓ Care journey updated.';msg.className='form-message success';showToast('Alert status updated');setTimeout(()=>location.reload(),700);}else{const err=await res.json();msg.textContent=err.detail||'Could not update alert.';msg.className='form-message error';btn.disabled=false;}}));
+const ALERT_ID = document.getElementById('care-actions').dataset.alertId;
+const PATIENT_NAME = {{ data.card.patient.name | tojson }};
+function showToast(text) {
+  const toast = document.getElementById('toast');
+  toast.textContent = text;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2600);
+}
+document.querySelectorAll('[data-action]').forEach(button => button.addEventListener('click', async () => {
+  button.disabled = true;
+  const action = button.dataset.action;
+  const note = document.getElementById('note').value;
+  const response = await fetch(`/api/alerts/${ALERT_ID}/actions`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({actor: 'nurse', action, note})
+  });
+  const message = document.getElementById('actmsg');
+  if (response.ok) {
+    const updated = await response.json();
+    document.getElementById('status').textContent = updated.status.replace('_', ' ');
+    message.textContent = '✓ Care journey updated. Returning to the dashboard…';
+    message.className = 'form-message success';
+    sessionStorage.setItem('oncopath-care-update', JSON.stringify({
+      patient: PATIENT_NAME,
+      status: updated.status
+    }));
+    setTimeout(() => location.assign('/clinician'), 550);
+  } else {
+    const error = await response.json();
+    message.textContent = error.detail || 'Could not update alert.';
+    message.className = 'form-message error';
+    button.disabled = false;
+  }
+}));
 </script>
 {% endblock %}

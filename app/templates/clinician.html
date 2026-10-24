@@ -46,7 +46,7 @@
           <td><div class="person-cell"><div class="avatar avatar-soft">{{ row.name.split(' ')[0][0] }}{{ row.name.split(' ')[-1][0] }}</div><div><strong>{{ row.name }}</strong><small>{{ row.patient_id }} · {{ row.diagnosis }}</small></div></div></td>
           <td><strong>Week {{ row.treatment_week }} of {{ row.planned_treatment_weeks }}</strong><small class="cell-sub">Day {{ row.tx_day }} · {{ row.treatment }}</small></td>
           <td><span class="outlook-chip {{ 'priority' if row.outlook_priority else 'monitoring' }}">{{ 'Priority' if row.outlook_priority else 'Monitoring' }} · {{ row.outlook.direction }}</span><small class="cell-sub">{{ row.outlook.pattern | replace('_',' ') }} · {{ row.outlook.window }}</small></td>
-          <td>{% if row.status == 'alerting' %}<span class="status-chip alert"><i></i>Needs review</span>{% elif row.status == 'insufficient_baseline' %}<span class="status-chip warn"><i></i>Learning baseline</span>{% else %}<span class="status-chip ok"><i></i>Tracking</span>{% endif %}</td>
+          <td>{% if row.alert_status == 'open' %}<span class="status-chip alert"><i></i>Needs review</span>{% elif row.alert_status == 'acknowledged' %}<span class="status-chip warn"><i></i>Acknowledged</span>{% elif row.alert_status == 'in_progress' %}<span class="status-chip progress"><i></i>Care in progress</span>{% elif row.status == 'insufficient_baseline' %}<span class="status-chip warn"><i></i>Learning baseline</span>{% else %}<span class="status-chip ok"><i></i>Tracking</span>{% endif %}</td>
           <td><span class="signal-label">{{ row.alert_types | join(' + ') | replace('_',' ') or 'No active pattern' }}</span></td>
           <td>{% if row.top_alert_id %}<a class="row-action" href="/clinician/{{ row.top_alert_id }}">→</a>{% else %}<span class="row-action muted-action">·</span>{% endif %}</td>
         </tr>
@@ -71,5 +71,20 @@ function filterRows() {
   document.getElementById('no-results').hidden = shown > 0;
 }
 search.addEventListener('input', filterRows); filter.addEventListener('change', filterRows);
+const careUpdate = sessionStorage.getItem('oncopath-care-update');
+if (careUpdate) {
+  sessionStorage.removeItem('oncopath-care-update');
+  const update = JSON.parse(careUpdate);
+  const labels = {
+    acknowledged: 'acknowledged',
+    in_progress: 'moved to care in progress',
+    resolved: 'marked complete',
+    dismissed: 'dismissed'
+  };
+  const toast = document.getElementById('toast');
+  toast.textContent = `${update.patient} ${labels[update.status] || 'updated'}.`;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3200);
+}
 </script>
 {% endblock %}

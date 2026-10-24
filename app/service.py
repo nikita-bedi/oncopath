@@ -217,6 +217,7 @@ class Service:
                 "planned_treatment_weeks": p.planned_treatment_weeks,
                 "status": ("insufficient_baseline" if not self.baselines[pid].sufficient
                            else "alerting" if pa else "baseline_ok"),
+                "alert_status": pa[0]["status"] if pa else None,
                 "outlook": outlook,
                 "outlook_priority": bool(pa),
                 "risk_score": top,
