@@ -321,3 +321,71 @@ table.risk{width:100%;border-collapse:collapse}table.risk th,table.risk td{text-
 .voice-entry{display:flex;align-items:center;gap:9px;margin:-3px 0 12px;padding:10px;border:1px solid #cbd9e6;border-radius:12px;background:var(--teal-soft)}.voice-entry>div{min-width:0}.voice-entry strong{display:block;color:var(--teal-dark);font-size:9px}.voice-entry small{display:block;color:var(--muted);font-size:7px}.voice-button{display:flex;align-items:center;gap:5px;flex:none;padding:7px 9px;border:0;border-radius:9px;background:var(--teal-dark);color:#fff;font-size:8px;font-weight:800;cursor:pointer}.voice-button:disabled,.chat-voice-button:disabled{opacity:.45;cursor:not-allowed}.voice-status{margin:0 0 7px;min-height:13px;color:var(--teal-dark);font-size:8px;font-weight:700}.voice-review{margin:0 0 12px;padding:10px;border:1px solid #d9c990;border-radius:11px;background:var(--amber-soft)}.voice-review>strong{display:block;font-size:9px}.voice-review>p{margin:5px 0;padding:7px;border-radius:7px;background:rgba(255,255,255,.65);color:var(--ink-2);font-size:8px}.voice-review label{font-size:8px;font-weight:700}.voice-review input{vertical-align:middle}
 .chat-compose textarea{padding-left:45px}.chat-voice-button{position:absolute;left:7px;top:8px;width:33px;height:33px;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer}.voice-origin{display:inline-block;margin-top:5px;font-size:7px;opacity:.7}.source-messages{margin-top:11px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}.source-messages h3{margin-bottom:9px;font-size:11px}.source-messages article{padding:9px 0;border-top:1px solid var(--line-soft)}.source-messages article>div{display:flex;gap:6px;align-items:center}.source-messages article span,.source-messages article b{padding:2px 5px;border-radius:5px;background:var(--teal-soft);color:var(--teal-dark);font-size:7px}.source-messages article p{margin:5px 0;color:var(--ink-2);font-size:9px}.source-messages article small{display:block;color:var(--muted);font-size:7px}
 @media(max-width:520px){.patient-app-page .wrap{padding:0 0 45px}.patient-app-only .phone-frame{border:0;border-radius:0}.patient-head-tools{gap:5px}.wearable-connected{padding:5px}.wearable-connected b{max-width:50px}.language-picker select{max-width:58px}}
+
+/* Patient readability: larger type and controls for older adults */
+.patient-app-page .phone-frame{font-size:16px;line-height:1.5}
+.patient-app-page .patient-app-head{padding:22px 20px 16px}
+.patient-app-page .patient-app-head>div:first-child>small{font-size:11px}
+.patient-app-page .patient-app-head strong{font-size:26px;line-height:1.15}
+.patient-app-page .language-picker{min-height:38px;padding:7px 8px}
+.patient-app-page .language-picker>span{font-size:14px}
+.patient-app-page .language-picker select{max-width:78px;font-size:12px}
+.patient-app-page .wearable-connected{min-height:40px;padding:7px 9px}
+.patient-app-page .wearable-connected b{max-width:78px;font-size:11px}
+.patient-app-page .wearable-connected small{font-size:10px}
+.patient-app-page .treatment-progress span{font-size:14px}
+.patient-app-page .treatment-progress small{max-width:260px;text-align:right;font-size:12px;line-height:1.3}
+.patient-app-page .progress-track{height:8px}
+.patient-app-page .patient-status{padding:18px}
+.patient-app-page .patient-status small{font-size:11px}
+.patient-app-page .patient-status strong{font-size:16px;line-height:1.35}
+.patient-app-page .patient-status p{margin-top:7px;font-size:13px;line-height:1.45}
+.patient-app-page .today-strip{padding:15px 5px}
+.patient-app-page .today-strip strong{font-size:17px}
+.patient-app-page .today-strip small{font-size:11px}
+.patient-app-page .metric-glyph{font-size:15px}
+.patient-app-page .phonecard{padding:19px}
+.patient-app-page .phone-section-title span{font-size:18px}
+.patient-app-page .phone-section-title small{font-size:12px}
+.patient-app-page .phone-section-title>b{font-size:11px}
+.patient-app-page .voice-entry{padding:12px}
+.patient-app-page .voice-entry strong{font-size:13px}
+.patient-app-page .voice-entry small{font-size:11px;line-height:1.35}
+.patient-app-page .voice-button{min-height:44px;padding:9px 12px;font-size:12px}
+.patient-app-page .voice-status{min-height:18px;font-size:12px}
+.patient-app-page .slider-question{margin:20px 0 24px}
+.patient-app-page .slider-question label{font-size:15px}
+.patient-app-page .slider-question output{top:-5px;width:34px;height:34px;font-size:14px}
+.patient-app-page .slider-question input[type=range]{height:7px;margin:18px 0 6px}
+.patient-app-page .slider-question input[type=range]::-webkit-slider-thumb{width:24px;height:24px}
+.patient-app-page .range-ends{font-size:11px}
+.patient-app-page .checkin-row{gap:12px;margin-bottom:18px}
+.patient-app-page .checkin-row label{font-size:14px}
+.patient-app-page .unit-input input{min-height:44px;font-size:16px}
+.patient-app-page .unit-input span{top:12px;font-size:12px}
+.patient-app-page .voice-review>strong{font-size:13px}
+.patient-app-page .voice-review>p,.patient-app-page .voice-review label{font-size:12px;line-height:1.4}
+.patient-app-page .button{min-height:48px;font-size:15px}
+.patient-app-page .form-message{font-size:13px;line-height:1.4}
+.patient-app-page .ai-chip,.patient-app-page .secure-chip{font-size:10px!important}
+.patient-app-page .chat-banner{padding:12px;font-size:12px;line-height:1.4}
+.patient-app-page .empty-chat strong{font-size:14px}
+.patient-app-page .empty-chat small{font-size:11px}
+.patient-app-page .turn{padding:12px 14px;font-size:14px;line-height:1.45}
+.patient-app-page .who{font-size:10px}
+.patient-app-page .voice-origin,.patient-app-page .shared-inline{font-size:10px}
+.patient-app-page .prompt-chips button{min-height:38px;padding:8px 11px;font-size:12px}
+.patient-app-page .wearable-consent legend{font-size:13px}
+.patient-app-page .wearable-consent-head strong{font-size:13px}
+.patient-app-page .wearable-consent-head small{font-size:11px}
+.patient-app-page .wearable-consent-head button{min-height:36px;font-size:12px}
+.patient-app-page .wearable-choice b{font-size:12px}
+.patient-app-page .wearable-choice strong{font-size:14px}
+.patient-app-page .wearable-choice small{font-size:10px}
+.patient-app-page .wearable-window label,.patient-app-page .wearable-window select{font-size:12px}
+.patient-app-page .share-consent-summary span{font-size:12px}
+.patient-app-page .share-consent-summary small{font-size:10px}
+.patient-app-page .chat-compose textarea{min-height:92px;font-size:15px;line-height:1.4}
+.patient-app-page .chat-voice-button,.patient-app-page .send-button{width:42px;height:42px;font-size:18px}
+.patient-app-page .patient-disclaimer{font-size:11px;line-height:1.4}
+@media(max-width:430px){.patient-app-page .patient-app-head strong{font-size:23px}.patient-app-page .patient-head-tools{flex-wrap:wrap;justify-content:flex-end}.patient-app-page .avatar{display:none}.patient-app-page .treatment-progress>div:first-child{align-items:flex-start;gap:12px}.patient-app-page .treatment-progress small{max-width:210px}.patient-app-page .checkin-row{grid-template-columns:1fr}}
