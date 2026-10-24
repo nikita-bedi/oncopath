@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: between-visits
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: BETWEEN_VISITS_LLM_PROVIDER
+        value: rules
+      - key: FHIR_LAB_REMOTE_ENABLED
+        value: "true"
+      - key: FHIR_LAB_BASE_URL
+        value: https://hapi.fhir.org/baseR4
+      - key: SMART_CLIENT_ID
+        value: between-visits-demo

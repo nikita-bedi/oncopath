@@ -278,6 +278,7 @@ class ChatTurn:
     question_id: Optional[str] = None
     parsed_symptoms: list = field(default_factory=list)   # ParsedSymptom dicts
     shared_signals: list = field(default_factory=list)
+    share_window_days: Optional[int] = None
     needs_nurse_review: bool = False
 
     def to_dict(self) -> dict:

@@ -87,3 +87,26 @@ def test_unknown_question_id_cannot_produce_a_turn():
         chat_mod.ask_followup(store, "PQ", "q_not_a_real_question")
     after = len([t for t in store.thread("PQ") if t["author"] == "system"])
     assert after == before  # nothing emitted
+
+
+_WEARABLE_SIGNALS = ["resting_heart_rate", "hrv_rmssd_milli",
+                     "skin_temp_celsius", "sleep_performance_percentage", "strain"]
+
+
+@settings(max_examples=80, deadline=None)
+@given(signals=st.sets(st.sampled_from(_WEARABLE_SIGNALS), max_size=5),
+       window=st.sampled_from([3, 7, 14]))
+def test_per_message_wearable_scope_persists_exact_selection(signals, window):
+    store = _fresh_store()
+    chat_mod.handle_patient_message(
+        store, "PS", "Here is my daily update", sorted(signals), window)
+    turn = store.thread("PS")[-1]
+    assert turn["shared_signals"] == sorted(signals)
+    # A window has no meaning and must not persist when no signal was approved.
+    assert turn["share_window_days"] == (window if signals else None)
+    context = store.chat_context("PS")
+    if signals:
+        assert context["shared_context"][-1]["signals"] == sorted(signals)
+        assert context["shared_context"][-1]["window_days"] == window
+    else:
+        assert context["shared_context"] == []

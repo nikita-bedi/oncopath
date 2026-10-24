@@ -9,7 +9,7 @@ Every page shows the "synthetic data" label. Decision support only.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Literal, Optional
 
 import httpx
 from fastapi import FastAPI, HTTPException, Request
@@ -50,7 +50,10 @@ class CheckInBody(BaseModel):
 
 class ChatBody(BaseModel):
     message: str
-    shared_signals: List[str] = []
+    shared_signals: List[Literal[
+        "resting_heart_rate", "hrv_rmssd_milli", "skin_temp_celsius",
+        "sleep_performance_percentage", "strain"]] = []
+    share_window_days: Optional[Literal[3, 7, 14]] = None
 
 
 class FollowupBody(BaseModel):
@@ -175,7 +178,8 @@ def api_chat_send(pid: str, body: ChatBody):
     if pid not in svc.cohort.patients:
         raise HTTPException(404, "unknown patient")
     outcome = chat_mod.handle_patient_message(
-        svc.store, pid, body.message, body.shared_signals)
+        svc.store, pid, body.message, body.shared_signals,
+        body.share_window_days)
 
     # Deterministic red flags always win and bypass the model. For other
     # messages, the assistant may choose an approved follow-up question ID.
@@ -383,13 +387,17 @@ def patient_view(request: Request, pid: str):
     p = svc.cohort.patients[pid]
     status = svc.patient_status(pid)
     recovery = [r for r in svc.cohort.recovery.get(pid, []) if r.tx_day is not None]
+    sleep = [s for s in svc.cohort.sleep.get(pid, []) if s.tx_day is not None]
+    cycles = [c for c in svc.cohort.cycle.get(pid, []) if c.tx_day is not None]
     latest = max(recovery, key=lambda r: r.date) if recovery else None
+    latest_sleep = max(sleep, key=lambda s: s.date) if sleep else None
+    latest_cycle = max(cycles, key=lambda c: c.date) if cycles else None
     latest_tx_day = latest.tx_day if latest and latest.tx_day > 0 else 0
     baseline = svc.baselines[pid]
     return templates.TemplateResponse(request, "patient.html", {
         "request": request, "label": SYNTHETIC_DATA_LABEL,
         "patient": p, "status": status,
-        "latest": latest,
+        "latest": latest, "latest_sleep": latest_sleep, "latest_cycle": latest_cycle,
         "treatment_week": max(1, (latest_tx_day + 6) // 7) if latest_tx_day else 0,
         "baseline_days": baseline.n_valid_days,
         "banner": cfg.safety_message("sm_expectations_banner"),

@@ -56,7 +56,14 @@ def test_patient_view_has_checkin_chat_and_expectations_banner():
     assert "Daily check-in" in html
     assert "Message your care team" in html
     assert "not monitored 24/7" in html
-    assert "Add wearable context" in html
+    assert "Choose wearable data to share with this message" in html
+    assert "Your data, your choice" in html
+    assert 'value="resting_heart_rate"' in html
+    assert 'value="hrv_rmssd_milli"' in html
+    assert 'value="skin_temp_celsius"' in html
+    assert 'value="sleep_performance_percentage"' in html
+    assert 'value="strain"' in html
+    assert "Selection resets after this message" in html
     assert "Try red flag" in html
     assert "This app does not diagnose" in html
 
@@ -79,3 +86,45 @@ def test_smart_setup_and_fhir_lab_ui_are_visible():
     assert "Latest result for each mapped LOINC code" in card
     assert "Download nurse handoff" in card
     assert "Launch from EHR" in card
+
+
+def test_chat_api_persists_visible_wearable_consent_and_rejects_unknown_fields():
+    response = client.post("/api/patients/P118/chat", json={
+        "message": "Here is an update for my care team",
+        "shared_signals": ["resting_heart_rate", "strain"],
+        "share_window_days": 7,
+    })
+    assert response.status_code == 200
+    thread = client.get("/api/patients/P118/chat").json()["thread"]
+    patient_turn = [turn for turn in thread if turn["author"] == "patient"][-1]
+    assert patient_turn["shared_signals"] == ["resting_heart_rate", "strain"]
+    assert patient_turn["share_window_days"] == 7
+
+    rejected = client.post("/api/patients/P118/chat", json={
+        "message": "bad client input",
+        "shared_signals": ["entire_medical_record"],
+        "share_window_days": 365,
+    })
+    assert rejected.status_code == 422
+
+
+def test_render_blueprint_uses_free_plan_and_no_paid_model():
+    from pathlib import Path
+    import yaml
+    from scripts.deploy_render import service_payload
+    blueprint = yaml.safe_load(
+        (Path(__file__).resolve().parent.parent / "render.yaml").read_text())
+    service = blueprint["services"][0]
+    assert service["type"] == "web"
+    assert service["runtime"] == "python"
+    assert service["plan"] == "free"
+    env = {item["key"]: item["value"] for item in service["envVars"]}
+    assert env["BETWEEN_VISITS_LLM_PROVIDER"] == "rules"
+    assert "$PORT" in service["startCommand"]
+
+    api_payload = service_payload("own-test")
+    assert api_payload["ownerId"] == "own-test"
+    assert api_payload["serviceDetails"]["plan"] == "free"
+    assert api_payload["serviceDetails"]["runtime"] == "python"
+    api_env = {item["key"]: item["value"] for item in api_payload["envVars"]}
+    assert api_env["BETWEEN_VISITS_LLM_PROVIDER"] == "rules"

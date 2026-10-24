@@ -57,16 +57,27 @@
       <div id="thread" class="thread">
         {% if not thread %}<div class="empty-chat"><span>♡</span><strong>What would you like your care team to know?</strong><small>Try one of the examples or type your own message.</small></div>{% endif %}
         {% for t in thread %}
-          <div class="turn turn-{{ t.author }}"><span class="who">{{ 'Care support' if t.author == 'system' else 'You' if t.author == 'patient' else 'Care team' }}</span><p>{{ t.text }}</p>{% if t.shared_signals %}<div class="shared-inline">Shared: {{ t.shared_signals | join(', ') | replace('_',' ') }}</div>{% endif %}</div>
+          <div class="turn turn-{{ t.author }}"><span class="who">{{ 'Care support' if t.author == 'system' else 'You' if t.author == 'patient' else 'Care team' }}</span><p>{{ t.text }}</p>{% if t.shared_signals %}<div class="shared-inline">Shared: {{ t.shared_signals | join(', ') | replace('_',' ') }}{% if t.share_window_days %} · last {{ t.share_window_days }} days{% endif %}</div>{% endif %}</div>
         {% endfor %}
       </div>
       <div class="prompt-chips"><button type="button" data-prompt="I feel a little dizzy today">A little dizzy</button><button type="button" data-prompt="I have mild nausea today">Mild nausea</button><button type="button" data-prompt="My throat is sore today">Sore throat</button><button type="button" class="danger-prompt" data-prompt="I have chills and shaking">Try red flag</button></div>
+      <fieldset class="wearable-consent" id="wearable-consent">
+        <legend>Choose wearable data to share with this message</legend>
+        <div class="wearable-consent-head"><div><span class="wearable-link-icon">⌁</span><p><strong>Your data, your choice</strong><small>Nothing is shared unless you select it below.</small></p></div><button id="clear-wearables" type="button">Clear</button></div>
+        <div class="wearable-share-grid">
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="resting_heart_rate" data-label="Resting heart rate"><span><i class="wearable-symbol heart">♥</i><b>Heart rate</b><strong>{{ latest.resting_heart_rate | int if latest and latest.resting_heart_rate else '—' }} bpm</strong><small>Resting</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="hrv_rmssd_milli" data-label="HRV"><span><i class="wearable-symbol hrv">≈</i><b>HRV</b><strong>{{ latest.hrv_rmssd_milli | round(1) if latest and latest.hrv_rmssd_milli else '—' }} ms</strong><small>Recovery</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="skin_temp_celsius" data-label="Skin temperature"><span><i class="wearable-symbol temp">◉</i><b>Skin temp</b><strong>{{ latest.skin_temp_celsius | round(1) if latest and latest.skin_temp_celsius else '—' }}°C</strong><small>Overnight</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="sleep_performance_percentage" data-label="Sleep"><span><i class="wearable-symbol sleep">◒</i><b>Sleep</b><strong>{{ latest_sleep.sleep_performance_percentage | int if latest_sleep and latest_sleep.sleep_performance_percentage else '—' }}%</strong><small>Performance</small></span></label>
+          <label class="wearable-choice"><input type="checkbox" class="sig" value="strain" data-label="Strain"><span><i class="wearable-symbol strain">↗</i><b>Strain</b><strong>{{ latest_cycle.strain | round(1) if latest_cycle and latest_cycle.strain else '—' }}</strong><small>Daily load</small></span></label>
+        </div>
+        <div class="wearable-window"><label for="share-window">Share selected signals from</label><select id="share-window" disabled><option value="3">Last 3 days</option><option value="7" selected>Last 7 days</option><option value="14">Last 14 days</option></select></div>
+        <div class="share-consent-summary"><span id="share-summary"><i>○</i> No wearable data selected</span><small>Selection resets after this message</small></div>
+      </fieldset>
       <form id="chatform" class="chat-compose">
         <textarea id="chatmsg" rows="2" placeholder="Tell your team how you’re feeling…"></textarea>
-        <details class="share"><summary><span>⊕</span> Add wearable context</summary><div class="share-panel"><p>You decide what goes with this message.</p><label class="share-option"><input type="checkbox" class="sig" value="resting_heart_rate"><span>Heart rate</span></label><label class="share-option"><input type="checkbox" class="sig" value="hrv_rmssd_milli"><span>HRV</span></label><label class="share-option"><input type="checkbox" class="sig" value="skin_temp_celsius"><span>Skin temp</span></label><label class="share-option"><input type="checkbox" class="sig" value="sleep_performance_percentage"><span>Sleep</span></label></div></details>
         <button class="send-button" type="submit" aria-label="Send message">↑</button>
       </form>
-      <div id="share-summary" class="share-summary">No wearable data attached</div>
       <div id="safety" class="safety-msg" hidden><span>!</span><p></p></div>
     </section>
 
@@ -97,13 +108,26 @@ function addTurn(author,text) {
   const p=document.createElement('p'); p.textContent=text; d.append(who,p); document.getElementById('thread').appendChild(d); d.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('chatmsg').value=b.dataset.prompt;document.getElementById('chatmsg').focus();}));
-function updateShare(){const labels=[...document.querySelectorAll('.sig:checked')].map(c=>c.nextElementSibling.textContent);document.getElementById('share-summary').textContent=labels.length?'Sharing: '+labels.join(', '):'No wearable data attached';}
+function updateShare(){
+  const selected=[...document.querySelectorAll('.sig:checked')];
+  const labels=selected.map(c=>c.dataset.label);
+  const summary=document.getElementById('share-summary');
+  summary.textContent=labels.length?'✓ Sharing '+labels.join(', '):'○ No wearable data selected';
+  summary.classList.toggle('active',labels.length>0);
+  document.getElementById('share-window').disabled=labels.length===0;
+}
 document.querySelectorAll('.sig').forEach(c=>c.addEventListener('change',updateShare));
+document.getElementById('clear-wearables').addEventListener('click',()=>{document.querySelectorAll('.sig').forEach(c=>c.checked=false);updateShare();});
 document.getElementById('chatform').addEventListener('submit', async (e) => {
   e.preventDefault(); const input=document.getElementById('chatmsg'); const msg=input.value.trim(); if(!msg)return;
-  const shared=[...document.querySelectorAll('.sig:checked')].map(c=>c.value); const send=e.target.querySelector('.send-button'); send.disabled=true; addTurn('patient',msg); input.value='';
-  const res=await fetch(`/api/patients/${PID}/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,shared_signals:shared})}); const out=await res.json(); const safety=document.getElementById('safety');
-  if(out.safety_message){safety.querySelector('p').textContent=out.safety_message;safety.hidden=false;addTurn('system',out.safety_message);}else{safety.hidden=true;if(out.followup?.text){addTurn('system',out.followup.text);}showToast(RECEIVED);} send.disabled=false;
+  const selected=[...document.querySelectorAll('.sig:checked')];
+  const shared=selected.map(c=>c.value);
+  const shareWindow=shared.length?parseInt(document.getElementById('share-window').value,10):null;
+  const sharedLabels=selected.map(c=>c.dataset.label);
+  const send=e.target.querySelector('.send-button'); send.disabled=true; addTurn('patient',msg); input.value='';
+  const res=await fetch(`/api/patients/${PID}/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,shared_signals:shared,share_window_days:shareWindow})}); const out=await res.json(); const safety=document.getElementById('safety');
+  if(out.safety_message){safety.querySelector('p').textContent=out.safety_message;safety.hidden=false;addTurn('system',out.safety_message);}else{safety.hidden=true;if(out.followup?.text){addTurn('system',out.followup.text);}showToast(RECEIVED+(sharedLabels.length?' Shared: '+sharedLabels.join(', ')+'.':''));}
+  document.querySelectorAll('.sig').forEach(c=>c.checked=false);updateShare();send.disabled=false;
 });
 </script>
 {% endblock %}

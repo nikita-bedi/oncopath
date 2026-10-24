@@ -122,7 +122,8 @@ def parse_symptoms(message: str, classification: dict) -> list[ParsedSymptom]:
 # ---------------------------------------------------------------------------
 
 def handle_patient_message(store, patient_id: str, message: str,
-                           shared_signals: list | None = None) -> dict:
+                           shared_signals: list | None = None,
+                           share_window_days: int | None = None) -> dict:
     """Process an inbound patient message.
 
     Returns a dict describing the outcome, including any fixed safety message
@@ -141,7 +142,9 @@ def handle_patient_message(store, patient_id: str, message: str,
         id=str(uuid.uuid4()), patient_id=patient_id, author="patient",
         kind="symptom_report" if parsed else "free_text", text=message,
         created_at=_now(), parsed_symptoms=[p.__dict__ for p in parsed],
-        shared_signals=shared_signals, needs_nurse_review=needs_review,
+        shared_signals=shared_signals,
+        share_window_days=share_window_days if shared_signals else None,
+        needs_nurse_review=needs_review,
     )
     store.add_turn(turn)
 

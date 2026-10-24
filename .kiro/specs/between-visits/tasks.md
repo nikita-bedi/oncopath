@@ -152,3 +152,10 @@
   - Add property-based latest-per-LOINC tests, SMART PKCE/allowlist tests, FHIR schema tests, seed tests, API tests, and UI smoke coverage.
   - Document production CDS Hooks `patient-view`, Bulk FHIR nightly refresh, and approval-gated write-back.
   - _Requirements: 13.1–13.7_
+
+- [x] 16. Restore visible wearable sharing and prepare free deployment
+  - Replace the collapsed wearable control with an always-visible per-message consent panel for RHR, HRV, skin temperature, sleep, and strain.
+  - Show current values, allow 3/7/14-day windows, persist exact consent, surface it to nurses, and reset selections after each send.
+  - Add property and UI tests for exact signal/window persistence and all five controls.
+  - Add a Render Free Blueprint, Procfile, deploy button, no-paid-LLM defaults, and documented ephemeral-state limitations.
+  - _Requirements: 8.9, 8.10, 9.1, 12.1, 12.3_

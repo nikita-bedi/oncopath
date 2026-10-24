@@ -637,3 +637,20 @@ explicit clinician-verification requirement. Write-back is not performed in the 
 Content was rephrased for compliance with licensing restrictions. Implementation details
 follow the SMART Health IT tutorial/discovery behavior and the public HAPI R4 capability
 statement linked above.
+
+### Free hackathon deployment profile
+
+The repository includes a Render Blueprint (`render.yaml`) for a Free Python web service.
+It installs `requirements.txt`, starts FastAPI with Uvicorn on Render's assigned `$PORT`,
+uses the no-cost deterministic chat assistant, and reads synthetic labs from public HAPI
+with the bundled fallback.
+
+Render Free web services sleep after 15 minutes without inbound traffic and use an
+ephemeral filesystem. Therefore SQLite chat turns and alert-lifecycle actions reset on
+restart/spin-down; the fixed cohort and detector alerts reseed at startup. This is
+acceptable for the hackathon but not production. Production requires durable encrypted
+storage, authentication, authorization, audit, and health-system-managed FHIR endpoints.
+See [Render Free service limitations](https://render.com/docs/free) and the
+[Render FastAPI guide](https://render.com/docs/deploy-fastapi).
+
+Content was rephrased for compliance with licensing restrictions.

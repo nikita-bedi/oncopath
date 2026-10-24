@@ -60,6 +60,7 @@ class Store:
                 question_id TEXT,
                 parsed_json TEXT NOT NULL DEFAULT '[]',
                 shared_json TEXT NOT NULL DEFAULT '[]',
+                share_window_days INTEGER,
                 needs_nurse_review INTEGER NOT NULL DEFAULT 0
             );
             CREATE TABLE IF NOT EXISTS assistant_notes (
@@ -73,6 +74,11 @@ class Store:
             );
             """
         )
+        # Lightweight migration for demo databases created before scoped
+        # sharing gained an explicit time window.
+        columns = {r[1] for r in c.execute("PRAGMA table_info(chat_turns)").fetchall()}
+        if "share_window_days" not in columns:
+            c.execute("ALTER TABLE chat_turns ADD COLUMN share_window_days INTEGER")
         c.commit()
 
     # -- alerts --------------------------------------------------------------
@@ -169,11 +175,13 @@ class Store:
     def add_turn(self, turn) -> None:
         self.conn.execute(
             """INSERT INTO chat_turns (id, patient_id, author, kind, text, created_at,
-                   question_id, parsed_json, shared_json, needs_nurse_review)
-               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+                   question_id, parsed_json, shared_json, share_window_days,
+                   needs_nurse_review)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
             (turn.id, turn.patient_id, turn.author, turn.kind, turn.text, turn.created_at,
              turn.question_id, json.dumps(turn.parsed_symptoms),
-             json.dumps(turn.shared_signals), int(turn.needs_nurse_review)))
+             json.dumps(turn.shared_signals), turn.share_window_days,
+             int(turn.needs_nurse_review)))
         self.conn.commit()
 
     def thread(self, patient_id: str) -> list:
@@ -207,13 +215,20 @@ class Store:
 
     def chat_context(self, patient_id: str) -> dict:
         turns = self.thread(patient_id)
-        symptoms, answers, review = [], [], []
+        symptoms, answers, review, shared_context = [], [], [], []
         for t in turns:
             symptoms.extend(t["parsed_symptoms"])
+            if t["shared_signals"]:
+                shared_context.append({
+                    "turn_id": t["id"], "signals": t["shared_signals"],
+                    "window_days": t.get("share_window_days"),
+                    "created_at": t["created_at"],
+                })
             if t["author"] == "patient" and t["question_id"]:
                 answers.append({"question_id": t["question_id"], "answer": t["text"]})
             if t["needs_nurse_review"]:
                 review.append({"turn_id": t["id"], "text": t["text"]})
         return {"symptoms": symptoms, "followup_answers": answers,
                 "flagged_for_review": review,
+                "shared_context": shared_context,
                 "assistant_notes": self.assistant_notes(patient_id)}

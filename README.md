@@ -95,3 +95,36 @@ card always identifies whether it is showing live HAPI results or fallback data.
 
 The SMART Health IT sandbox and public HAPI server must receive synthetic test data only.
 No real patient data belongs in either service.
+
+## Free hackathon deployment on Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/nikita-bedi/between-visits)
+
+The repository includes `render.yaml` and a `Procfile`. Click the button, authorize the
+GitHub repository, select the Free service plan if prompted, and create the Blueprint.
+Alternatively, deploy through the Render API without writing the key to disk:
+
+```bash
+export RENDER_API_KEY='your-key'
+.venv/bin/python scripts/deploy_render.py
+```
+
+If your Render account has multiple workspaces, also set `RENDER_OWNER_ID`. The script
+creates or redeploys the `between-visits` Free web service, waits for the build, and
+checks the public URL. It never prints or stores the API key.
+
+No paid LLM is configured: `BETWEEN_VISITS_LLM_PROVIDER=rules` uses the deterministic
+approved-question assistant.
+
+Render Free web services sleep after 15 minutes without traffic and can take about a
+minute to wake. Their filesystem is ephemeral, so chat and alert workflow changes stored
+in SQLite reset when the service restarts or spins down. The synthetic cohort and alerts
+reseed automatically, which is suitable for this hackathon demo. The public HAPI lab
+server remains the primary lab source with the bundled synthetic FHIR fallback available.
+
+After deployment, open `/smart/setup` on the `onrender.com` URL and use those HTTPS values
+in the SMART Health IT launcher. Do not use real patient data in this deployment.
+
+Content was rephrased for compliance with licensing restrictions. See the official
+[Render free service limitations](https://render.com/docs/free) and
+[FastAPI deployment guide](https://render.com/docs/deploy-fastapi).

@@ -77,7 +77,7 @@
       <div class="trend-grid">{% for sig,s in timeseries.signals.items() %}{{ sparkline(sig,s) }}{% endfor %}</div>
     </section>
 
-    {% if card.chat_context and (card.chat_context.symptoms or card.chat_context.followup_answers or card.chat_context.flagged_for_review or card.chat_context.assistant_notes) %}
+    {% if card.chat_context and (card.chat_context.symptoms or card.chat_context.followup_answers or card.chat_context.flagged_for_review or card.chat_context.assistant_notes or card.chat_context.shared_context) %}
     <section class="content-section chat-context-section">
       <div class="section-bar"><div><span class="section-kicker">Patient voice + assistant</span><h2>Chat context</h2></div><a href="/patient/{{ card.patient.id }}">Open patient thread →</a></div>
       {% if card.chat_context.assistant_notes %}<div class="ai-draft"><div class="ai-draft-head"><span class="ai-spark">✦</span><div><strong>AI-assisted context draft</strong><small>{{ card.chat_context.assistant_notes[0].provider | replace('-',' ') }} · nurse verification required</small></div><span>VERIFY</span></div><p>{{ card.chat_context.assistant_notes[0].summary }}</p>{% if card.chat_context.assistant_notes[0].question_id %}<small>Selected approved follow-up: {{ card.chat_context.assistant_notes[0].question_id | replace('q_','') | replace('_',' ') }}</small>{% endif %}</div>{% endif %}
@@ -85,6 +85,7 @@
         <div><h3>Reported symptoms</h3>{% for s in card.chat_context.symptoms %}<span class="symptom-chip {{ 'red' if s.tier == 'red_flag' else '' }}">{{ s.symptom }}{% if s.severity is not none %} · {{ s.severity }}/10{% endif %}{% if s.onset %} · {{ s.onset }}{% endif %}</span>{% else %}<p class="muted">No structured symptoms yet.</p>{% endfor %}</div>
         <div><h3>Follow-up answers</h3>{% for a in card.chat_context.followup_answers %}<p class="answer-line"><small>{{ a.question_id | replace('q_','') | replace('_',' ') }}</small><strong>{{ a.answer }}</strong></p>{% else %}<p class="muted">No follow-up answers yet.</p>{% endfor %}</div>
       </div>
+      {% if card.chat_context.shared_context %}<div class="consent-receipt"><span>⌁</span><div><strong>Patient-approved wearable context</strong>{% for share in card.chat_context.shared_context[:3] %}<p>{{ share.signals | join(', ') | replace('_',' ') }}{% if share.window_days %} · last {{ share.window_days }} days{% endif %}</p>{% endfor %}</div></div>{% endif %}
       {% if card.chat_context.flagged_for_review %}<div class="review-flag">! {{ card.chat_context.flagged_for_review | length }} message(s) need manual review because parsing confidence was low.</div>{% endif %}
     </section>
     {% endif %}
@@ -99,7 +100,7 @@
   </aside>
 </section>
 
-<section class="action-dock" id="care-actions">
+<section class="action-dock" id="care-actions" data-alert-id="{{ alert.id }}">
   <div><span class="section-kicker">Clinician action required</span><h2>What happens next?</h2><p>Status: <strong id="status">{{ alert.status | replace('_',' ') }}</strong></p></div>
   <div class="action-controls"><input id="note" type="text" placeholder="Add a clinical note (optional)"><div class="actions">
     {% if alert.status == 'open' %}<button class="button button-primary" data-action="acknowledge">Acknowledge & review</button>{% elif alert.status == 'acknowledged' %}<button class="button button-primary" data-action="start">Start care plan</button>{% elif alert.status == 'in_progress' %}<button class="button button-primary" data-action="resolve">Mark care completed</button>{% else %}<button class="button button-primary" disabled>Workflow complete</button>{% endif %}
@@ -110,7 +111,7 @@
 
 {% block scripts %}
 <script>
-const ALERT_ID={{ data.alert.id | tojson }};
+const ALERT_ID=document.getElementById('care-actions').dataset.alertId;
 function showToast(text){const t=document.getElementById('toast');t.textContent=text;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
 document.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click',async()=>{btn.disabled=true;const action=btn.dataset.action;const note=document.getElementById('note').value;const res=await fetch(`/api/alerts/${ALERT_ID}/actions`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({actor:'nurse',action,note})});const msg=document.getElementById('actmsg');if(res.ok){const out=await res.json();document.getElementById('status').textContent=out.status.replace('_',' ');msg.textContent='✓ Care journey updated.';msg.className='form-message success';showToast('Alert status updated');setTimeout(()=>location.reload(),700);}else{const err=await res.json();msg.textContent=err.detail||'Could not update alert.';msg.className='form-message error';btn.disabled=false;}}));
 </script>
